@@ -1,29 +1,12 @@
 <html><head><title>Chatbot</title>
   <body>
+    
     <a id="liveagent_button_online_5731N000000Tane" href="javascript://Chat" style="display: none;" onclick="liveagent.startChat('5731N000000Tane')"><!-- Online Chat Content --></a><div id="liveagent_button_offline_5731N000000Tane" style="display: none;"><!-- Offline Chat Content --></div><script type="text/javascript">
     if (!window._laq) { window._laq = []; }
     window._laq.push(function(){liveagent.showWhenOnline('5731N000000Tane', document.getElementById('liveagent_button_online_5731N000000Tane'));
     liveagent.showWhenOffline('5731N000000Tane', document.getElementById('liveagent_button_offline_5731N000000Tane'));
     });</script>
-    <style>
-        ul.slds-carousel__indicators{
-      display:flex;
-      margin:0.5rem 0px;
-    }
-    li.slds-carousel__indicator{
-      display:flex;
-      margin:0px 0.25rem;
-    }
-    </style>
-    <script>
-    window.addEventListener('message', receiveMessage,false);
-    function receiveMessage(event) {
-        var payload = event.data;
-
-        if(payload && payload.type === 'chasitor.sendMessage') {
-            embedded_svc.postMessage('chasitor.sendMessage', payload.message);
-        }
-    };
-    </script>
+   
+   
   </body>
   </html>
