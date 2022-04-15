@@ -73,6 +73,18 @@
 			embedded_svc.postMessage('chasitor.sendMessage', payload.message);
 		    }
 		};
+		document.addEventListener("redirectFromLWC", function(event){
+			alert('hellloo');
+			if (document.getElementsByClassName('rich-menu').length) {
+       			    alert('My class is found!!!');
+    		        }
+			document.addEventListener('DOMContentLoaded', function() {
+			    alert('hello');
+		            if (document.getElementsByClassName('rich-menu').length) {
+       			        alert('My class is found!');
+    		            }
+		        });
+		});
 		document.addEventListener('DOMContentLoaded', function() {
 			alert('hello');
 		    if (document.getElementsByClassName('rich-menu').length) {
