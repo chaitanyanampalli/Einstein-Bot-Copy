@@ -73,6 +73,11 @@
 			embedded_svc.postMessage('chasitor.sendMessage', payload.message);
 		    }
 		};
+		document.addEventListener('DOMContentLoaded', function() {
+		    if (document.getElementsByClassName('rich-menu-item embeddedServiceLiveAgentStateChatRichItem').length) {
+       			alert('My class is found!');
+    		    }
+		});
 		</script>
    
   	</body>
