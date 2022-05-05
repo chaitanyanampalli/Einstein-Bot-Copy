@@ -366,11 +366,12 @@
 			}
 // 			let lastmsg = msgNames[msgNames.length - 1];
 // 			lastmsg.textContent = fname;
-			console.log('ele.innerText'); 
-			    		console.log(msgNames);
+			
+			msgNames.forEach(ele => {
+				console.log('ele.innerText'); 
+			    		console.log(ele.innerText);
 					console.log('fname'); 
 					console.log(fname); 
-			msgNames.forEach(ele => {
 				if(ele.innerText == agentName){
 			    		ele.textContent = fname;
 					console.log('ele.innerText'); 
