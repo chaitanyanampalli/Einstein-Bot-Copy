@@ -351,7 +351,10 @@
 		    }
 		    console.log('chasitor.message');
 		    var botName = sessionStorage.getItem('boatNameMeta');
-		    document.querySelector('.nameAndTimeContent > .agentName').html(botName);
+			console.log(botName);
+		    if(document.querySelector('.nameAndTimeContent > .agentName')){
+			    document.querySelector('.nameAndTimeContent > .agentName').html(botName);
+		    }
 		};
 		document.addEventListener("redirectFromLWC", function(event){
 			console.log('----------agentName--------');
