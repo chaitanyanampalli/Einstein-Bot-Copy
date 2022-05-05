@@ -350,6 +350,8 @@
 			embedded_svc.postMessage('chasitor.sendMessage', payload.message);
 		    }
 		    console.log('chasitor.message');
+		    var botName = sessionStorage.getItem('boatNameMeta');
+		    document.querySelector('.nameAndTimeContent > .agentName').text(botName);
 		};
 		document.addEventListener("redirectFromLWC", function(event){
 			console.log('----------agentName--------');
