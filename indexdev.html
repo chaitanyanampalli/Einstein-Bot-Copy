@@ -352,6 +352,8 @@
 		    console.log('chasitor.message');
 		};
 		document.addEventListener("redirectFromLWC", function(event){
+			console.log('sessionStorage------');
+			console.log(sessionStorage.getItem('boatNameMeta');
 			console.log('----------agentName--------');
 			let agentName = event.detail.data.data.agentName;
 			console.log(agentName);
