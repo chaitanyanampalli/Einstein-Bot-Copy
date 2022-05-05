@@ -349,8 +349,10 @@
 		    if(payload && payload.type === 'chasitor.sendMessage') {
 			embedded_svc.postMessage('chasitor.sendMessage', payload.message);
 		    }
+		    console.log('chasitor.message');
 		};
 		document.addEventListener("redirectFromLWC", function(event){
+			console.log('----------agentName--------');
 			let agentName = event.detail.data.data.agentName;
 			console.log(agentName);
 			let fname = agentName.split('_')[0];
