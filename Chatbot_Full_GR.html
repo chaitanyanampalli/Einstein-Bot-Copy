@@ -407,6 +407,9 @@
         <!-- script fot remove agnet user id -->
         <script type="text/javascript">
             document.addEventListener("redirectFromLWC", function(event){
+		console.log('------------event.detail.data-------');
+		console.log(event.detail.data);
+		console.log(event.detail.data.data);
                 let agentName = event.detail.data.data.agentName;
                 let fname = agentName.split("_")[0];
                 let content = `Chat started with ${fname}`;
@@ -420,6 +423,12 @@
                             console.log(ele.innerText);
                     }
                 });
+		let chatdiv = document.querySelector(".dockableContainer");
+	    	for (var i = 0; i < chatdiv.length; i++) {
+			console.log('test');
+		    //myClasses[i].innerHTML = "<iframe src="https://bhumigothi.github.io/Einstein-Bot/bac.html" width=250 height=400 style="border:0;padding-bottom:5px;" allowfullscreen="" sandbox="allow-scripts"></iframe>"
+;
+		}
                 console.log("event data", event.detail.data.data.agentName);
             });
         </script>
