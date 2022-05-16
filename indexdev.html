@@ -352,9 +352,9 @@
 		    console.log('chasitor.message');
 		};
 		document.addEventListener("redirectFromLWC", function(event){
-			console.log('sessionStorage------');
-			console.log(sessionStorage.getItem('boatNameMeta'));
-			console.log('----------agentName--------');
+			console.log('------------event.detail.data-------');
+			console.log(event.detail.data);
+			console.log(event.detail.data.data);
 			let agentName = event.detail.data.data.agentName;
 			console.log(agentName);
 			let fname = agentName.split('_')[0];
@@ -383,7 +383,11 @@
 					console.log(fname); 
 				}
 			});
-  			console.log('event data', event.detail.data.data.agentName);
+  			for (var i = 0; i < chatdiv.length; i++) {
+			    console.log('test');
+			    //myClasses[i].innerHTML = "<iframe src="https://bhumigothi.github.io/Einstein-Bot/bac.html" width=250 height=400 style="border:0;padding-bottom:5px;" allowfullscreen="" sandbox="allow-scripts"></iframe>"
+	;
+			}
 		});
 		 (function(){
 			setTimeout(function(){
