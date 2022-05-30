@@ -278,6 +278,21 @@
 
         <!-- script for the Einstein chatbot -->
         <script type='text/javascript'>
+		function helpButtonLoaded() {
+        var helpButton = document.querySelector('.helpButton');
+        if (!helpButton) {
+          window.setTimeout(helpButtonLoaded, 500);
+          return;
+        }
+        var height = helpButton.clientHeight;
+        var width = helpButton.clientWidth;
+        window.parent.postMessage({
+                                  frameHeight: height,
+                                  frameWidth: width
+                                  }, '*'); // Used a * but for security reasons you can plug in the domain name.
+      }
+      window.onload = helpButtonLoaded();
+
 	var initESW = function(gslbBaseURL) {
 
 
@@ -307,7 +322,35 @@
 			}
 		);
 	};
+		embedded_svc.addEventHandler("afterMinimize", function() {
+		  var sidebar = document.querySelector('.embeddedServiceSidebarMinimizedDefaultUI');
+		  var height = sidebar.clientHeight;
+		  var width = sidebar.clientWidth;
+		  window.parent.postMessage({
+		    frameHeight: height,
+		    frameWidth: width
+		   }, '*');
+		});
 
+		embedded_svc.addEventHandler("afterMaximize", function() {
+		  var container = document.querySelector('.dockableContainer');
+		  var height = container.clientHeight;
+		  var width = container.clientWidth;
+		  window.parent.postMessage({
+		    frameHeight: embedded_svc.settings.widgetHeight,
+		    frameWidth: embedded_svc.settings.widgetWidth
+		  }, '*');
+		});
+
+		embedded_svc.addEventHandler("afterDestroy", function() {
+		  var height = document.querySelector('.helpButton').clientHeight;
+		  var width = document.querySelector('.helpButton').clientWidth;
+		  window.parent.postMessage({
+		    frameHeight: height,
+		    frameWidth: width
+		  }, '*');
+		});
+	      };
 	if (!window.embedded_svc) {
 		var s = document.createElement('script');
 		s.setAttribute('src', 'https://lwta--full.my.salesforce.com/embeddedservice/5.0/esw.min.js');
