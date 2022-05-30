@@ -321,7 +321,7 @@
                     isOfflineSupportEnabled: false
                 }
             );
-        };
+        
 		embedded_svc.addEventHandler("afterMinimize", function() {
 		  var sidebar = document.querySelector('.embeddedServiceSidebarMinimizedDefaultUI');
 		  var height = sidebar.clientHeight;
@@ -350,7 +350,7 @@
 		    frameWidth: width
 		  }, '*');
 		});
-	      
+    };     
 	if (!window.embedded_svc) {
 		var s = document.createElement('script');
 		s.setAttribute('src', 'https://lwta--full.my.salesforce.com/embeddedservice/5.0/esw.min.js');
