@@ -80,24 +80,23 @@
 		    if(payload && payload.type === 'chasitor.sendMessage') {
 			embedded_svc.postMessage('chasitor.sendMessage', payload.message);
 		    }
-			document.addEventListener('DOMContentLoaded', function() {
+			
 			    
 		            if (document.getElementsByClassName('head').length) {
        			        console.log('My class issss found!');
-    		            }
-		        });
+			    }
 		};
 		document.addEventListener("redirectFromLWC", function(event){
 			//console.log('hellloo');
 			if (document.getElementsByClassName('rich-menu').length) {
        			    //console.log('My class is found!!!');
     		        }
-			document.addEventListener('DOMContentLoaded', function() {
+			
 			    
-		            if (document.getElementsByClassName('rich-menu').length) {
+		            if (document.getElementsByClassName('head').length) {
        			        console.log('My class is found!');
     		            }
-		        });
+
 		});
 		document.addEventListener('DOMContentLoaded', function() {
 		    console.log('hello');
