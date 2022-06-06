@@ -72,6 +72,8 @@
 
 		window.addEventListener('message', receiveMessage,false);
 		function receiveMessage(event) {
+			console.log('---------------------');
+			document.querySelector(".embeddedServiceHelpButton .head").style.backgroundColor = "#E70026";
 		    var payload = event.data;
 
 		    if(payload && payload.type === 'chasitor.sendMessage') {
