@@ -84,11 +84,14 @@
 			embedded_svc.postMessage('chasitor.sendMessage', payload.message);
 		    }
 			
-			    alert(document.getElementsByTagName("c-chat-header").length);
-			
-		            if (document.querySelectorAll(".example").length) {
-       			        console.log('My class issss found!');
-			    }
+			    if(document.getElementsByTagName("c-chat-header").length){
+                                   var spanElements = document.getElementsByTagName("c-chat-header");
+					console.log(spanElements);
+					for (var i = 0; i < spanElements.length; i++) {
+						console.log(spanElements[i]);
+						spanElements[i].firstElementChild.style.backgroundColor = '#e70026';
+					}
+                            }
 		};
 		document.addEventListener("redirectFromLWC", function(event){
 			console.log('hellloo');
@@ -106,15 +109,6 @@
 		    console.log('hello');
 		    if (document.getElementsByClassName('rich-menu').length) {
        			console.log('My class is found!');
-    		    }
-		});
-		window.addEventListener('DOMContentLoaded', function() {
-		    console.log('hello');
-		    if (document.getElementsByClassName('rich-menu').length) {
-       			console.log('My class is found!!');
-    		    }
-		    if (document.getElementsByClassName('head').length) {
-       			console.log('My class is found!!!');
     		    }
 		});
 		</script>
