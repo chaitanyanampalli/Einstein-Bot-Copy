@@ -12,7 +12,7 @@
 		.embeddedServiceHelpButton .helpButton .uiButton:focus {
 			outline: 1px solid #e70026;
 		}
-		.embeddedServiceHelpButton .head {
+		.embeddedServiceHelpButton .head[c-chatHeader_chatHeader] {
 			background-color: #e70026 !important;
 		}
 
@@ -80,6 +80,12 @@
 		    if(payload && payload.type === 'chasitor.sendMessage') {
 			embedded_svc.postMessage('chasitor.sendMessage', payload.message);
 		    }
+			document.addEventListener('DOMContentLoaded', function() {
+			    
+		            if (document.getElementsByClassName('head').length) {
+       			        console.log('My class issss found!');
+    		            }
+		        });
 		};
 		document.addEventListener("redirectFromLWC", function(event){
 			//console.log('hellloo');
@@ -97,6 +103,15 @@
 		    console.log('hello');
 		    if (document.getElementsByClassName('rich-menu').length) {
        			console.log('My class is found!');
+    		    }
+		});
+		window.addEventListener('DOMContentLoaded', function() {
+		    console.log('hello');
+		    if (document.getElementsByClassName('rich-menu').length) {
+       			console.log('My class is found!!');
+    		    }
+		    if (document.getElementsByClassName('head').length) {
+       			console.log('My class is found!!!');
     		    }
 		});
 		</script>
