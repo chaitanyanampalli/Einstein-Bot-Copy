@@ -89,7 +89,11 @@
 					console.log(spanElements);
 					for (var i = 0; i < spanElements.length; i++) {
 						console.log(spanElements[i]);
-						spanElements[i].firstElementChild.style.backgroundColor = '#e70026';
+                                                spanElements[i].style.backgroundColor = '#e70026';
+						if(spanElements[i].firstElementChild.length){
+							console.log(spanElements[i].firstElementChild);
+						    spanElements[i].firstElementChild.style.backgroundColor = '#e70026';
+						}
 					}
                             }
 		};
