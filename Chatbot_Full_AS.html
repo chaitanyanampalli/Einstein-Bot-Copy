@@ -438,7 +438,7 @@
 		function receiveMessage(event) {
 		    console.log('---------------------');
 		    var r = document.querySelector(':root');
-		    r.style.setProperty('--red', 'lightblue');
+		    r.style.setProperty('--red', '#e70026');
 		    var payload = event.data;
 
 		    if(payload && payload.type === 'chasitor.sendMessage') {
