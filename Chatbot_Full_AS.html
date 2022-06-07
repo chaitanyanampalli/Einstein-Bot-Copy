@@ -4,12 +4,16 @@
 	    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
         <title>Chatbot Full AS</title>
         <style>
-		@font-face {
-		    font-family: 'Gotham';
-		    src: url("../Einstein-Bot/GothamBook.ttf") format('truetype');
-		    font-weight: normal;
-		    font-style: normal;
-		}
+	    :root {
+	       --red: #e70026;
+	       --blue: #0f2b4c;
+	    }
+	    @font-face {
+		font-family: 'Gotham';
+		src: url("../Einstein-Bot/GothamBook.ttf") format('truetype');
+	        font-weight: normal;
+	        font-style: normal;
+	    }
             @media only screen and (min-width: 600px) {
             .embeddedServiceLiveAgentStateChat .messageArea{
                 overflow-y: hidden !important;
@@ -32,7 +36,7 @@
             overflow-y: auto !important;
         }
         .embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-button__icon {
-            fill: #e70026 !important;
+            fill: var(--red) !important;
         }
         .embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-dropdown-trigger {
             padding: 9px !important;
@@ -55,7 +59,7 @@
             border-bottom: 2px solid #edeff1 !important;
         }
 	.head[c-chatHeader_chatHeader] {
-            background-color: #e70026 !important;
+            background-color: var(--red) !important;
         }
 	.embeddedServiceSidebar.modalContainer {
 		font-family: Gotham, sans-serif !important;
@@ -127,7 +131,7 @@
         }
         .embeddedServiceLiveAgentStateChatMenuMessage .rich-menu-item,
         .embeddedServiceLiveAgentStateChatMenuMessage .rich-menu-itemOptionIsClicked {
-            color: #e70026 !important;
+            color: var(--red) !important;
         }
         .embeddedServiceLiveAgentStateChatItem .chatContent ul.rich-menu-items li:first-of-type:hover {
             border: 1px solid #3984be !important;
@@ -147,7 +151,7 @@
         .btnCircleAgent[c-chatHeader_chatHeader],
         .btnCircle[c-chatHeader_chatHeader] {
             margin-top: 0 !important;
-            background-color: #e70026 !important;
+            background-color: var(--red) !important;
         }
         .chat-content > .rich-button-item {
             color: #0f2b4c !important;
@@ -166,7 +170,7 @@
             margin: 8px auto !important;
             white-space: normal !important;
             word-wrap: break-word !important;
-            border: 1px solid #e70026 !important;
+            border: 1px solid var(--red) !important;
         /*     width: 250px !important; */
         }
         .rich-menu-items > li:hover {
@@ -179,7 +183,7 @@
             width: 100% !important;
         }
         .rich-menu-itemOptionIsClicked {
-            color: #e70026 !important;
+            color: var(--red) !important;
             white-space: nowrap !important;
             text-align: center !important;
             width: 100% !important;
@@ -187,7 +191,7 @@
         }
 
         .rich-menu-item:hover {
-            background-color: #e70026 !important;
+            background-color: var(--red) !important;
             color: #fff !important;
         }
         .embeddedServiceLiveAgentStateChatMenuMessage .rich-menu {
@@ -224,7 +228,7 @@
         }
         .embeddedServiceSidebarButton .label,
         .embeddedServiceSidebarButton:disabled .label {
-            color: #e70026 !important;
+            color: var(--red) !important;
         }
         .embeddedServiceSidebarButton:focus {
             box-shadow: none !important;
@@ -258,7 +262,7 @@
         }
 
         .embeddedServiceHelpButton .helpButton .uiButton {
-             background: #e70026 !important;
+             background: var(--red) !important;
              font-size: 0.875rem !important;
 	     font-family: Gotham, sans-serif !important;
         }
@@ -271,7 +275,7 @@
             border: 1px solid #0F2B4C !important;
         }
         .embeddedServiceSidebarButton.uiButton:hover, .embeddedServiceSidebarButton.uiButton:disabled:hover {
-            background: #e70026 !important;
+            background: var(--red) !important;
             color: #fff !important;
             border: 1px solid #0F2B4C !important;
         }
@@ -426,6 +430,10 @@
 
         <!-- script fot remove agnet user id -->
         <script type="text/javascript">
+	    document.addEventListener("setConfigurationVar", function(event){
+		    console.log(event.detail);
+		    console.log(event.detail.textColor);
+	    });
             document.addEventListener("redirectFromLWC", function(event){
                 let agentName = event.detail.data.data.agentName;
                 let fname = agentName.split("_")[0];
