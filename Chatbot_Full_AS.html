@@ -437,11 +437,14 @@
 	    window.addEventListener('message', receiveMessage,false);
 		function receiveMessage(event) {
 		    console.log('---------------------');
+		    console.log(event.data);
 		    var r = document.querySelector(':root');
 		    r.style.setProperty('--color', '#e70026');
 		    var payload = event.data;
 
 		    if(payload && payload.type === 'chasitor.sendMessage') {
+			    console.log('payload.message');
+			    console.log(payload.message);
 			embedded_svc.postMessage('chasitor.sendMessage', payload.message);
 		    }
 		}
