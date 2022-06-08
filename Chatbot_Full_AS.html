@@ -5,7 +5,7 @@
         <title>Chatbot Full AS</title>
         <style>
 	    :root {
-	       --red: #e70026;
+	       --color: #e70026;
 	       --blue: #0f2b4c;
 	    }
 	    @font-face {
@@ -36,7 +36,7 @@
             overflow-y: auto !important;
         }
         .embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-button__icon {
-            fill: var(--red) !important;
+            fill: var(--color) !important;
         }
         .embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-dropdown-trigger {
             padding: 9px !important;
@@ -59,7 +59,7 @@
             border-bottom: 2px solid #edeff1 !important;
         }
 	.head[c-chatHeader_chatHeader] {
-            background-color: var(--red) !important;
+            background-color: var(--color) !important;
         }
 	.embeddedServiceSidebar.modalContainer {
 		font-family: Gotham, sans-serif !important;
@@ -131,7 +131,7 @@
         }
         .embeddedServiceLiveAgentStateChatMenuMessage .rich-menu-item,
         .embeddedServiceLiveAgentStateChatMenuMessage .rich-menu-itemOptionIsClicked {
-            color: var(--red) !important;
+            color: var(--color) !important;
         }
         .embeddedServiceLiveAgentStateChatItem .chatContent ul.rich-menu-items li:first-of-type:hover {
             border: 1px solid #3984be !important;
@@ -151,7 +151,7 @@
         .btnCircleAgent[c-chatHeader_chatHeader],
         .btnCircle[c-chatHeader_chatHeader] {
             margin-top: 0 !important;
-            background-color: var(--red) !important;
+            background-color: var(--color) !important;
         }
         .chat-content > .rich-button-item {
             color: #0f2b4c !important;
@@ -170,7 +170,7 @@
             margin: 8px auto !important;
             white-space: normal !important;
             word-wrap: break-word !important;
-            border: 1px solid var(--red) !important;
+            border: 1px solid var(--color) !important;
         /*     width: 250px !important; */
         }
         .rich-menu-items > li:hover {
@@ -183,7 +183,7 @@
             width: 100% !important;
         }
         .rich-menu-itemOptionIsClicked {
-            color: var(--red) !important;
+            color: var(--color) !important;
             white-space: nowrap !important;
             text-align: center !important;
             width: 100% !important;
@@ -191,7 +191,7 @@
         }
 
         .rich-menu-item:hover {
-            background-color: var(--red) !important;
+            background-color: var(--color) !important;
             color: #fff !important;
         }
         .embeddedServiceLiveAgentStateChatMenuMessage .rich-menu {
@@ -228,7 +228,7 @@
         }
         .embeddedServiceSidebarButton .label,
         .embeddedServiceSidebarButton:disabled .label {
-            color: var(--red) !important;
+            color: var(--color) !important;
         }
         .embeddedServiceSidebarButton:focus {
             box-shadow: none !important;
@@ -262,7 +262,7 @@
         }
 
         .embeddedServiceHelpButton .helpButton .uiButton {
-             background: var(--red) !important;
+             background: var(--color) !important;
              font-size: 0.875rem !important;
 	     font-family: Gotham, sans-serif !important;
         }
@@ -275,7 +275,7 @@
             border: 1px solid #0F2B4C !important;
         }
         .embeddedServiceSidebarButton.uiButton:hover, .embeddedServiceSidebarButton.uiButton:disabled:hover {
-            background: var(--red) !important;
+            background: var(--color) !important;
             color: #fff !important;
             border: 1px solid #0F2B4C !important;
         }
@@ -438,7 +438,7 @@
 		function receiveMessage(event) {
 		    console.log('---------------------');
 		    var r = document.querySelector(':root');
-		    r.style.setProperty('--red', '#e70026');
+		    r.style.setProperty('--color', '#e70026');
 		    var payload = event.data;
 
 		    if(payload && payload.type === 'chasitor.sendMessage') {
