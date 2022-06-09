@@ -290,14 +290,62 @@
         top: 0;
         left: 0;pointer-events: none;
       }
+      /* The Modal (background) */
+	.bacmodal {
+	  display: none; /* Hidden by default */
+	  position: fixed; /* Stay in place */
+	  z-index: 1; /* Sit on top */
+	  padding-top: 100px; /* Location of the box */
+	  left: 0;
+	  top: 0;
+	  width: 100%; /* Full width */
+	  height: 100%; /* Full height */
+	  overflow: auto; /* Enable scroll if needed */
+	  background-color: rgb(0,0,0); /* Fallback color */
+	  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	}
 
+	/* Modal Content */
+	.bacmodal .modal-content {
+	  background-color: #fefefe;
+	  margin: auto;
+	  padding: 20px;
+	  border: 1px solid #888;
+	  width: 80%;
+	}
+
+	/* The Close Button */
+	.bacmodal .close {
+	  color: #aaaaaa;
+	  float: right;
+	  font-size: 28px;
+	  font-weight: bold;
+	}
+
+	.bacmodal .close:hover,
+	.bacmodal .close:focus {
+	  color: #000;
+	  text-decoration: none;
+	  cursor: pointer;
+	}
 
         </style>
     </head>
     <!-- jquery cdn for cobrowse -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <body>
-
+	<div class="modal fade iframe-modal" id="bac-iframe-modal" role="dialog" aria-hidden="true" style="display: none;">
+	    <div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+		    <button type="button" class="close" data-dismiss="modal" data-backdrop=""></button>
+		    <div class="modal-body iframe-modal-body bac-iframe">
+			<iframe src="about:blank" sandbox="allow-scripts allow-same-origin" data-gtm-yt-inspected-12594653_15="true" data-gtm-yt-inspected-23="true"></iframe>
+		    </div>
+		</div>
+		<!-- Modal content-->
+	    </div>
+	</div>
 <!-- <iframe style="position:relative; top: 16px; left: 16px;" src="" name="iframe_bac" width="1050" height="525" frameBorder="0"></iframe> -->
 
         <!-- script for the Einstein chatbot -->
@@ -430,6 +478,7 @@
 
         <!-- script fot remove agnet user id -->
         <script type="text/javascript">
+		
 	    document.addEventListener("setConfigurationVar", function(event){
 		    console.log(event.detail);
 		    console.log(event.detail.textColor);
@@ -452,6 +501,12 @@
 	    document.addEventListener("openBACDialog", function(event){
 		    console.log('event of BAC--------');
 		    console.log(event.detail.data);
+		    var modal = document.getElementById("bac-iframe-modal");
+		    modal.style.display = "block";
+		    var btnClose = document.getElementsByClassName("close")[0];
+		    btnClose.onclick = function() {
+		        modal.style.display = "none";
+		    }
 	    });
             document.addEventListener("redirectFromLWC", function(event){
                 let agentName = event.detail.data.data.agentName;
