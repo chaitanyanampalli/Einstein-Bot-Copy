@@ -496,8 +496,8 @@
 		    console.log('-------payload.type---------');
 		    console.log(payload.data.method);
 		    if(event.data.method == 'liveagent.initialized'){
-			console.log('liveagent.initialized);
-			embedded_svc.postMessage('chasitor.sendMessage', payload.message);
+			console.log('liveagent.initialized');
+			embedded_svc.postMessage('liveagent.initialized', payload.message);
 		    }
 		    if(payload && payload.type === 'chasitor.sendMessage') {
 			    console.log('payload.message');
