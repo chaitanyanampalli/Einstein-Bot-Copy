@@ -494,10 +494,10 @@
 		    r.style.setProperty('--color', '#e70026');
 		    var payload = event.data;
 		    console.log('-------payload.type---------');
-		    console.log(payload.data.method);
-		    if(event.data.method == 'liveagent.initialized'){
+		    
+		    if(payload.hasOwnProperty('method') && payload.method == 'liveagent.initialized'){
 			console.log('liveagent.initialized');
-			embedded_svc.postMessage('liveagent.initialized', payload.message);
+			embedded_svc.postMessage('liveagent.initialized', event.data);
 		    }
 		    if(payload && payload.type === 'chasitor.sendMessage') {
 			    console.log('payload.message');
