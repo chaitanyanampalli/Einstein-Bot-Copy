@@ -312,19 +312,26 @@
             }
 
             /* The Close Button */
-            .bacmodal .close {
-                color: #aaaaaa;
-                float: right;
-                font-size: 28px;
-                font-weight: bold;
-            }
+	    .bacmodal .close {
+	/*    color: #aaaaaa; */
+	      float: right;
+	      border: none;
+	/*    font-size: 28px; */
+	    }
+	    .iframe{
+		width: 100%;
+		height:525px;
+		max-width :1070px;
+		max-height:95vh;
+	    }
 
-            .bacmodal .close:hover,
-            .bacmodal .close:focus {
-                color: #000;
-                text-decoration: none;
-                cursor: pointer;
-            }
+	    .bacmodal .close:hover,
+	    .bacmodal .close:focus {
+	      color: #000;
+	      text-decoration: none;
+	      cursor: pointer;
+	      border: none;
+	    }
         </style>
     </head>
     <!-- jquery cdn for cobrowse -->
@@ -334,9 +341,10 @@
             <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
-                <button type="button" class="close" data-dismiss="modal" data-backdrop=""></button>
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <!--<button type="button" class="close" data-dismiss="modal" data-backdrop=""></button>-->
                 <div class="modal-body iframe-modal-body bac-iframe">
-                <iframe src="about:blank" sandbox="allow-scripts allow-same-origin" data-gtm-yt-inspected-12594653_15="true" data-gtm-yt-inspected-23="true"></iframe>
+                     <iframe class="iframe" src="https://uat.meetlixil.com/bookconsultant?brand=GH&amp;lookId=123456789&amp;sku=18027003|38275|752384" sandbox="allow-scripts allow-same-origin" data-gtm-yt-inspected-12594653_15="true" data-gtm-yt-inspected-23="true"></iframe>
                 </div>
             </div>
             <!-- Modal content-->
