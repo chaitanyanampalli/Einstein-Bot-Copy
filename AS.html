@@ -5,9 +5,17 @@
         <title>Chatbot Full AS</title>
         <style>
             :root {
-                --color: #e70026;
+                --color: green;
+                --fontfamily: 'Gotham';
+	        --menuButtonRadius: 10px;
+		--otherRadius: 5px:
             }
-            
+            @font-face {
+                font-family: var(--fontfamily);
+                src: url("../Einstein-Bot/GothamBook.ttf") format('truetype');
+                font-weight: normal;
+                font-style: normal;
+            }
             @media only screen and (min-width: 600px) {
                 .embeddedServiceLiveAgentStateChat .messageArea{
                     overflow-y: hidden !important;
@@ -23,7 +31,7 @@
             .embeddedServiceLiveAgentStateChat .messageArea, 
             .embeddedServiceLiveAgentStateChatItem.chatMessage button,
             .embeddedServiceLiveAgentStateChatInputFooter .chasitorText{
-                font-family: Gotham, sans-serif !important;
+                font-family: var(--fontfamily), sans-serif !important;
             }
 
             .embeddedServiceLiveAgentStateChat .messageArea:hover{
@@ -37,7 +45,7 @@
                 margin-top: 8px !important;
                 background: #fff;
                 border-right: 2px solid #edeff1;
-                border-radius: 0 0 0 0px;
+                border-radius: 0 0 0 var(--otherRadius);
             }
 
             .embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-button_icon-container-more svg.slds-button__icon {
@@ -47,31 +55,32 @@
                 transform: translateY(0) !important;
             }
             .embeddedServiceLiveAgentStateChatInputFooter .chasitorText {
-                border-radius: 0 0 0 0 !important;
+                border-radius:var(--otherRadius) !important;
             }
             .bar[c-chatHeader_chatHeader] {
                 border-bottom: 2px solid #edeff1 !important;
             }
             .head[c-chatHeader_chatHeader] {
-                    background-color: var(--color) !important;
-                }
-            .minimizedContainer[c-custom-minimized] {
                 background-color: var(--color) !important;
             }
+            .minimizedContainer[c-customMinimized_customMinimized] {
+                background-color: var(--color) !important;
+		border: 1px var(--color);
+            }
             .embeddedServiceSidebar.modalContainer {
-                font-family: Gotham, sans-serif !important;
+                font-family: var(--fontfamily), sans-serif !important;
             }
             .embeddedServiceLiveAgentStateChatAvatar.isCommunitiesContext {
                 display: none;
             }
             div[c-lwcchatpack_html_lwcchatpack_html] {
                 padding: 12px;
-                border-radius: 0 0 0 0 !important;
+                border-radius: var(--otherRadius) !important;
             }
             .embeddedServiceLiveAgentStateChatItem.chatMessage,
             .slds-rich-text-editor__output,
             .slds-rich-text-editor__textarea {
-                font-family: Gotham, sans-serif !important;
+                font-family: var(--fontfamily), sans-serif !important;
                 font-size: 14px !important;
                 text-align: left;
             }
@@ -79,7 +88,7 @@
                 text-align: left;
                 background: #f2f4f6;
                 color: #0f2b4c !important;
-                border-radius: 0 0 0 0 !important;
+                border-radius: var(--otherRadius) !important;
                 padding: 12px !important;
                 max-width: 90%;
             }
@@ -87,7 +96,7 @@
                 text-align: left !important;
                 background: #f2f4f6 !important;
                 color: #0f2b4c !important;
-                border-radius: 0 0 0 0 !important;
+                border-radius: var(--otherRadius) !important;
                 padding: 12px !important;
             /*     max-width: 256px !important; */
             }
@@ -134,15 +143,15 @@
                 border: 1px solid #3984be !important;
             }
             .endChatButton {
-                border-radius: 0px !important;
+                border-radius: var(--menuButtonRadius) !important;
                 text-decoration: none !important;
-                font-family: Gotham, sans-serif;
+                font-family: var(--fontfamily), sans-serif;
                 font-weight: 500;
             }
             .embeddedServiceSidebarButton {
-                border-radius: 0px !important;
+                border-radius: var(--menuButtonRadius) !important;
                 text-decoration: none !important;
-                font-family: Gotham, sans-serif;
+                font-family: var(--fontfamily), sans-serif;
                 font-weight: 500;
             }
             .btnCircleAgent[c-chatHeader_chatHeader],
@@ -152,10 +161,10 @@
             }
             .chat-content > .rich-button-item {
                 color: #0f2b4c !important;
-                white-space: nowrap !important;
+                white-space: break-spaces !important;
                 text-align: center !important;
                 width: 100% !important;
-                font-family: Gotham, sans-serif !important;
+                font-family: var(--fontfamily), sans-serif !important;
                 font-weight: 500 !important;
             }
             .rich-button-item:hover {
@@ -163,7 +172,7 @@
                 color: #fff !important;
             }
             .rich-menu-items > li {
-                border-radius: 0px !important;
+                border-radius: var(--menuButtonRadius) !important;
                 margin: 8px auto !important;
                 white-space: normal !important;
                 word-wrap: break-word !important;
@@ -175,13 +184,13 @@
             }
             .rich-menu-item {
                 color: #0f2b4c !important;
-                white-space: nowrap !important;
+                white-space: break-spaces !important;
                 text-align: center !important;
                 width: 100% !important;
             }
             .rich-menu-itemOptionIsClicked {
                 color: var(--color) !important;
-                white-space: nowrap !important;
+                white-space: break-spaces !important;
                 text-align: center !important;
                 width: 100% !important;
                 background: 0 0 !important;
@@ -212,7 +221,7 @@
                 display: none !important;
             }
             .waitingCancelChat {
-                border-radius: 0px !important;
+                border-radius: var(--menuButtonRadius) !important;
                 height: 40px !important;
                 color: #0f2b4c !important;
                 text-decoration: none !important;
@@ -261,7 +270,7 @@
             .embeddedServiceHelpButton .helpButton .uiButton {
                 background: var(--color) !important;
                 font-size: 0.875rem !important;
-                font-family: Gotham, sans-serif !important;
+                font-family: var(--fontfamily), sans-serif !important;
             }
             .embeddedServiceHelpButton .uiButton {
                 max-width: 23em !important;
@@ -312,26 +321,19 @@
             }
 
             /* The Close Button */
-	    .bacmodal .close {
-	/*    color: #aaaaaa; */
-	      float: right;
-	      border: none;
-	/*    font-size: 28px; */
-	    }
-	    .iframe{
-		width: 100%;
-		height:525px;
-		max-width :1070px;
-		max-height:95vh;
-	    }
+            .bacmodal .close {
+                color: #aaaaaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
 
-	    .bacmodal .close:hover,
-	    .bacmodal .close:focus {
-	      color: #000;
-	      text-decoration: none;
-	      cursor: pointer;
-	      border: none;
-	    }
+            .bacmodal .close:hover,
+            .bacmodal .close:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
         </style>
     </head>
     <!-- jquery cdn for cobrowse -->
@@ -339,173 +341,173 @@
     <body>
         <div class="modal fade bacmodal" id="bac-iframe-modal" role="dialog" aria-hidden="true" style="display: none;">
             <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <!--<button type="button" class="close" data-dismiss="modal" data-backdrop=""></button>-->
-                <div class="modal-body iframe-modal-body bac-iframe">
-                     <iframe class="iframe" src="https://uat.meetlixil.com/bookconsultant?brand=GH&amp;lookId=123456789&amp;sku=18027003|38275|752384" sandbox="allow-scripts allow-same-origin" data-gtm-yt-inspected-12594653_15="true" data-gtm-yt-inspected-23="true"></iframe>
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal" data-backdrop=""></button>
+                    <div class="modal-body iframe-modal-body bac-iframe">
+                        <iframe src="about:blank" sandbox="allow-scripts allow-same-origin" data-gtm-yt-inspected-12594653_15="true" data-gtm-yt-inspected-23="true"></iframe>
+                    </div>
                 </div>
-            </div>
-            <!-- Modal content-->
+                <!-- Modal content-->
             </div>
         </div>
-    <!-- <iframe style="position:relative; top: 16px; left: 16px;" src="" name="iframe_bac" width="1050" height="525" frameBorder="0"></iframe> -->
 
         <!-- script for the Einstein chatbot -->
-    <script type='text/javascript'>
-        var initESW = function(gslbBaseURL) {
+        <script type='text/javascript'>
+            var initESW = function(gslbBaseURL) {
 
 
-        embedded_svc.settings.enabledFeatures = ['LiveAgent'];
-        embedded_svc.settings.entryFeature = 'LiveAgent';
-        embedded_svc.settings.displayHelpButton = true;
-        embedded_svc.settings.language = "";
+                embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+                embedded_svc.settings.entryFeature = 'LiveAgent';
+                embedded_svc.settings.displayHelpButton = true;
+                embedded_svc.settings.language = "";
 
-        embedded_svc.settings.waitingStateBackgroundImgURL =
-            "https://americanstandard.box.com/shared/static/nb8hvf8hzdx6oiby8a0h26iy2uxmcehh.png";
-        embedded_svc.settings.defaultMinimizedText =
-                    "Chat & Co-Browse with an Expert";
+                embedded_svc.settings.waitingStateBackgroundImgURL =
+                    "https://americanstandard.box.com/shared/static/nb8hvf8hzdx6oiby8a0h26iy2uxmcehh.png";
+                embedded_svc.settings.defaultMinimizedText =
+                        "Chat & Co-Browse with an Expert";
 
-        embedded_svc.init(
-          'https://lwta--full.my.salesforce.com',
-          'https://full-lixilamerica.cs192.force.com/LWTACustomerService',
-          gslbBaseURL,
-          '00D7d0000077mM7',
-          'Bot_Chatbots_Group',
-          {
-            baseLiveAgentContentURL: 'https://c.la3-c1cs-ia5.salesforceliveagent.com/content',
-            deploymentId: '5723l000000CmZ3',
-            buttonId: '5737d00000001P8',
-            baseLiveAgentURL: 'https://d.la3-c1cs-ia5.salesforceliveagent.com/chat',
-            eswLiveAgentDevName: 'Bot_Chatbots_Group',
-            isOfflineSupportEnabled: false
-          }
-        );
-      };
+                embedded_svc.init(
+                    'https://lwta--full.my.salesforce.com',
+                    'https://full-lixilamerica.cs192.force.com/LWTACustomerService',
+                    gslbBaseURL,
+                    '00D7d0000077mM7',
+                    'Bot_Chatbots_Group',
+                    {
+                        baseLiveAgentContentURL: 'https://c.la3-c1cs-ia5.salesforceliveagent.com/content',
+                        deploymentId: '5723l000000CmZ3',
+                        buttonId: '5737d00000001P8',
+                        baseLiveAgentURL: 'https://d.la3-c1cs-ia5.salesforceliveagent.com/chat',
+                        eswLiveAgentDevName: 'Bot_Chatbots_Group',
+                        isOfflineSupportEnabled: false
+                    }
+                );
+            };
 
-      if (!window.embedded_svc) {
-        var s = document.createElement('script');
-        s.setAttribute('src', 'https://lwta--full.my.salesforce.com/embeddedservice/5.0/esw.min.js');
-        s.onload = function() {
-          initESW(null);
-        };
-        document.body.appendChild(s);
-      } else {
-        initESW('https://service.force.com');
-	    }
-    </script>
+            if (!window.embedded_svc) {
+                var s = document.createElement('script');
+                s.setAttribute('src', 'https://lwta--full.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+                s.onload = function() {
+                    initESW(null);
+                };
+                document.body.appendChild(s);
+            } else {
+                initESW('https://service.force.com');
+            }
+        </script>
 
 
 
         <!-- script for the  cobrowse -->
-        <script type="text/javascript">
+        <!--<script type="text/javascript">
             (function (w, t, c, p, s, e) {
-            p = new Promise(function (r) {
-                w[c] = {
-                client: function () {
-                    if (!s) {
-                    s = document.createElement(t);
-                    s.src = "https://js.cobrowse.io/CobrowseIO.js";
-                    s.async = 1;
-                    e = document.getElementsByTagName(t)[0];
-                    e.parentNode.insertBefore(s, e);
-                    s.onload = function () {
-                        r(w[c]);
+                p = new Promise(function (r) {
+                    w[c] = {
+                    client: function () {
+                        if (!s) {
+                        s = document.createElement(t);
+                        s.src = "https://js.cobrowse.io/CobrowseIO.js";
+                        s.async = 1;
+                        e = document.getElementsByTagName(t)[0];
+                        e.parentNode.insertBefore(s, e);
+                        s.onload = function () {
+                            r(w[c]);
+                        };
+                        }
+                        return p;
+                    },
                     };
-                    }
-                    return p;
-                },
-                };
-            });
+                });
             })(window, "script", "CobrowseIO");
             CobrowseIO.license = "XrcXQEUdlTd3Fw";
             CobrowseIO.client().then(function () {
-            var button = document.createElement("div");
-            button.className = "__cbio_ignored";
-            button.textContent = "End cobrowse session";
-            button.style.fontFamily = "sans-serif";
-            button.style.padding = "10px 13px";
-            button.style.fontSize = "13px";
-            button.style.color = "white";
-            button.style.boxShadow = "0px 2px 5px #33333344";
-            button.style.cursor = "pointer";
-            button.style.borderRadius = "0px";
-            button.style.background = "#165788";
-            button.style.position = "fixed";
-            button.style.zIndex = "2147483647";
-            button.style.bottom = "20px";
-            button.style.left = "50%";
-            button.style.transform = "translateX(-50%)";
-            button.addEventListener("click", function () {
-                if (CobrowseIO.currentSession) CobrowseIO.currentSession.end();
-                button.remove();
-            });
-             var border = document.createElement("div");
-             border.className = "__cbio_ignored";
-            CobrowseIO.showSessionControls = function() {
-            document.body.appendChild(button).setAttribute("id","custom-close-cobrowse");
-            document.body.appendChild(border).setAttribute("id","custom-border-cobrowse");
-            jQuery(".embeddedServiceHelpButton").addClass("__cbio_ignored");
-            jQuery(".embeddedServiceSidebar").addClass("__cbio_ignored");
-          }
-            CobrowseIO.hideSessionControls = function () {
-                var a = document.getElementById("custom-border-cobrowse");
-                var b = document.getElementById("custom-close-cobrowse");
-                if (a) {
-                a.remove();
-                }
-                if (b) {
-                b.remove();
-                }
-            };
-            CobrowseIO.start();
-            CobrowseIO.createSessionCode().then(function (code) {
-                var AppCode = code;
-                jQuery(document).ready(function () {
-                var count = 0;
-                jQuery(document).keypress(function (e) {
-                    if (e.key === "l") {
-                    count += 1;
-                    if (count == 5) {
-                        alert("your cobrowse code is: " + AppCode);
-                        count = 0;
-                    }
-                    } else {
-                    count = 0;
-                    }
+                var button = document.createElement("div");
+                button.className = "__cbio_ignored";
+                button.textContent = "End cobrowse session";
+                button.style.fontFamily = "sans-serif";
+                button.style.padding = "10px 13px";
+                button.style.fontSize = "13px";
+                button.style.color = "white";
+                button.style.boxShadow = "0px 2px 5px #33333344";
+                button.style.cursor = "pointer";
+                button.style.borderRadius = "0px";
+                button.style.background = "#165788";
+                button.style.position = "fixed";
+                button.style.zIndex = "2147483647";
+                button.style.bottom = "20px";
+                button.style.left = "50%";
+                button.style.transform = "translateX(-50%)";
+                button.addEventListener("click", function () {
+                    if (CobrowseIO.currentSession) CobrowseIO.currentSession.end();
+                    button.remove();
                 });
+                var border = document.createElement("div");
+                border.className = "__cbio_ignored";
+                CobrowseIO.showSessionControls = function() {
+                    document.body.appendChild(button).setAttribute("id","custom-close-cobrowse");
+                    document.body.appendChild(border).setAttribute("id","custom-border-cobrowse");
+                    jQuery(".embeddedServiceHelpButton").addClass("__cbio_ignored");
+                    jQuery(".embeddedServiceSidebar").addClass("__cbio_ignored");
+                }
+                CobrowseIO.hideSessionControls = function () {
+                    var a = document.getElementById("custom-border-cobrowse");
+                    var b = document.getElementById("custom-close-cobrowse");
+                    if (a) {
+                    a.remove();
+                    }
+                    if (b) {
+                    b.remove();
+                    }
+                };
+                CobrowseIO.start();
+                CobrowseIO.createSessionCode().then(function (code) {
+                    var AppCode = code;
+                    jQuery(document).ready(function () {
+                        var count = 0;
+                        jQuery(document).keypress(function (e) {
+                            if (e.key === "l") {
+                            count += 1;
+                            if (count == 5) {
+                                alert("your cobrowse code is: " + AppCode);
+                                count = 0;
+                            }
+                            } else {
+                            count = 0;
+                            }
+                        });
+                    });
                 });
             });
-            });
-        </script>
+        </script>-->
 
         <!-- script fot remove agnet user id -->
         <script type="text/javascript">
 		
-            document.addEventListener("setConfigurationVar", function(event){
-
+            document.addEventListener("setConfigData", function(event){
+                console.log(event.detail);
+                console.log(event.detail.textColor);
+		if(event.detail){
+		    var r = document.querySelector(':root');
+                    r.style.setProperty('--color', event.detail.textColor);
+		    if(event.detail.bottonStyle == 'Square'){
+		        r.style.setProperty('--menuButtonRadius', '0px');
+		        r.style.setProperty('--otherRadius', '0');
+		    } else if(event.detail.bottonStyle == 'Round'){
+		        r.style.setProperty('--menuButtonRadius', '50px');
+		        r.style.setProperty('--otherRadius', '16px');
+		    }
+		}
             });
-            window.addEventListener('message', receiveMessage,false);
-            function receiveMessage(event) {
-                var r = document.querySelector(':root');
-                r.style.setProperty('--color', '#e70026');
-                var payload = event.data;
-
-                if(payload.hasOwnProperty('method') && payload.method == 'liveagent.initialized'){
-                    //embedded_svc.postMessage('liveagent.initialized', event.data);
-                }
-                if(payload && payload.type === 'chasitor.sendMessage') {
-                    //embedded_svc.postMessage('chasitor.sendMessage', payload.message);
-                }
-            }
+	    
             document.addEventListener("openBACDialog", function(event){
-              var modal = document.getElementById("bac-iframe-modal");
-              modal.style.display = "block";
-              var btnClose = document.getElementsByClassName("close")[0];
-              btnClose.onclick = function() {
-                  modal.style.display = "none";
-              }
+                console.log('event of BAC--------');
+                console.log(event.detail.data);
+                var modal = document.getElementById("bac-iframe-modal");
+                modal.style.display = "block";
+                var btnClose = document.getElementsByClassName("close")[0];
+                btnClose.onclick = function() {
+                    modal.style.display = "none";
+                }
             });
             document.addEventListener("redirectFromLWC", function(event){
                 let agentName = event.detail.data.data.agentName;
@@ -525,4 +527,4 @@
             });
         </script>
     </body>
-  </html>
+</html>
