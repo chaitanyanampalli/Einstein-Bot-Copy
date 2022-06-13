@@ -5,8 +5,10 @@
         <title>Chatbot Full AS</title>
         <style>
             :root {
-            --color: #e70026;
-            --fontfamily: 'Gotham';
+                --color: green;
+                --fontfamily: 'Gotham';
+	        --menuButtonRadius: 10px;
+		--otherRadius: 5px:
             }
             @font-face {
                 font-family: var(--fontfamily);
@@ -43,7 +45,7 @@
                 margin-top: 8px !important;
                 background: #fff;
                 border-right: 2px solid #edeff1;
-                border-radius: 0 0 0 0px;
+                border-radius: 0 0 0 var(--otherRadius);
             }
 
             .embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-button_icon-container-more svg.slds-button__icon {
@@ -53,7 +55,7 @@
                 transform: translateY(0) !important;
             }
             .embeddedServiceLiveAgentStateChatInputFooter .chasitorText {
-                border-radius: 0 0 0 0 !important;
+                border-radius:var(--otherRadius) !important;
             }
             .bar[c-chatHeader_chatHeader] {
                 border-bottom: 2px solid #edeff1 !important;
@@ -73,7 +75,7 @@
             }
             div[c-lwcchatpack_html_lwcchatpack_html] {
                 padding: 12px;
-                border-radius: 0 0 0 0 !important;
+                border-radius: var(--otherRadius) !important;
             }
             .embeddedServiceLiveAgentStateChatItem.chatMessage,
             .slds-rich-text-editor__output,
@@ -86,7 +88,7 @@
                 text-align: left;
                 background: #f2f4f6;
                 color: #0f2b4c !important;
-                border-radius: 0 0 0 0 !important;
+                border-radius: var(--otherRadius) !important;
                 padding: 12px !important;
                 max-width: 90%;
             }
@@ -94,7 +96,7 @@
                 text-align: left !important;
                 background: #f2f4f6 !important;
                 color: #0f2b4c !important;
-                border-radius: 0 0 0 0 !important;
+                border-radius: var(--otherRadius) !important;
                 padding: 12px !important;
             /*     max-width: 256px !important; */
             }
@@ -141,13 +143,13 @@
                 border: 1px solid #3984be !important;
             }
             .endChatButton {
-                border-radius: 0px !important;
+                border-radius: var(--menuButtonRadius) !important;
                 text-decoration: none !important;
                 font-family: var(--fontfamily), sans-serif;
                 font-weight: 500;
             }
             .embeddedServiceSidebarButton {
-                border-radius: 0px !important;
+                border-radius: var(--menuButtonRadius) !important;
                 text-decoration: none !important;
                 font-family: var(--fontfamily), sans-serif;
                 font-weight: 500;
@@ -170,7 +172,7 @@
                 color: #fff !important;
             }
             .rich-menu-items > li {
-                border-radius: 0px !important;
+                border-radius: var(--menuButtonRadius) !important;
                 margin: 8px auto !important;
                 white-space: normal !important;
                 word-wrap: break-word !important;
@@ -219,7 +221,7 @@
                 display: none !important;
             }
             .waitingCancelChat {
-                border-radius: 0px !important;
+                border-radius: var(--menuButtonRadius) !important;
                 height: 40px !important;
                 color: #0f2b4c !important;
                 text-decoration: none !important;
@@ -484,8 +486,17 @@
             document.addEventListener("setConfigData", function(event){
                 console.log(event.detail);
                 console.log(event.detail.textColor);
-		var r = document.querySelector(':root');
-                r.style.setProperty('--color', '#e70026');
+		if(event.detail){
+		    var r = document.querySelector(':root');
+                    r.style.setProperty('--color', event.detail.textColor);
+		    if(event.detail.bottonStyle == 'Square'){
+		        r.style.setProperty('--menuButtonRadius', '0px');
+		        r.style.setProperty('--otherRadius', '0');
+		    } else if(event.detail.bottonStyle == 'Round'){
+		        r.style.setProperty('--menuButtonRadius', '50px');
+		        r.style.setProperty('--otherRadius', '16px');
+		    }
+		}
             });
 	    
             document.addEventListener("openBACDialog", function(event){
