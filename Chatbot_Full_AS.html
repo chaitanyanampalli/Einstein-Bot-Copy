@@ -349,7 +349,6 @@
                 <!-- Modal content-->
             </div>
         </div>
-        <!-- <iframe style="position:relative; top: 16px; left: 16px;" src="" name="iframe_bac" width="1050" height="525" frameBorder="0"></iframe> -->
 
         <!-- script for the Einstein chatbot -->
         <script type='text/javascript'>
@@ -499,6 +498,7 @@
                     console.log('liveagent.initialized');
 		    console.log(payload.data.chasitorSessionData.chasitorSettings.buttonId);
                     embedded_svc.postMessage('liveagent.initialized', payload.data.chasitorSessionData.chasitorSettings.buttonId);
+		    embedded_svc.postMessage('chasitor.sendMessage', payload.data.chasitorSessionData.chasitorSettings.buttonId);
                 }
                 if(payload && payload.type === 'chasitor.sendMessage') {
                     console.log('payload.message');
