@@ -497,7 +497,7 @@
 		    console.log('-------payload.type---------');
 		    console.log(payload.type);
 		}
-                if(payload.hasOwnProperty('method') && payload.method == 'liveagent.event' && payload.data.event == 'chasitorChasitorChatMessage"){
+                if(payload.hasOwnProperty('method') && payload.method == 'liveagent.event' && payload.data.event == 'chasitorChasitorChatMessage'){
                     console.log('liveagent.initialized');
 		    console.log(payload.data.chasitorData.chasitorSettings.buttonId);
                     //embedded_svc.postMessage('liveagent.event', payload.data.chasitorData.chasitorSettings.buttonId);
