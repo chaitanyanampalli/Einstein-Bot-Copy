@@ -498,9 +498,9 @@
 		}
                 if(payload.hasOwnProperty('method') && payload.method == 'liveagent.event'){
                     console.log('liveagent.initialized');
-		    console.log(payload.data.chasitorSessionData.chasitorSettings.buttonId);
-                    embedded_svc.postMessage('liveagent.event', payload.data.chasitorSessionData.chasitorSettings.buttonId);
-		    embedded_svc.postMessage('chasitor.sendMessage', payload.data.chasitorSessionData.chasitorSettings.buttonId);
+		    console.log(payload.data.chasitorData.chasitorSettings.buttonId);
+                    embedded_svc.postMessage('liveagent.event', payload.data.chasitorData.chasitorSettings.buttonId);
+		    embedded_svc.postMessage('chasitor.sendMessage', payload.data.chasitorData.chasitorSettings.buttonId);
                 }
                 if(payload && payload.type === 'chasitor.sendMessage') {
                     console.log('payload.message');
