@@ -514,7 +514,7 @@
                 let fname = agentName.split("_")[0];
                 let content = `Chat started with ${fname}`;
                 console.log("contecnt", content);
-                let msgNames = document.querySelectorAll(".nameAndTimeContent > .agentName:last-child");
+                let msgNames = document.querySelectorAll(".nameAndTimeContent > .agentName");
                 let element = document.querySelector(".eventMessage > .uiOutputRichText");
                 element.textContent = content;
 		console.log('msgNames---------');
