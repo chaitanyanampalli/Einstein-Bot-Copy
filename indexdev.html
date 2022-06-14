@@ -361,15 +361,17 @@
 			console.log(fname);
 			let content = `Chat started with ${fname}`;
 			console.log('contecnt', content);
-			let msgNames = document.querySelectorAll('.nameAndTimeContent > .agentName');
+			let msgNames = document.querySelectorAll('.nameAndTimeContent > .agentName:last-child');
 			let element = document.querySelector('.eventMessage > .uiOutputRichText');
 			if(element){
 				element.textContent = content;
 			}
-// 			let lastmsg = msgNames[msgNames.length - 1];
-// 			lastmsg.textContent = fname;
-			
-			msgNames.forEach(ele => {
+			console.log('msgNames---------');
+			console.log(msgNames);
+			if(ele.innerText != '' && ele.innerText != null){
+				msgNames.textContent = fname;
+			}
+			/*msgNames.forEach(ele => {
 				console.log('ele.innerText'); 
 			    		console.log(ele.innerText);
 					console.log('fname'); 
@@ -382,7 +384,7 @@
 					console.log('fname'); 
 					console.log(fname); 
 				}
-			});
+			});*/
 			//let chatdiv = document.getElementsByClassName("dockableContainer");
 			//console.log(chatdiv);
   			//for (var i = 0; i < chatdiv.length; i++) {
