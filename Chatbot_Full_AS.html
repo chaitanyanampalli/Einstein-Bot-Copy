@@ -514,16 +514,23 @@
                 let fname = agentName.split("_")[0];
                 let content = `Chat started with ${fname}`;
                 console.log("contecnt", content);
-                let msgNames = document.querySelectorAll(".nameAndTimeContent > .agentName");
+                let msgNames = document.querySelectorAll(".nameAndTimeContent > .agentName:last-child");
                 let element = document.querySelector(".eventMessage > .uiOutputRichText");
                 element.textContent = content;
-                msgNames.forEach(ele => {
+		console.log('msgNames---------');
+		console.log(msgNames);
+		console.log(msgNames[msgNames.length-1]);
+		let lastMsg = msgNames[msgNames.length-1];
+		if(lastMsg.textContent.trim() != '' && lastMsg.textContent.trim() != null){
+			lastMsg.textContent = fname;
+		}
+                /*msgNames.forEach(ele => {
                     if(ele.innerText == agentName){
                             ele.textContent = fname;
                             console.log(ele.innerText);
                     }
-                });
-                console.log("event data", event.detail.data.data.agentName);
+                });*/
+                //console.log("event data", event.detail.data.data.agentName);
             });
         </script>
     </body>
