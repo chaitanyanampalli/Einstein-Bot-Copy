@@ -368,8 +368,12 @@
 			}
 			console.log('msgNames---------');
 			console.log(msgNames);
-			
-			msgNames.forEach(ele => {
+			console.log(msgNames[msgNames.length-1]);
+			let lastMsg = msgNames[msgNames.length-1];
+			if(lastMsg.textContent.trim() != '' && lastMsg.textContent.trim() != null){
+				lastMsg.textContent = fname;
+			}
+			/*msgNames.forEach(ele => {
 				console.log('ele.innerText'); 
 			    		console.log(ele.innerText);
 				console.log('ele.textContent'); 
@@ -383,7 +387,7 @@
 			    		//ele.textContent = fname;
 					console.log('insideif');
 				}
-			});
+			});*/
 			//let chatdiv = document.getElementsByClassName("dockableContainer");
 			//console.log(chatdiv);
   			//for (var i = 0; i < chatdiv.length; i++) {
