@@ -516,7 +516,9 @@
                 console.log("contecnt", content);
                 let msgNames = document.querySelectorAll(".nameAndTimeContent > .agentName");
                 let element = document.querySelector(".eventMessage > .uiOutputRichText");
-                element.textContent = content;
+                if(element){
+		    element.textContent = content;
+		}
 		console.log('msgNames---------');
 		console.log(msgNames);
 		console.log(msgNames[msgNames.length-1]);
