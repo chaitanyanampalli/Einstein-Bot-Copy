@@ -517,13 +517,19 @@
                 let msgNames = document.querySelectorAll(".nameAndTimeContent > .agentName");
                 let element = document.querySelector(".eventMessage > .uiOutputRichText");
                 element.textContent = content;
-                msgNames.forEach(ele => {
+		console.log('---msgNames---');
+		console.log(msgNames);
+		console.log(msgNames[msgNames.length-1]);
+		let lastMsg = msgNames[msgNames.length-1];
+		if(lastMsg.textContent.trim() != '' && lastMsg.textContent.trim() != null){
+			lastMsg.textContent = fname;
+		}
+                /*msgNames.forEach(ele => {
                     if(ele.innerText == agentName){
                             ele.textContent = fname;
                             console.log(ele.innerText);
                     }
-                });
-                console.log("event data", event.detail.data.data.agentName);
+                });*/
             });
         </script>
     </body>
