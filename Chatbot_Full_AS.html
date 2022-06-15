@@ -517,13 +517,12 @@
                 let msgNames = document.querySelectorAll(".nameAndTimeContent > .agentName");
                 let element = document.querySelector(".eventMessage > .uiOutputRichText");
                 if(element){
-		    console.log(element.textContent);
 		    element.textContent = content;
 		}
 		console.log('msgNames---------');
 		console.log(msgNames);
 		console.log(msgNames.length);
-		if(msgNames.length > 0){
+		if(msgNames.length > 0 && msgNames[0].textContent != msgNames[msgNames.length-1].textContent){
 		    console.log(msgNames[msgNames.length-1]);
 		    let lastMsg = msgNames[msgNames.length-1];
 		    if(lastMsg.textContent.trim() != '' && lastMsg.textContent.trim() != null){
