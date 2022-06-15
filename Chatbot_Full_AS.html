@@ -514,7 +514,7 @@
                 let fname = agentName.split("_")[0];
                 let content = `Chat started with ${fname}`;
                 console.log("contecnt", content);
-		let agentNameDivsLength = sessionStorage.getItem('agentNameDivLength');
+		
                 let msgNames = document.querySelectorAll(".nameAndTimeContent > .agentName");
                 let element = document.querySelector(".eventMessage > .uiOutputRichText");
                 if(element){
@@ -523,9 +523,9 @@
 		console.log('msgNames---------');
 		console.log(msgNames);
 		console.log(msgNames.length);
-		console.log(agentNameDivsLength);
-		sessionStorage.setItem('agentNameDivLength', msgNames.length);
-		if(msgNames.length > 0 && agentNameDivsLength != 'undefined' && agentNameDivsLength != msgNames.length){
+		
+		
+		if(msgNames.length > 0 && !element){
 		    console.log(msgNames[msgNames.length-1]);
 		    let lastMsg = msgNames[msgNames.length-1];
 		    if(lastMsg.textContent.trim() != '' && lastMsg.textContent.trim() != null){
