@@ -342,7 +342,7 @@
 			
         </script>
 	<script>
-		window.addEventListener('message', receiveMessage,false);
+		/*window.addEventListener('message', receiveMessage,false);
 		function receiveMessage(event) {
 		    var payload = event.data;
 		   // console.log(payload);
@@ -350,7 +350,7 @@
 			embedded_svc.postMessage('chasitor.sendMessage', payload.message);
 		    }
 		    //console.log('chasitor.message');
-		};
+		};*/
 		document.addEventListener("redirectFromLWC", function(event){
 			console.log('------------event.detail.data-------');
 			console.log(event.detail.data);
