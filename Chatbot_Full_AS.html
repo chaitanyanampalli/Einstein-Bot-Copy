@@ -526,7 +526,8 @@
 		console.log(msgNames.length);
 		
 		
-		if(msgNames.length > 0 && !element){
+		if(msgNames.length > 0 && element == null){
+		    console.log('---------------msgNames[msgNames.length-1]===========');
 		    console.log(msgNames[msgNames.length-1]);
 		    let lastMsg = msgNames[msgNames.length-1];
 		    if(lastMsg.textContent.trim() != '' && lastMsg.textContent.trim() != null){
