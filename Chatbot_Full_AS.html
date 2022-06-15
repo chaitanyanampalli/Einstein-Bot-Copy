@@ -312,34 +312,38 @@
             }
 
             /* Modal Content */
-            .bacmodal .modal-content {
-                background-color: #fefefe;
-                margin: auto;
-                padding: 20px;
-                border: 1px solid #888;
-                width: 80%;
-            }
-
-            /* The Close Button */
-            .bacmodal .close {
-                color: #aaaaaa;
-                float: right;
-                font-size: 28px;
-                font-weight: bold;
-            }
-
-            .bacmodal .close:hover,
-            .bacmodal .close:focus {
-                color: #000;
-                text-decoration: none;
-                cursor: pointer;
-            }
+            .bacmodal.iframe-modal {
+	        z-index: 10000;
+	        width: auto !important;
+	        padding: 40px 0 !important;
+	        overflow-x: hidden;
+	        overflow-y: auto;
+	        margin: 0 !important;
+	   }
+           .bacmodal {
+	       position: fixed;
+	       top: 0;
+	       right: 0;
+	       bottom: 0;
+	       left: 0;
+	       z-index: 1050;
+	       display: none;
+	       overflow: hidden;
+	       -webkit-overflow-scrolling: touch;
+	       outline: 0;
+	   }
+	   .bacmodal.fade {
+	       opacity: 0;
+	       -webkit-transition: opacity .15s linear;
+	       -o-transition: opacity .15s linear;
+	       transition: opacity .15s linear;
+	   }
         </style>
     </head>
     <!-- jquery cdn for cobrowse -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <body>
-        <div class="modal fade iframe-modal" id="iframe-modal" role="dialog" aria-hidden="true" style="display: none;">
+        <div class="bacmodal fade iframe-modal" id="iframe-modal" role="dialog" aria-hidden="true" style="display: none;">
 	    <div class="modal-dialog">
 		<!-- Modal content-->
 		<div class="modal-content">
@@ -511,6 +515,7 @@
             });
             document.addEventListener("redirectFromLWC", function(event){
                 let agentName = event.detail.data.data.agentName;
+		let agentType = event.detail.data.data.agentType;
                 let fname = agentName.split("_")[0];
                 let content = `Chat started with ${fname}`;
                 console.log("contecnt", content);
@@ -526,7 +531,7 @@
 		console.log(msgNames.length);
 		
 		
-		if(msgNames.length > 0 && element == null){
+		if(msgNames.length > 0 && element == null && agentType != 'agent'){
 		    console.log('---------------msgNames[msgNames.length-1]===========');
 		    console.log(msgNames[msgNames.length-1]);
 		    let lastMsg = msgNames[msgNames.length-1];
