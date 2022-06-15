@@ -519,12 +519,14 @@
                 if(element){
 		    element.textContent = content;
 		}
-		console.log('msgNames---------');
-		console.log(msgNames);
-		console.log(msgNames[msgNames.length-1]);
-		let lastMsg = msgNames[msgNames.length-1];
-		if(lastMsg.textContent.trim() != '' && lastMsg.textContent.trim() != null){
+		if(msgNames.lenght > 0){
+		    console.log('msgNames---------');
+		    console.log(msgNames);
+		    console.log(msgNames[msgNames.length-1]);
+		    let lastMsg = msgNames[msgNames.length-1];
+		    if(lastMsg.textContent.trim() != '' && lastMsg.textContent.trim() != null){
 			lastMsg.textContent = fname;
+		    }
 		}
                 /*msgNames.forEach(ele => {
                     if(ele.innerText == agentName){
