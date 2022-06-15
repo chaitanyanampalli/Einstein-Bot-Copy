@@ -362,9 +362,10 @@
 			let content = `Chat started with ${fname}`;
 			console.log('contecnt', content);
 			let msgNames = document.querySelectorAll('.nameAndTimeContent > .agentName');
-			console.log(document.querySelector('.eventMessage > .uiOutputRichText').textContent);
+			console.log(document.querySelector('.eventMessage > .uiOutputRichText'));
 			let element = document.querySelector('.eventMessage > .uiOutputRichText');
 			if(element){
+				console.log(element.textContent);
 				element.textContent = content;
 			}
 			console.log('msgNames---------');
