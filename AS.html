@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-	    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
         <title>Chatbot Full AS</title>
+	<link rel="stylesheet" href="../Einstein-Bot/baciframe.css">
         <style>
             :root {
                 --color: green;
@@ -10,7 +11,12 @@
 	        --menuButtonRadius: 10px;
 		--otherRadius: 5px:
             }
-           
+            @font-face {
+                font-family: var(--fontfamily);
+                src: url("../Einstein-Bot/GothamBook.ttf") format('truetype');
+                font-weight: normal;
+                font-style: normal;
+            }
             @media only screen and (min-width: 600px) {
                 .embeddedServiceLiveAgentStateChat .messageArea{
                     overflow-y: hidden !important;
@@ -291,61 +297,23 @@
                 top: 0;
                 left: 0;pointer-events: none;
             }
-            /* The Modal (background) */
-            .bacmodal {
-                display: none; /* Hidden by default */
-                position: fixed; /* Stay in place */
-                z-index: 1; /* Sit on top */
-                padding-top: 100px; /* Location of the box */
-                left: 0;
-                top: 0;
-                width: 100%; /* Full width */
-                height: 100%; /* Full height */
-                overflow: auto; /* Enable scroll if needed */
-                background-color: rgb(0,0,0); /* Fallback color */
-                background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-            }
-
-            /* Modal Content */
-            .bacmodal .modal-content {
-                background-color: #fefefe;
-                margin: auto;
-                padding: 20px;
-                border: 1px solid #888;
-                width: 80%;
-            }
-
-            /* The Close Button */
-            .bacmodal .close {
-                color: #aaaaaa;
-                float: right;
-                font-size: 28px;
-                font-weight: bold;
-            }
-
-            .bacmodal .close:hover,
-            .bacmodal .close:focus {
-                color: #000;
-                text-decoration: none;
-                cursor: pointer;
-            }
         </style>
     </head>
     <!-- jquery cdn for cobrowse -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <body>
-        <div class="modal fade bacmodal" id="bac-iframe-modal" role="dialog" aria-hidden="true" style="display: none;">
-            <div class="modal-dialog">
+        <div class="bacmodal fade iframe-modal" id="bac-iframe-modal" role="dialog" aria-hidden="true" style="display: none;">
+	   <div class="bacmodal-dialog">
                 <!-- Modal content-->
-                <div class="modal-content">
-                    <button type="button" class="close" data-dismiss="modal" data-backdrop=""></button>
+                <div class="bacmodal-content">
+                    <button id="closeModal" type="button" class="close" data-bs-dismiss="bacmodal" data-backdrop=""></button>
                     <div class="modal-body iframe-modal-body bac-iframe">
-                        <iframe src="about:blank" sandbox="allow-scripts allow-same-origin" data-gtm-yt-inspected-12594653_15="true" data-gtm-yt-inspected-23="true"></iframe>
+                        <iframe id="baciframe" src="about:blank" sandbox="allow-scripts allow-same-origin" data-gtm-yt-inspected-12594653_15="true" data-gtm-yt-inspected-23="true"></iframe>
                     </div>
-                </div>
-                <!-- Modal content-->
-            </div>
-        </div>
+		</div>
+		<!-- Modal content-->
+	    </div>
+	</div>
 
         <!-- script for the Einstein chatbot -->
         <script type='text/javascript'>
@@ -394,7 +362,7 @@
 
 
         <!-- script for the  cobrowse -->
-        <!--<script type="text/javascript">
+        <script type="text/javascript">
             (function (w, t, c, p, s, e) {
                 p = new Promise(function (r) {
                     w[c] = {
@@ -473,14 +441,12 @@
                     });
                 });
             });
-        </script>-->
+        </script>
 
         <!-- script fot remove agnet user id -->
         <script type="text/javascript">
 		
             document.addEventListener("setConfigData", function(event){
-                console.log(event.detail);
-                console.log(event.detail.textColor);
 		if(event.detail){
 		    var r = document.querySelector(':root');
                     r.style.setProperty('--color', event.detail.textColor);
@@ -497,28 +463,45 @@
             document.addEventListener("openBACDialog", function(event){
                 console.log('event of BAC--------');
                 console.log(event.detail.data);
-                var modal = document.getElementById("bac-iframe-modal");
-                modal.style.display = "block";
-                var btnClose = document.getElementsByClassName("close")[0];
-                btnClose.onclick = function() {
-                    modal.style.display = "none";
-                }
+		/*let bacurl = event.detail.data;
+		let iframeEle = document.getElementById("baciframe");
+                iframeEle.setAttribute("src", bacurl);
+		if(bacurl != '' && bacurl != null){
+		    let modal = document.getElementById("bac-iframe-modal");
+		    if (!modal.classList.contains('in')) {
+			modal.style.display = "block";
+			modal.classList.remove('out');
+			modal.classList.add('in');
+		    }
+		    var btnClose = document.getElementById("closeModal");
+		    btnClose.onclick = function() {
+			modal.style.display = "none";
+			modal.classList.remove('in');
+			modal.classList.add('out');
+		    }
+		}*/
+               
             });
             document.addEventListener("redirectFromLWC", function(event){
                 let agentName = event.detail.data.data.agentName;
+		let agentType = event.detail.data.data.agentType;
                 let fname = agentName.split("_")[0];
                 let content = `Chat started with ${fname}`;
-                console.log("contecnt", content);
+               
+		
                 let msgNames = document.querySelectorAll(".nameAndTimeContent > .agentName");
                 let element = document.querySelector(".eventMessage > .uiOutputRichText");
-                element.textContent = content;
-                msgNames.forEach(ele => {
-                    if(ele.innerText == agentName){
-                            ele.textContent = fname;
-                            console.log(ele.innerText);
-                    }
-                });
-                console.log("event data", event.detail.data.data.agentName);
+		
+                if(element){
+		    element.textContent = content;
+		}		
+		
+		if(msgNames.length > 0 && element == null && agentType != 'agent'){
+		    let lastMsg = msgNames[msgNames.length-1];
+		    if(lastMsg.textContent.trim() != '' && lastMsg.textContent.trim() != null){
+			lastMsg.textContent = fname;
+		    }
+		}
             });
         </script>
     </body>
