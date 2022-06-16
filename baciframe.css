@@ -26,7 +26,7 @@
     -o-transition: opacity .15s linear;
     transition: opacity .15s linear;
 }
-.bacmodal.iframe-modal .modal-dialog {
+.bacmodal.iframe-modal .bacmodal-dialog {
     z-index: 10000;
     width: 940px;
     margin: 30px auto;
@@ -35,7 +35,7 @@
     margin-top: 0;
     padding-top: 30px;
 }
-.bacmodal.fade .modal-dialog {
+.bacmodal.fade .bacmodal-dialog {
     -webkit-transition: -webkit-transform .3s ease-out;
     -o-transition: -o-transform .3s ease-out;
     transition: transform .3s ease-out;
@@ -45,18 +45,18 @@
     transform: translate(0,-25%);
 }
 
-.modal-dialog {
+.bacmodal-dialog {
     position: relative;
     width: auto;
     margin: 10px;
 }
 
-.bacmodal.iframe-modal .modal-dialog .modal-content {
+.bacmodal.iframe-modal .bacmodal-dialog .bacmodal-content {
     box-shadow: none;
     border: none;
     border-radius: 0;
 }
-.modal-content {
+.bacmodal-content {
     position: relative;
     background-color: #fff;
     -webkit-background-clip: padding-box;
@@ -68,7 +68,7 @@
     -webkit-box-shadow: 0 3px 9px rgb(0 0 0 / 50%);
     box-shadow: 0 3px 9px rgb(0 0 0 / 50%);
 }
-.bacmodal.iframe-modal .modal-dialog .modal-content .close {
+.bacmodal.iframe-modal .bacmodal-dialog .bacmodal-content .close {
     width: 35px;
     height: 35px;
     opacity: 1;
@@ -94,10 +94,25 @@ button.close {
     filter: alpha(opacity=20);
     opacity: .2;
 }
-.bacmodal.iframe-modal .modal-dialog .modal-content .iframe-modal-body.bac-iframe {
+
+.bacmodal.iframe-modal .bacmodal-dialog .bacmodal-content .close::before, .bacmodal.iframe-modal .bacmodal-dialog .bacmodal-content .close::after {
+    content: "";
+    width: 2px;
+    height: 19px;
+    background: #fff;
+    position: absolute;
+    transform: rotate(45deg);
+    left: 16px;
+    top: 4px;
+    transition: all .3s;
+}
+.bacmodal.iframe-modal .bacmodal-dialog .bacmodal-content .close::after {
+    transform: rotate(-45deg);
+}
+.bacmodal.iframe-modal .bacmodal-dialog .bacmodal-content .iframe-modal-body.bac-iframe {
     padding: 0;
 }
-.bacmodal.iframe-modal .modal-dialog .modal-content .iframe-modal-body {
+.bacmodal.iframe-modal .bacmodal-dialog .bacmodal-content .iframe-modal-body {
     padding: 15px;
     width: 100%;
 }
@@ -105,18 +120,20 @@ button.close {
     position: relative;
     padding: 15px;
 }
-
-.bacmodal.iframe-modal .modal-dialog .modal-content .iframe-modal-body.bac-iframe iframe {
+.bacmodal iframe {
+    border-width: 0px !important;
+}
+.bacmodal.iframe-modal .bacmodal-dialog .bacmodal-content .iframe-modal-body.bac-iframe iframe {
     height: 60vh !important;
 }
-.bacmodal.iframe-modal .modal-dialog .modal-content .iframe-modal-body iframe {
+.bacmodal.iframe-modal .bacmodal-dialog .bacmodal-content .iframe-modal-body.bac-iframe iframe {
     width: 100%;
     height: 78vh;
 }
 .fade.in {
     opacity: 1;
 }
-.bacmodal.in .modal-dialog {
+.bacmodal.in .bacmodal-dialog {
     -webkit-transform: translate(0,0);
     -ms-transform: translate(0,0);
     -o-transform: translate(0,0);
@@ -124,19 +141,18 @@ button.close {
 }
 
 @media screen and (min-width: 1200px) and (max-width: 1300px){
-    .bacmodal.iframe-modal .modal-dialog .modal-content .iframe-modal-body.bac-iframe iframe {
+    .bacmodal.iframe-modal .bacmodal-dialog .bacmodal-content .iframe-modal-body.bac-iframe iframe {
         height: 557px !important;
     }
 }
 
 @media (min-width: 768px){
-    .modal-dialog {
+    .bacmodal-dialog {
         width: 600px;
         margin: 30px auto;
     }
-    .modal-content {
+    .bacmodal-content {
         -webkit-box-shadow: 0 5px 15px rgb(0 0 0 / 50%);
         box-shadow: 0 5px 15px rgb(0 0 0 / 50%);
     }
 }
-/*<a class="iframe-modal-link" data-toggle="modal" data-target="#iframe-modal" data-iframe-url="https://www.meetlixil.com/bookconsultant?brand=GR&amp;region=US&amp;firstName=DngTest&amp;lastName=Gosai&amp;emailId=dg123@gmail.com&amp;lookId=1&amp;sku=19578GNA|27074GN0|26465GN0|29137GN0|23486GNA|28417GN0|26635GN0|28540GN0|40365GN1|26569GN0|40366GN1|35601000" href="#">Book A Consultation</a>*/
