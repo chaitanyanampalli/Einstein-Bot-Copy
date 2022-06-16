@@ -304,14 +304,14 @@
     <!-- jquery cdn for cobrowse -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <body>
-        <div class="bacmodal fade iframe-modal" id="iframe-modal" role="dialog" aria-hidden="true" style="display: none;">
-	    <div class="modal-dialog">
-		<!-- Modal content-->
-		<div class="modal-content">
-		    <button type="button" class="close" data-dismiss="modal" data-backdrop=""></button>
-		    <div class="modal-body iframe-modal-body bac-iframe">
-			<iframe src="https://www.meetlixil.com/bookconsultant?brand=GR&amp;region=US&amp;firstName=DngTest&amp;lastName=Gosai&amp;emailId=dg123@gmail.com&amp;lookId=1&amp;sku=19578GNA|27074GN0|26465GN0|29137GN0|23486GNA|28417GN0|26635GN0|28540GN0|40365GN1|26569GN0|40366GN1|35601000" sandbox="allow-scripts allow-same-origin" data-gtm-yt-inspected-12594653_15="true" data-gtm-yt-inspected-23="true"></iframe>
-		    </div>
+        <div class="bacmodal fade iframe-modal" id="bac-iframe-modal" role="dialog" aria-hidden="true" style="display: none;">
+	   <div class="bacmodal-dialog">
+                <!-- Modal content-->
+                <div class="bacmodal-content">
+                    <button id="closeModal" type="button" class="close" data-bs-dismiss="bacmodal" data-backdrop=""></button>
+                    <div class="modal-body iframe-modal-body bac-iframe">
+                        <iframe src="https://www.meetlixil.com/bookconsultant?brand=AS&region=US" sandbox="allow-scripts allow-same-origin" data-gtm-yt-inspected-12594653_15="true" data-gtm-yt-inspected-23="true"></iframe>
+                    </div>
 		</div>
 		<!-- Modal content-->
 	    </div>
@@ -467,12 +467,24 @@
             document.addEventListener("openBACDialog", function(event){
                 console.log('event of BAC--------');
                 console.log(event.detail.data);
-                var modal = document.getElementById("bac-iframe-modal");
+		var modal = document.getElementById("bac-iframe-modal");
+		    if (!modal.classList.contains('in')) {
+			modal.style.display = "block";
+			modal.classList.remove('out');
+			modal.classList.add('in');
+		    }
+		    var btnClose = document.getElementById("closeModal");
+		    btnClose.onclick = function() {
+			modal.style.display = "none";
+			modal.classList.remove('in');
+			modal.classList.add('out');
+		    }
+                /*var modal = document.getElementById("bac-iframe-modal");
                 modal.style.display = "block";
                 var btnClose = document.getElementsByClassName("close")[0];
                 btnClose.onclick = function() {
                     modal.style.display = "none";
-                }
+                }*/
             });
             document.addEventListener("redirectFromLWC", function(event){
                 let agentName = event.detail.data.data.agentName;
