@@ -1,27 +1,81 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+    <title>Chatbot Full AS</title>
+    <link rel="stylesheet" href="baciframe.css">
+    <!-- <link rel="stylesheet" href="SLDS.css"> -->
+</head>
+
+<body style="background-color:green">
+    <div class="bacmodal fade iframe-modal" id="bac-iframe-modal" role="dialog" aria-hidden="true"
+        style="display: none;">
+        <div class="bacmodal-dialog">
+            <!-- Modal content-->
+            <div class="bacmodal-content">
+                <button id="closeModal" type="button" class="close" data-bs-dismiss="bacmodal"
+                    data-backdrop=""></button>
+                <div class="modal-body iframe-modal-body bac-iframe">
+                    <iframe id="baciframe" src="about:blank" sandbox="allow-scripts allow-same-origin"
+                        data-gtm-yt-inspected-12594653_15="true" data-gtm-yt-inspected-23="true"></iframe>
+                </div>
+            </div>
+            <!-- Modal content-->
+        </div>
+    </div>
+    <button onclick="openModal();"> Click Me</button>
+</body>
+<script>
+    function openModal() {
+        let bacurl = "https://www.meetlixil.com/bookconsultant?brand=GH&region=US";
+        var iframeEle = document.getElementById("baciframe");
+        iframeEle.setAttribute("src", bacurl);
+        var modal = document.getElementById("bac-iframe-modal");
+        if (!modal.classList.contains('in')) {
+            modal.style.display = "block";
+            modal.classList.remove("out");
+            modal.classList.add("in");
+        }
+        var btnClose = document.getElementById("closeModal");
+        btnClose.onclick = function () {
+            modal.style.display = "none";
+            modal.classList.remove("in");
+            modal.classList.add("out");
+        }
+    }
+</script>
+
+</html>
+
+<!DOCTYPE html>
+<html>
+
     <head>
-	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+        <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
         <title>Chatbot Full AS</title>
-	<link rel="stylesheet" href="../Einstein-Bot/baciframe.css">
+        <link rel="stylesheet" href="../Einstein-Bot/baciframe.css">
         <style>
             :root {
                 --color: green;
                 --fontfamily: 'Gotham';
-	        --menuButtonRadius: 10px;
-		--otherRadius: 5px:
+                --menuButtonRadius: 10px;
+                --otherRadius: 5px:
             }
+
             @font-face {
                 font-family: var(--fontfamily);
                 src: url("../Einstein-Bot/GothamBook.ttf") format('truetype');
                 font-weight: normal;
                 font-style: normal;
             }
+
             @media only screen and (min-width: 600px) {
-                .embeddedServiceLiveAgentStateChat .messageArea{
+                .embeddedServiceLiveAgentStateChat .messageArea {
                     overflow-y: hidden !important;
                     -webkit-overflow-scrolling: touch;
                 }
+
                 .rich-menu-itemOptionIsClicked:hover {
                     background-color: #3984be !important;
                     color: #fff !important;
@@ -29,18 +83,20 @@
                 }
             }
 
-            .embeddedServiceLiveAgentStateChat .messageArea, 
+            .embeddedServiceLiveAgentStateChat .messageArea,
             .embeddedServiceLiveAgentStateChatItem.chatMessage button,
-            .embeddedServiceLiveAgentStateChatInputFooter .chasitorText{
+            .embeddedServiceLiveAgentStateChatInputFooter .chasitorText {
                 font-family: var(--fontfamily), sans-serif !important;
             }
 
-            .embeddedServiceLiveAgentStateChat .messageArea:hover{
+            .embeddedServiceLiveAgentStateChat .messageArea:hover {
                 overflow-y: auto !important;
             }
+
             .embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-button__icon {
                 fill: var(--color) !important;
             }
+
             .embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-dropdown-trigger {
                 padding: 9px !important;
                 margin-top: 8px !important;
@@ -52,32 +108,41 @@
             .embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-button_icon-container-more svg.slds-button__icon {
                 margin-bottom: 0 !important;
             }
+
             .embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-button {
                 transform: translateY(0) !important;
             }
+
             .embeddedServiceLiveAgentStateChatInputFooter .chasitorText {
-                border-radius:var(--otherRadius) !important;
+                border-radius: var(--otherRadius) !important;
             }
+
             .bar[c-chatHeader_chatHeader] {
                 border-bottom: 2px solid #edeff1 !important;
             }
+
             .head[c-chatHeader_chatHeader] {
                 background-color: var(--color) !important;
             }
+
             .minimizedContainer[c-customMinimized_customMinimized] {
                 background-color: var(--color) !important;
-		border: 1px var(--color);
+                border: 1px var(--color);
             }
+
             .embeddedServiceSidebar.modalContainer {
                 font-family: var(--fontfamily), sans-serif !important;
             }
+
             .embeddedServiceLiveAgentStateChatAvatar.isCommunitiesContext {
                 display: none;
             }
+
             div[c-lwcchatpack_html_lwcchatpack_html] {
                 padding: 12px;
                 border-radius: var(--otherRadius) !important;
             }
+
             .embeddedServiceLiveAgentStateChatItem.chatMessage,
             .slds-rich-text-editor__output,
             .slds-rich-text-editor__textarea {
@@ -85,6 +150,7 @@
                 font-size: 14px !important;
                 text-align: left;
             }
+
             div[c-lwcchatpack_html_lwcchatpack_html] {
                 text-align: left;
                 background: #f2f4f6;
@@ -93,74 +159,91 @@
                 padding: 12px !important;
                 max-width: 90%;
             }
+
             .agent.chat-content[c-chatpackmessage_chatpackmessage] {
                 text-align: left !important;
                 background: #f2f4f6 !important;
                 color: #0f2b4c !important;
                 border-radius: var(--otherRadius) !important;
                 padding: 12px !important;
-            /*     max-width: 256px !important; */
+                /*     max-width: 256px !important; */
             }
+
             .agent.chat-content[c-chatpackmessage_chatpackmessage],
             div[c-lwcchatpack_html_lwcchatpack_html] {
                 margin-left: 0 !important;
             }
+
             .chasitor.chat-content[c-chatpackmessage_chatpackmessage] {
                 background: #e7f0f7 !important;
                 color: #0f2b4c !important;
                 max-width: 256px !important;
             }
+
             .embeddedServiceLiveAgentStateChatItem.chatMessage {
                 padding: 0 16px !important;
                 margin-bottom: 8px !important;
             }
+
             .embeddedServiceLiveAgentStateChatItem.agent .agentName {
                 margin-left: 0 !important;
                 margin-top: 4px !important;
             }
+
             .embeddedServiceLiveAgentStateChatItem.chasitor .timeContent {
                 margin-top: 4px;
             }
+
             .embeddedServiceLiveAgentStateChatItem.agent .timeContent {
                 margin-top: 4px !important;
             }
+
             .embeddedServiceLiveAgentStateChatItem.agent .nameAndTimeDotDivider {
                 margin: 8px 4px 0 4px !important;
             }
+
             .embeddedServiceLiveAgentStateChat .messageArea:focus {
                 border: none !important;
             }
+
             .embeddedServiceLiveAgentStateChatBubble .chatContent {
                 margin-left: 0 !important;
             }
+
             .embeddedServiceLiveAgentStateChatItem.chatMessage button:focus {
                 text-decoration: none !important;
             }
+
             .embeddedServiceLiveAgentStateChatMenuMessage .rich-menu-item,
             .embeddedServiceLiveAgentStateChatMenuMessage .rich-menu-itemOptionIsClicked {
                 color: var(--color) !important;
             }
+
             .embeddedServiceLiveAgentStateChatItem .chatContent ul.rich-menu-items li:first-of-type:hover {
                 border: 1px solid #3984be !important;
             }
+
             .endChatButton {
                 border-radius: var(--menuButtonRadius) !important;
                 text-decoration: none !important;
                 font-family: var(--fontfamily), sans-serif;
                 font-weight: 500;
             }
+
             .embeddedServiceSidebarButton {
                 border-radius: var(--menuButtonRadius) !important;
                 text-decoration: none !important;
                 font-family: var(--fontfamily), sans-serif;
                 font-weight: 500;
             }
+
             .btnCircleAgent[c-chatHeader_chatHeader],
             .btnCircle[c-chatHeader_chatHeader] {
                 margin-top: 0 !important;
                 background-color: var(--color) !important;
             }
-            .chat-content > .rich-button-item {
+
+            .chat-content>.rich-button-item {
                 color: #0f2b4c !important;
                 white-space: break-spaces !important;
                 text-align: center !important;
@@ -168,27 +251,32 @@
                 font-family: var(--fontfamily), sans-serif !important;
                 font-weight: 500 !important;
             }
+
             .rich-button-item:hover {
                 background-color: #3984be !important;
                 color: #fff !important;
             }
-            .rich-menu-items > li {
+
+            .rich-menu-items>li {
                 border-radius: var(--menuButtonRadius) !important;
                 margin: 8px auto !important;
                 white-space: normal !important;
                 word-wrap: break-word !important;
                 border: 1px solid var(--color) !important;
-            /*     width: 250px !important; */
+                /*     width: 250px !important; */
             }
-            .rich-menu-items > li:hover {
+
+            .rich-menu-items>li:hover {
                 border: 1px solid #3984be !important;
             }
+
             .rich-menu-item {
                 color: #0f2b4c !important;
                 white-space: break-spaces !important;
                 text-align: center !important;
                 width: 100% !important;
             }
+
             .rich-menu-itemOptionIsClicked {
                 color: var(--color) !important;
                 white-space: break-spaces !important;
@@ -201,26 +289,33 @@
                 background-color: var(--color) !important;
                 color: #fff !important;
             }
+
             .embeddedServiceLiveAgentStateChatMenuMessage .rich-menu {
                 margin: 0 auto !important;
                 width: 100% !important;
             }
+
             .waitingStateButtonContainer {
                 background-color: #fff !important;
                 margin-top: 15px !important;
             }
+
             .waitingStateContent {
                 background-color: #f2f4f6 !important;
             }
+
             .imageIsSet {
                 display: none !important;
             }
+
             .youAreNextMessage {
                 display: none !important;
             }
+
             .queuePositionChatIcon {
                 display: none !important;
             }
+
             .waitingCancelChat {
                 border-radius: var(--menuButtonRadius) !important;
                 height: 40px !important;
@@ -228,42 +323,53 @@
                 text-decoration: none !important;
                 border: 1px solid #0f2b4c !important;
             }
+
             .waitingCancelChat:hover {
                 border: 1px solid #3984be !important;
                 background-color: #3984be !important;
                 color: #fff !important;
             }
+
             .embeddedServiceSidebarButton .label,
             .embeddedServiceSidebarButton:disabled .label {
                 color: var(--color) !important;
             }
+
             .embeddedServiceSidebarButton:focus {
                 box-shadow: none !important;
             }
+
             .waitingCancelChat:hover.embeddedServiceSidebarButton .label {
                 color: #fff !important;
             }
+
             .embeddedServiceSidebarButton:not(:disabled):hover.embeddedServiceSidebarButton .label {
                 color: #fff !important;
             }
+
             .embeddedServiceSidebarButton:hover {
                 background: #3984be !important;
             }
+
             .embeddedServiceLiveAgentStateWaiting .waitingImage {
                 height: 130px !important;
                 width: 200px !important;
             }
+
             .iconAvatar {
                 display: none !important;
             }
+
             .text {
                 background-color: #e7f0f7 !important;
                 color: #0f2b4c !important;
                 font-weight: 700 !important;
             }
+
             .queuePositionMessage {
                 color: #000000 !important;
             }
+
             .embeddedServiceLoadingBalls .loadingBall {
                 background-color: rgb(231, 0, 38) !important;
             }
@@ -273,15 +379,20 @@
                 font-size: 0.875rem !important;
                 font-family: var(--fontfamily), sans-serif !important;
             }
+
             .embeddedServiceHelpButton .uiButton {
                 max-width: 23em !important;
                 width: 23em !important;
             }
-            .embeddedServiceSidebarButton.uiButton, .embeddedServiceSidebarButton.uiButton:disabled {
+
+            .embeddedServiceSidebarButton.uiButton,
+            .embeddedServiceSidebarButton.uiButton:disabled {
                 background: none !important;
                 border: 1px solid #0F2B4C !important;
             }
-            .embeddedServiceSidebarButton.uiButton:hover, .embeddedServiceSidebarButton.uiButton:disabled:hover {
+
+            .embeddedServiceSidebarButton.uiButton:hover,
+            .embeddedServiceSidebarButton.uiButton:disabled:hover {
                 background: var(--color) !important;
                 color: #fff !important;
                 border: 1px solid #0F2B4C !important;
@@ -295,29 +406,36 @@
                 border: 5px red solid;
                 display: block;
                 top: 0;
-                left: 0;pointer-events: none;
+                left: 0;
+                pointer-events: none;
             }
         </style>
     </head>
     <!-- jquery cdn for cobrowse -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <body>
-        <div class="bacmodal fade iframe-modal" id="bac-iframe-modal" role="dialog" aria-hidden="true" style="display: none;">
-	   <div class="bacmodal-dialog">
+        <div class="bacmodal fade iframe-modal" id="bac-iframe-modal" role="dialog" aria-hidden="true"
+            style="display: none;">
+            <div class="bacmodal-dialog">
                 <!-- Modal content-->
                 <div class="bacmodal-content">
-                    <button id="closeModal" type="button" class="close" data-bs-dismiss="bacmodal" data-backdrop=""></button>
+                    <button id="closeModal" type="button" class="close" data-bs-dismiss="bacmodal"
+                        data-backdrop=""></button>
                     <div class="modal-body iframe-modal-body bac-iframe">
-                        <iframe id="baciframe" src="about:blank" sandbox="allow-scripts allow-same-origin" data-gtm-yt-inspected-12594653_15="true" data-gtm-yt-inspected-23="true"></iframe>
+                        <iframe id="baciframe" src="about:blank" sandbox="allow-scripts allow-same-origin"
+                            data-gtm-yt-inspected-12594653_15="true" data-gtm-yt-inspected-23="true"></iframe>
                     </div>
-		</div>
-		<!-- Modal content-->
-	    </div>
-	</div>
+                </div>
+                <!-- Modal content-->
+            </div>
+        </div>
 
         <!-- script for the Einstein chatbot -->
         <script type='text/javascript'>
-            var initESW = function(gslbBaseURL) {
+            var initESW = function (gslbBaseURL) {
 
 
                 embedded_svc.settings.enabledFeatures = ['LiveAgent'];
@@ -328,7 +446,7 @@
                 embedded_svc.settings.waitingStateBackgroundImgURL =
                     "https://americanstandard.box.com/shared/static/nb8hvf8hzdx6oiby8a0h26iy2uxmcehh.png";
                 embedded_svc.settings.defaultMinimizedText =
-                        "Chat & Co-Browse with an Expert";
+                    "Chat & Co-Browse with an Expert";
 
                 embedded_svc.init(
                     'https://lwta--full.my.salesforce.com',
@@ -350,7 +468,7 @@
             if (!window.embedded_svc) {
                 var s = document.createElement('script');
                 s.setAttribute('src', 'https://lwta--full.my.salesforce.com/embeddedservice/5.0/esw.min.js');
-                s.onload = function() {
+                s.onload = function () {
                     initESW(null);
                 };
                 document.body.appendChild(s);
@@ -366,19 +484,19 @@
             (function (w, t, c, p, s, e) {
                 p = new Promise(function (r) {
                     w[c] = {
-                    client: function () {
-                        if (!s) {
-                        s = document.createElement(t);
-                        s.src = "https://js.cobrowse.io/CobrowseIO.js";
-                        s.async = 1;
-                        e = document.getElementsByTagName(t)[0];
-                        e.parentNode.insertBefore(s, e);
-                        s.onload = function () {
-                            r(w[c]);
-                        };
-                        }
-                        return p;
-                    },
+                        client: function () {
+                            if (!s) {
+                                s = document.createElement(t);
+                                s.src = "https://js.cobrowse.io/CobrowseIO.js";
+                                s.async = 1;
+                                e = document.getElementsByTagName(t)[0];
+                                e.parentNode.insertBefore(s, e);
+                                s.onload = function () {
+                                    r(w[c]);
+                                };
+                            }
+                            return p;
+                        },
                     };
                 });
             })(window, "script", "CobrowseIO");
@@ -406,9 +524,9 @@
                 });
                 var border = document.createElement("div");
                 border.className = "__cbio_ignored";
-                CobrowseIO.showSessionControls = function() {
-                    document.body.appendChild(button).setAttribute("id","custom-close-cobrowse");
-                    document.body.appendChild(border).setAttribute("id","custom-border-cobrowse");
+                CobrowseIO.showSessionControls = function () {
+                    document.body.appendChild(button).setAttribute("id", "custom-close-cobrowse");
+                    document.body.appendChild(border).setAttribute("id", "custom-border-cobrowse");
                     jQuery(".embeddedServiceHelpButton").addClass("__cbio_ignored");
                     jQuery(".embeddedServiceSidebar").addClass("__cbio_ignored");
                 }
@@ -416,10 +534,10 @@
                     var a = document.getElementById("custom-border-cobrowse");
                     var b = document.getElementById("custom-close-cobrowse");
                     if (a) {
-                    a.remove();
+                        a.remove();
                     }
                     if (b) {
-                    b.remove();
+                        b.remove();
                     }
                 };
                 CobrowseIO.start();
@@ -429,13 +547,13 @@
                         var count = 0;
                         jQuery(document).keypress(function (e) {
                             if (e.key === "l") {
-                            count += 1;
-                            if (count == 5) {
-                                alert("your cobrowse code is: " + AppCode);
-                                count = 0;
-                            }
+                                count += 1;
+                                if (count == 5) {
+                                    alert("your cobrowse code is: " + AppCode);
+                                    count = 0;
+                                }
                             } else {
-                            count = 0;
+                                count = 0;
                             }
                         });
                     });
@@ -445,63 +563,63 @@
 
         <!-- script fot remove agnet user id -->
         <script type="text/javascript">
-		
-            document.addEventListener("setConfigData", function(event){
-		if(event.detail){
-		    var r = document.querySelector(':root');
+
+            document.addEventListener("setConfigData", function (event) {
+                if (event.detail) {
+                    var r = document.querySelector(':root');
                     r.style.setProperty('--color', event.detail.textColor);
-		    if(event.detail.bottonStyle == 'Square'){
-		        r.style.setProperty('--menuButtonRadius', '0px');
-		        r.style.setProperty('--otherRadius', '0');
-		    } else if(event.detail.bottonStyle == 'Round'){
-		        r.style.setProperty('--menuButtonRadius', '50px');
-		        r.style.setProperty('--otherRadius', '16px');
-		    }
-		}
+                    if (event.detail.bottonStyle == 'Square') {
+                        r.style.setProperty('--menuButtonRadius', '0px');
+                        r.style.setProperty('--otherRadius', '0');
+                    } else if (event.detail.bottonStyle == 'Round') {
+                        r.style.setProperty('--menuButtonRadius', '50px');
+                        r.style.setProperty('--otherRadius', '16px');
+                    }
+                }
             });
-	    
-            document.addEventListener("openBACDialog", function(event){
+
+            document.addEventListener("openBACDialog", function (event) {
                 console.log('event of BAC--------');
                 console.log(event.detail.data);
-		/*let bacurl = event.detail.data;
-		let iframeEle = document.getElementById("baciframe");
-                iframeEle.setAttribute("src", bacurl);
-		if(bacurl != '' && bacurl != null){
-		    let modal = document.getElementById("bac-iframe-modal");
-		    if (!modal.classList.contains('in')) {
-			modal.style.display = "block";
-			modal.classList.remove('out');
-			modal.classList.add('in');
-		    }
-		    var btnClose = document.getElementById("closeModal");
-		    btnClose.onclick = function() {
-			modal.style.display = "none";
-			modal.classList.remove('in');
-			modal.classList.add('out');
-		    }
-		}*/
-               
+                /*let bacurl = event.detail.data;
+                let iframeEle = document.getElementById("baciframe");
+                        iframeEle.setAttribute("src", bacurl);
+                if(bacurl != '' && bacurl != null){
+                    let modal = document.getElementById("bac-iframe-modal");
+                    if (!modal.classList.contains('in')) {
+                    modal.style.display = "block";
+                    modal.classList.remove('out');
+                    modal.classList.add('in');
+                    }
+                    var btnClose = document.getElementById("closeModal");
+                    btnClose.onclick = function() {
+                    modal.style.display = "none";
+                    modal.classList.remove('in');
+                    modal.classList.add('out');
+                    }
+                }*/
+
             });
-            document.addEventListener("redirectFromLWC", function(event){
+            document.addEventListener("redirectFromLWC", function (event) {
                 let agentName = event.detail.data.data.agentName;
-		let agentType = event.detail.data.data.agentType;
+                let agentType = event.detail.data.data.agentType;
                 let fname = agentName.split("_")[0];
                 let content = `Chat started with ${fname}`;
-               
-		
+
+
                 let msgNames = document.querySelectorAll(".nameAndTimeContent > .agentName");
                 let element = document.querySelector(".eventMessage > .uiOutputRichText");
-		
-                if(element){
-		    element.textContent = content;
-		}		
-		
-		if(msgNames.length > 0 && element == null && agentType != 'agent'){
-		    let lastMsg = msgNames[msgNames.length-1];
-		    if(lastMsg.textContent.trim() != '' && lastMsg.textContent.trim() != null){
-			lastMsg.textContent = fname;
-		    }
-		}
+
+                if (element) {
+                    element.textContent = content;
+                }
+
+                if (msgNames.length > 0 && element == null && agentType != 'agent') {
+                    let lastMsg = msgNames[msgNames.length - 1];
+                    if (lastMsg.textContent.trim() != '' && lastMsg.textContent.trim() != null) {
+                        lastMsg.textContent = fname;
+                    }
+                }
             });
         </script>
     </body>
