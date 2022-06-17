@@ -13,6 +13,13 @@
                 --otherRadius: 5px:
             }
 
+            @font-face {
+                font-family: var(--fontfamily);
+                src: url("../Einstein-Bot/GothamBook.ttf") format('truetype');
+                font-weight: normal;
+                font-style: normal;
+            }
+
             @media only screen and (min-width: 600px) {
                 .embeddedServiceLiveAgentStateChat .messageArea {
                     overflow-y: hidden !important;
@@ -548,21 +555,21 @@
                 let agentType = event.detail.data.data.agentType;
                 let fname = agentName.split("_")[0];
                 let content = `Chat started with ${fname}`;
+                setTimeout(function() { 
+                    let msgNames = document.querySelectorAll(".nameAndTimeContent > .agentName");
+                    let element = document.querySelector(".eventMessage > .uiOutputRichText");
 
-
-                let msgNames = document.querySelectorAll(".nameAndTimeContent > .agentName");
-                let element = document.querySelector(".eventMessage > .uiOutputRichText");
-
-                if (element) {
-                    element.textContent = content;
-                }
-
-                if (msgNames.length > 0 && element == null && agentType != 'agent') {
-                    let lastMsg = msgNames[msgNames.length - 1];
-                    if (lastMsg.textContent.trim() != '' && lastMsg.textContent.trim() != null) {
-                        lastMsg.textContent = fname;
+                    if (element) {
+                        element.textContent = content;
                     }
-                }
+
+                    if (msgNames.length > 0 && element == null && agentType != 'agent') {
+                        let lastMsg = msgNames[msgNames.length - 1];
+                        if (lastMsg.textContent.trim() != '' && lastMsg.textContent.trim() != null) {
+                            lastMsg.textContent = fname;
+                        }
+                    }
+                },100);
             });
         </script>
     </body>
