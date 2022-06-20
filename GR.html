@@ -531,7 +531,7 @@
             document.addEventListener("openBACDialog", function (event) {
                 console.log('event of BAC--------');
                 console.log(event.detail.data);
-                /*let bacurl = event.detail.data;
+                let bacurl = event.detail.data;
                 let iframeEle = document.getElementById("baciframe");
                         iframeEle.setAttribute("src", bacurl);
                 if(bacurl != '' && bacurl != null){
@@ -547,8 +547,7 @@
                     modal.classList.remove('in');
                     modal.classList.add('out');
                     }
-                }*/
-
+                }
             });
             document.addEventListener("setBotName", function (event) {
                 let agentName = event.detail.data.data.agentName;
