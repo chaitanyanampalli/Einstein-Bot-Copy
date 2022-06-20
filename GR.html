@@ -550,28 +550,38 @@
                 }*/
 
             });
+            document.addEventListener("setBotName", function (event) {
+                let agentName = event.detail.data.data.agentName;
+                let agentType = event.detail.data.data.agentType;
+                let fname = agentName.split("_")[0];
+                console.log(agentName);
+                setTimeout(function() { 
+                    let msgsNames = document.querySelectorAll(".nameAndTimeContent > .agentName");
+                    let elementA = document.querySelector(".eventMessage > .uiOutputRichText");
+
+                    if (elementA && elementA.textContent != content) {
+                        elementA.textContent = content;
+                    }
+
+                    if (msgsNames.length > 0 && elementA == null && agentType != 'agent') {
+                        let lastMsgA = msgsNames[msgsNames.length - 1];
+                        if (lastMsgA.textContent.trim() != '' && lastMsgA.textContent.trim() != null && lastMsgA.textContent != fname) {
+                            lastMsgA.textContent = fname;
+                        }
+                    }
+                },100);
+            });
             document.addEventListener("redirectFromLWC", function (event) {
                 console.log(agentName);
                 let agentName = event.detail.data.data.agentName;
                 let agentType = event.detail.data.data.agentType;
                 let fname = agentName.split("_")[0];
                 let content = `Chat started with ${fname}`;
-                setTimeout(function() { 
-                    let msgNames = document.querySelectorAll(".nameAndTimeContent > .agentName");
-                    let element = document.querySelector(".eventMessage > .uiOutputRichText");
+                let element = document.querySelector(".eventMessage > .uiOutputRichText");
 
-                    if (element) {
-                        element.textContent = content;
-                    }
-
-                    if (msgNames.length > 0 && element == null && agentType != 'agent') {
-                        console.log(agentType);
-                        let lastMsg = msgNames[msgNames.length - 1];
-                        if (lastMsg.textContent.trim() != '' && lastMsg.textContent.trim() != null) {
-                            lastMsg.textContent = fname;
-                        }
-                    }
-                },100);
+                if (element) {
+                    element.textContent = content;
+                }
             });
         </script>
     </body>
