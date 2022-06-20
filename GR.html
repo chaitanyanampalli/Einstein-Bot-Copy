@@ -551,6 +551,7 @@
 
             });
             document.addEventListener("redirectFromLWC", function (event) {
+                console.log(agentName);
                 let agentName = event.detail.data.data.agentName;
                 let agentType = event.detail.data.data.agentType;
                 let fname = agentName.split("_")[0];
@@ -564,6 +565,7 @@
                     }
 
                     if (msgNames.length > 0 && element == null && agentType != 'agent') {
+                        console.log(agentType);
                         let lastMsg = msgNames[msgNames.length - 1];
                         if (lastMsg.textContent.trim() != '' && lastMsg.textContent.trim() != null) {
                             lastMsg.textContent = fname;
