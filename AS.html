@@ -583,7 +583,15 @@
                 let agentName = event.detail.data.data.agentName;
                 let agentType = event.detail.data.data.agentType;
                 let fname = agentName.split("_")[0];
-          
+                
+                let msgsName = document.querySelectorAll(".nameAndTimeContent > .agentName");
+                   
+                if (msgsName.length > 0 && agentType != 'agent') {
+                    let lastMsg = msgsName[msgsName.length - 1];
+                    if (lastMsg.textContent.trim() != '' && lastMsg.textContent.trim() != null) {
+                        lastMsg.textContent = fname;
+                    }
+                }
                 setTimeout(function() { 
                     let msgsNames = document.querySelectorAll(".nameAndTimeContent > .agentName");
                    
