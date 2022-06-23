@@ -379,6 +379,20 @@
 
         <!-- script for the Einstein chatbot -->
         <script type='text/javascript'>
+             function helpButtonLoaded() {
+                var helpButton = document.querySelector('.helpButton');
+                if (!helpButton) {
+                    window.setTimeout(helpButtonLoaded, 500);
+                    return;
+                }
+                var height = helpButton.clientHeight;
+                var width = helpButton.clientWidth;
+                window.parent.postMessage({
+                                        frameHeight: height,
+                                        frameWidth: width
+                                        }, '*'); // Used a * but for security reasons you can plug in the domain name.
+            }
+            window.onload = helpButtonLoaded();
             var initESW = function (gslbBaseURL) {
 
 
@@ -483,7 +497,7 @@
                 button.style.color = "white";
                 button.style.boxShadow = "0px 2px 5px #33333344";
                 button.style.cursor = "pointer";
-                button.style.borderRadius = "0px";
+                button.style.borderRadius = "30px";
                 button.style.background = "#165788";
                 button.style.position = "fixed";
                 button.style.zIndex = "2147483647";
