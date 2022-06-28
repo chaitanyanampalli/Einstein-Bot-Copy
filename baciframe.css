@@ -116,9 +116,14 @@ button.close {
     padding: 15px;
     width: 100%;
 }
-.bacmodal-body {
+.modal-body.bac-iframe {
     position: relative;
     padding: 15px;
+}
+.bacmodal.iframe-modal .bacmodal-dialog .bacmodal-content .iframe-modal-body.bac-iframe iframe {
+    height: 525px;
+    max-height: 95vh;
+	width: 100%;
 }
 .bacmodal iframe {
     border-width: 0px !important;
@@ -139,7 +144,10 @@ button.close {
     -o-transform: translate(0,0);
     transform: translate(0,0);
 }
-
+.bacmodal.iframe-modal .bacmodal-dialog {
+    width: 100%;
+    max-width: 1070px;
+}
 @media screen and (min-width: 1200px) and (max-width: 1300px){
     .bacmodal.iframe-modal .bacmodal-dialog .bacmodal-content .iframe-modal-body.bac-iframe iframe {
         height: 557px !important;
@@ -149,6 +157,9 @@ button.close {
     .bacmodal.iframe-modal {
         max-width: 79%;
         margin: 0 auto !important;
+    }
+    .bacmodal.bacmodal-dialog {
+        max-width: 100%;
     }
 }
 @media (min-width: 768px){
