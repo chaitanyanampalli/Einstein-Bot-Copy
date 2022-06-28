@@ -145,7 +145,11 @@ button.close {
         height: 557px !important;
     }
 }
-
+@media screen and (max-width: 992px)
+.bacmodal.iframe-modal {
+    max-width: 79%;
+    margin: 0 auto !important;
+}
 @media (min-width: 768px){
     .bacmodal-dialog {
         width: 600px;
