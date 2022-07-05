@@ -558,8 +558,7 @@
             });
 
             document.addEventListener("openBACDialog", function (event) {
-                console.log('event of BAC--------');
-                console.log(event.detail.data);
+                
                 let bacurl = event.detail.data;
                 let iframeEle = document.getElementById("baciframe");
                 iframeEle.setAttribute("src", bacurl);
@@ -583,12 +582,11 @@
                 let agentName = event.detail.data.data.agentName;
                 let agentType = event.detail.data.data.agentType;
                 let fname = agentName.split("_")[0];
-                console.log(event.detail.data.data.agentName);
-                console.log(event.detail.data.data.agentType);
+                
                 let msgsName = document.querySelectorAll(".nameAndTimeContent > .agentName");
                    
                 if (msgsName.length > 0 && agentType != 'agent') {
-                    console.log(msgsName);
+                    
                     let lastMsg = msgsName[msgsName.length - 1];
                     if (lastMsg.textContent.trim() != '' && lastMsg.textContent.trim() != null) {
                         lastMsg.textContent = fname;
@@ -596,8 +594,7 @@
                 }
                 setTimeout(function() { 
                     let msgsNames = document.querySelectorAll(".nameAndTimeContent > .agentName");
-                    console.log(msgsName);
-                    console.log('-------------------');
+                   
                     if (msgsNames.length > 0 && agentType != 'agent') {
                         let lastMsgA = msgsNames[msgsNames.length - 1];
                         if (lastMsgA.textContent.trim() != '' && lastMsgA.textContent.trim() != null && lastMsgA.textContent != fname) {
