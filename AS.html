@@ -596,28 +596,21 @@
                 let agentName = event.detail.data.data.agentName;
                 let agentType = event.detail.data.data.agentType;
                 let fname = agentName.split("_")[0];
-                console.log(fname);
-                localStorage.setItem('botname', fname);
-                setBot(agentType);
-                /*const botInterval = setInterval((function fnc() {
-                    let msgsName = document.querySelectorAll(".nameAndTimeContent > .agentName");
-                    console.log({msgsName});
-                    if (msgsName.length > 0 && agentType != 'agent') {
-
-                        let lastMsg = msgsName[msgsName.length - 1];
-                        if (lastMsg.textContent.trim() != '' && lastMsg.textContent.trim() != null && lastMsg.textContent != fname) {
-                            console.log('fname---');
-                            console.log(fname);
-                            lastMsg.textContent = fname;
-                        } else {
-                            console.log({botInterval});
-                            if(botInterval){
-                                clearInterval(botInterval);
-                            }
+                let msgsName = document.querySelectorAll(".nameAndTimeContent > .agentName");
+                console.log({msgsName});
+                if (msgsName.length > 0 && agentType != 'agent') {
+                    let lastMsg = msgsName[msgsName.length - 1];
+                    if (lastMsg.textContent.trim() != '' && lastMsg.textContent.trim() != null && lastMsg.textContent != fname) {
+                        console.log('fname---');
+                        console.log(fname);
+                        lastMsg.textContent = fname;
+                    } else {
+                        console.log({botInterval});
+                        if(botInterval){
+                            clearInterval(botInterval);
                         }
                     }
-                    return fnc;
-                })(), 800);
+                }
                 setTimeout(function() { 
                     let msgsNames = document.querySelectorAll(".nameAndTimeContent > .agentName");
                     console.log({msgsNames}); 
@@ -629,27 +622,9 @@
                             lastMsgA.textContent = fname;
                         }
                     }
-                },350);*/
+                },550);
             });
-            function setBot(agentType){
-                let botName = localStorage.getItem('botname');
-                let setFlag = false;
-                 let msgsName = document.querySelectorAll(".nameAndTimeContent > .agentName");
-                    console.log({msgsName});
-                    if (msgsName.length > 0 && agentType != 'agent') {
-                        let lastMsg = msgsName[msgsName.length - 1];
-                        console.log(lastMsg.textContent.trim());
-                        if (lastMsg.textContent.trim() != '' && lastMsg.textContent.trim() != null && lastMsg.textContent != botName) {
-                            console.log('botName---');
-                            console.log(botName);
-                            lastMsg.textContent = botName;
-                            setFlag = true;
-                        }
-                    } 
-                    if(!setFlag){
-                        setBot(agentType);
-                    }
-            }
+            
             document.addEventListener("redirectFromLWC", function (event) {
                 let agentName = event.detail.data.data.agentName;
                 let agentType = event.detail.data.data.agentType;
@@ -661,12 +636,12 @@
                 if (element) {
                     element.textContent = content;
                 }
-                /*if (msgNames.length > 0 && element == null && agentType != 'agent') {
+                if (msgNames.length > 0 && element == null && agentType != 'agent') {
                     let lastMsg = msgNames[msgNames.length - 1];
                     if (lastMsg.textContent.trim() != '' && lastMsg.textContent.trim() != null) {
                         lastMsg.textContent = fname;
                     }
-                }*/
+                }
                 
             });
         </script>
