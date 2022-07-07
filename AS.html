@@ -602,6 +602,8 @@
                     
                     let lastMsg = msgsName[msgsName.length - 1];
                     if (lastMsg.textContent.trim() != '' && lastMsg.textContent.trim() != null) {
+                        console.log('fname---');
+                        console.log(fname);
                         lastMsg.textContent = fname;
                     }
                 }
@@ -611,6 +613,8 @@
                     if (msgsNames.length > 0 && agentType != 'agent') {
                         let lastMsgA = msgsNames[msgsNames.length - 1];
                         if (lastMsgA.textContent.trim() != '' && lastMsgA.textContent.trim() != null && lastMsgA.textContent != fname) {
+                            console.log('fname');
+                            console.log(fname);
                             lastMsgA.textContent = fname;
                         }
                     }
