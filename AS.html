@@ -609,7 +609,10 @@
                             console.log(fname);
                             lastMsg.textContent = fname;
                         } else {
-                            clearInterval(botInterval);
+                            console.log({botInterval});
+                            if(botInterval){
+                                clearInterval(botInterval);
+                            }
                         }
                     }
                     return fnc;
