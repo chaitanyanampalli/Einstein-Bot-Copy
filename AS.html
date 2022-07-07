@@ -34,7 +34,16 @@
                 }
             }
             .embeddedServiceLiveAgentStateChatItem.chatMessage button:hover, .embeddedServiceLiveAgentStateChatItem.chatMessage button:hover:focus {
-                 color: var(--color) !important;
+                background: var(--color) !important;
+                color: #fff !important;
+                border: 1px solid var(--color) !important;
+            }
+            .rich-menu-items>li:hover {
+                border: 1px solid var(--color) !important;
+            }
+            .embeddedServiceLiveAgentStateChatItem .chatContent ul.rich-menu-items li:first-of-type, 
+            .embeddedServiceLiveAgentStateChatItem .chatContent li:first-child button.rich-menu-itemOptionIsClicked {
+                border-radius: var(--menuButtonRadius);
             }
             .embeddedServiceLiveAgentStateChat .messageArea,
             .embeddedServiceLiveAgentStateChatItem.chatMessage button,
