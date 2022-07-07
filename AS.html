@@ -28,7 +28,7 @@
                 }
 
                 .rich-menu-itemOptionIsClicked:hover {
-                    background-color: #3984be !important;
+                    background-color: var(--color) !important;
                     color: #fff !important;
                     background: 0 0 !important;
                 }
@@ -43,14 +43,22 @@
             }
             .embeddedServiceLiveAgentStateChatItem .chatContent ul.rich-menu-items li:first-of-type, 
             .embeddedServiceLiveAgentStateChatItem .chatContent li:first-child button.rich-menu-itemOptionIsClicked {
-                border-radius: var(--menuButtonRadius);
+                border-radius: var(--menuButtonRadius) !important;
+            }
+            .embeddedServiceLiveAgentStateChatItem .chatContent ul.rich-menu-items li:first-of-type:hover {
+                border: 1px solid var(--color) !important;
             }
             .embeddedServiceLiveAgentStateChat .messageArea,
-            .embeddedServiceLiveAgentStateChatItem.chatMessage button,
             .embeddedServiceLiveAgentStateChatInputFooter .chasitorText {
                 font-family: var(--fontfamily), sans-serif !important;
             }
-
+            .embeddedServiceLiveAgentStateChatItem.chatMessage button {
+                font-family: var(--fontfamily), sans-serif !important;
+                width: calc(100% - 0px);
+                height: 44px;
+                line-height: 19px;
+                margin: 0px 0px;
+            }
             .embeddedServiceLiveAgentStateChat .messageArea:hover {
                 overflow-y: auto !important;
             }
@@ -182,7 +190,7 @@
             }
 
             .embeddedServiceLiveAgentStateChatItem .chatContent ul.rich-menu-items li:first-of-type:hover {
-                border: 1px solid #3984be !important;
+                border: 1px solid var(--color) !important;
             }
 
             .endChatButton {
@@ -195,7 +203,7 @@
             .embeddedServiceSidebarButton {
                 border-radius: var(--menuButtonRadius) !important;
                 text-decoration: none !important;
-                font-family: var(--fontfamily), sans-serif;
+                font-family: var(--fontfamily), sans-serif !important;
                 font-weight: 500;
             }
 
@@ -215,7 +223,7 @@
             }
 
             .rich-button-item:hover {
-                background-color: #3984be !important;
+                background-color: var(--color) !important;
                 color: #fff !important;
             }
 
@@ -226,10 +234,6 @@
                 word-wrap: break-word !important;
                 border: 1px solid var(--color) !important;
                 /*     width: 250px !important; */
-            }
-
-            .rich-menu-items>li:hover {
-                border: 1px solid #3984be !important;
             }
 
             .rich-menu-item {
@@ -287,8 +291,8 @@
             }
 
             .waitingCancelChat:hover {
-                border: 1px solid #3984be !important;
-                background-color: #3984be !important;
+                border: 1px solid var(--color) !important;
+                background-color: var(--color) !important;
                 color: #fff !important;
             }
 
@@ -310,7 +314,7 @@
             }
 
             .embeddedServiceSidebarButton:hover {
-                background: #3984be !important;
+                background: var(--color) !important;
             }
 
             .embeddedServiceLiveAgentStateWaiting .waitingImage {
