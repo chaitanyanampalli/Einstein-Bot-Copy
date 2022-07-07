@@ -33,7 +33,9 @@
                     background: 0 0 !important;
                 }
             }
-
+            .embeddedServiceLiveAgentStateChatItem.chatMessage button:hover, .embeddedServiceLiveAgentStateChatItem.chatMessage button:hover:focus {
+                 color: var(--color) !important;
+            }
             .embeddedServiceLiveAgentStateChat .messageArea,
             .embeddedServiceLiveAgentStateChatItem.chatMessage button,
             .embeddedServiceLiveAgentStateChatInputFooter .chasitorText {
@@ -339,14 +341,14 @@
             .embeddedServiceSidebarButton.uiButton,
             .embeddedServiceSidebarButton.uiButton:disabled {
                 background: none !important;
-                border: 1px solid #0F2B4C !important;
+                border: 1px solid var(--color)  !important;
             }
 
             .embeddedServiceSidebarButton.uiButton:hover,
             .embeddedServiceSidebarButton.uiButton:disabled:hover {
                 background: var(--color) !important;
                 color: #fff !important;
-                border: 1px solid #0F2B4C !important;
+                border: 1px solid var(--color) !important;
             }
 
             #custom-border-cobrowse {
