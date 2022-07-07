@@ -597,7 +597,7 @@
                 let agentType = event.detail.data.data.agentType;
                 let fname = agentName.split("_")[0];
                 console.log(fname);
-                localStroage.setItem('botname', fname);
+                localStorage.setItem('botname', fname);
                 setBot();
                 /*const botInterval = setInterval((function fnc() {
                     let msgsName = document.querySelectorAll(".nameAndTimeContent > .agentName");
@@ -632,7 +632,7 @@
                 },350);*/
             });
             function setBot(){
-                let botName = localStroage.getItem('botname');
+                let botName = localStorage.getItem('botname');
                  let msgsName = document.querySelectorAll(".nameAndTimeContent > .agentName");
                     console.log({msgsName});
                     if (msgsName.length > 0 && agentType != 'agent') {
