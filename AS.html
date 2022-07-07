@@ -597,7 +597,8 @@
                 let fname = agentName.split("_")[0];
                 console.log(fname);
                 let msgsName = document.querySelectorAll(".nameAndTimeContent > .agentName");
-                   
+         
+                        console.log({msgsName});   
                 if (msgsName.length > 0 && agentType != 'agent') {
                     
                     let lastMsg = msgsName[msgsName.length - 1];
@@ -609,7 +610,7 @@
                 }
                 setTimeout(function() { 
                     let msgsNames = document.querySelectorAll(".nameAndTimeContent > .agentName");
-                   
+                    console.log({msgsName}); 
                     if (msgsNames.length > 0 && agentType != 'agent') {
                         let lastMsgA = msgsNames[msgsNames.length - 1];
                         if (lastMsgA.textContent.trim() != '' && lastMsgA.textContent.trim() != null && lastMsgA.textContent != fname) {
