@@ -598,7 +598,7 @@
                 let fname = agentName.split("_")[0];
                 console.log(fname);
                 localStorage.setItem('botname', fname);
-                setBot();
+                setBot(agentType);
                 /*const botInterval = setInterval((function fnc() {
                     let msgsName = document.querySelectorAll(".nameAndTimeContent > .agentName");
                     console.log({msgsName});
@@ -631,7 +631,7 @@
                     }
                 },350);*/
             });
-            function setBot(){
+            function setBot(agentType){
                 let botName = localStorage.getItem('botname');
                  let msgsName = document.querySelectorAll(".nameAndTimeContent > .agentName");
                     console.log({msgsName});
@@ -644,7 +644,7 @@
                             lastMsg.textContent = botName;
                         }
                     } else {
-                        setBot(botName);
+                        setBot(agentType);
                     }
             }
             document.addEventListener("redirectFromLWC", function (event) {
