@@ -633,6 +633,7 @@
             });
             function setBot(agentType){
                 let botName = localStorage.getItem('botname');
+                let setFlag = false;
                  let msgsName = document.querySelectorAll(".nameAndTimeContent > .agentName");
                     console.log({msgsName});
                     if (msgsName.length > 0 && agentType != 'agent') {
@@ -642,8 +643,10 @@
                             console.log('botName---');
                             console.log(botName);
                             lastMsg.textContent = botName;
+                            setFlag = true;
                         }
-                    } else {
+                    } 
+                    if(!setFlag){
                         setBot(agentType);
                     }
             }
