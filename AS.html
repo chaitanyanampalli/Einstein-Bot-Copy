@@ -592,21 +592,27 @@
 
             });
             //const myInterval;
-            /*document.addEventListener("setBotName", function (event) {
+            document.addEventListener("setBotName", function (event) {
                 let agentName = event.detail.data.data.agentName;
                 let agentType = event.detail.data.data.agentType;
                 let fname = agentName.split("_")[0];
                 let msgsName = document.querySelectorAll(".nameAndTimeContent > .agentName");
                 console.log({msgsName});
                 if (msgsName.length > 0 && agentType != 'agent') {
-                    let lastMsg = msgsName[msgsName.length - 1];
+                    /*let lastMsg = msgsName[msgsName.length - 1];
                     if (lastMsg.textContent.trim() != '' && lastMsg.textContent.trim() != null && lastMsg.textContent != fname) {
                         console.log('fname---');
                         console.log(fname);
                         lastMsg.textContent = fname;
-                    }
+                    }*/
+                    msgsName.forEach(ele => {
+                        if(ele.textContent.trim() != '' && ele.textContent.trim() != null){
+                                ele.textContent = fname;
+                                console.log(ele.innerText);
+                        }
+                    });
                 }
-                setTimeout(function() { 
+                /*setTimeout(function() { 
                     let msgsNames = document.querySelectorAll(".nameAndTimeContent > .agentName");
                     console.log({msgsNames}); 
                     if (msgsNames.length > 0 && agentType != 'agent') {
@@ -617,8 +623,8 @@
                             lastMsgA.textContent = fname;
                         }
                     }
-                },550);
-            });*/
+                },550);*/
+            });
             
             document.addEventListener("redirectFromLWC", function (event) {
                 let agentName = event.detail.data.data.agentName;
