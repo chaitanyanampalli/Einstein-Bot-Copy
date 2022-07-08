@@ -592,7 +592,7 @@
 
             });
             //const myInterval;
-            document.addEventListener("setBotName", function (event) {
+            /*document.addEventListener("setBotName", function (event) {
                 let agentName = event.detail.data.data.agentName;
                 let agentType = event.detail.data.data.agentType;
                 let fname = agentName.split("_")[0];
@@ -618,7 +618,7 @@
                         }
                     }
                 },550);
-            });
+            });*/
             
             document.addEventListener("redirectFromLWC", function (event) {
                 let agentName = event.detail.data.data.agentName;
@@ -632,12 +632,12 @@
                     element.textContent = content;
                 }
                 console.log(msgNames);
-                /*if (msgNames.length > 0 && element == null && agentType != 'agent') {
+                if (msgNames.length > 0 && element == null && agentType != 'agent') {
                     let lastMsg = msgNames[msgNames.length - 1];
                     if (lastMsg.textContent.trim() != '' && lastMsg.textContent.trim() != null) {
                         lastMsg.textContent = fname;
                     }
-                }*/
+                }
                 
             });
         </script>
