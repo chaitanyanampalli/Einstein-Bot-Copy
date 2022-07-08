@@ -606,24 +606,15 @@
                         lastMsg.textContent = fname;
                     }*/
                     msgsName.forEach(ele => {
-                        if(ele.textContent.trim() != '' && ele.textContent.trim() != null){
+                        if(ele.textContent.trim() != '' && ele.textContent.trim() != null && ele.querySelector("replaced").length == 0) ){
+                                var agentNameSpan = document.createElement('span');
+                                agentNameSpan.className = "replaced";
+                                ele.appendChild(agentNameSpan);
                                 ele.textContent = fname;
                                 console.log(ele.innerText);
                         }
                     });
                 }
-                /*setTimeout(function() { 
-                    let msgsNames = document.querySelectorAll(".nameAndTimeContent > .agentName");
-                    console.log({msgsNames}); 
-                    if (msgsNames.length > 0 && agentType != 'agent') {
-                        let lastMsgA = msgsNames[msgsNames.length - 1];
-                        if (lastMsgA.textContent.trim() != '' && lastMsgA.textContent.trim() != null && lastMsgA.textContent != fname) {
-                            console.log('fname');
-                            console.log(fname);
-                            lastMsgA.textContent = fname;
-                        }
-                    }
-                },550);*/
             });
             
             document.addEventListener("redirectFromLWC", function (event) {
