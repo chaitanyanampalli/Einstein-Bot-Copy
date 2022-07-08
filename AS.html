@@ -633,10 +633,16 @@
                 }
                 console.log(msgNames);
                 if (msgNames.length > 0 && element == null && agentType != 'agent') {
-                    let lastMsg = msgNames[msgNames.length - 1];
+                    /*let lastMsg = msgNames[msgNames.length - 1];
                     if (lastMsg.textContent.trim() != '' && lastMsg.textContent.trim() != null) {
                         lastMsg.textContent = fname;
-                    }
+                    }*/
+                    msgNames.forEach(ele => {
+                        if(ele.textContent.trim() != '' && ele.textContent.trim() != null){
+                                ele.textContent = fname;
+                                console.log(ele.innerText);
+                        }
+                    });
                 }
                 
             });
