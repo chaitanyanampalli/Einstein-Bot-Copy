@@ -591,26 +591,18 @@
                 }
 
             });
-            //const myInterval;
+            
             document.addEventListener("setBotName", function (event) {
                 let agentName = event.detail.data.data.agentName;
                 let agentType = event.detail.data.data.agentType;
                 let fname = agentName.split("_")[0];
                 let msgsName = document.querySelectorAll(".nameAndTimeContent > .agentName");
+                let element = document.querySelector(".eventMessage > .uiOutputRichText");
                 console.log({msgsName});
-                if (msgsName.length > 0 && agentType != 'agent') {
-                    /*let lastMsg = msgsName[msgsName.length - 1];
-                    if (lastMsg.textContent.trim() != '' && lastMsg.textContent.trim() != null && lastMsg.textContent != fname) {
-                        console.log('fname---');
-                        console.log(fname);
-                        lastMsg.textContent = fname;
-                    }*/
+                if (msgsName.length > 0 && element == null && agentType != 'agent') {
+                   
                     msgsName.forEach(ele => {
-                        //console.log(ele.querySelector(".replaced"));
                         if(ele.textContent.trim() != '' && ele.textContent.trim() != null){
-                                //var agentNameSpan = document.createElement('span');
-                                //agentNameSpan.className = "replaced";
-                                //ele.appendChild(agentNameSpan);
                                 ele.textContent = fname;
                                 console.log(ele.innerText);
                         }
@@ -629,19 +621,18 @@
                 if (element) {
                     element.textContent = content;
                 }
-                console.log(msgNames);
-                if (msgNames.length > 0 && element == null && agentType != 'agent') {
-                    /*let lastMsg = msgNames[msgNames.length - 1];
+                /*if (msgNames.length > 0 && element == null && agentType != 'agent') {
+                    let lastMsg = msgNames[msgNames.length - 1];
                     if (lastMsg.textContent.trim() != '' && lastMsg.textContent.trim() != null) {
                         lastMsg.textContent = fname;
-                    }*/
+                    }
                     msgNames.forEach(ele => {
                         if(ele.textContent.trim() != '' && ele.textContent.trim() != null){
                                 ele.textContent = fname;
                                 console.log(ele.innerText);
                         }
                     });
-                }
+                }*/
                 
             });
         </script>
