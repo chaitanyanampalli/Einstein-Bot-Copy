@@ -606,11 +606,11 @@
                         lastMsg.textContent = fname;
                     }*/
                     msgsName.forEach(ele => {
-                        console.log(ele.querySelector(".replaced"));
-                        if(ele.textContent.trim() != '' && ele.textContent.trim() != null && ele.querySelector(".replaced") == null){
-                                var agentNameSpan = document.createElement('span');
-                                agentNameSpan.className = "replaced";
-                                ele.appendChild(agentNameSpan);
+                        //console.log(ele.querySelector(".replaced"));
+                        if(ele.textContent.trim() != '' && ele.textContent.trim() != null){
+                                //var agentNameSpan = document.createElement('span');
+                                //agentNameSpan.className = "replaced";
+                                //ele.appendChild(agentNameSpan);
                                 ele.textContent = fname;
                                 console.log(ele.innerText);
                         }
