@@ -606,7 +606,8 @@
                         lastMsg.textContent = fname;
                     }*/
                     msgsName.forEach(ele => {
-                        if(ele.textContent.trim() != '' && ele.textContent.trim() != null && ele.querySelector("replaced").length == 0) ){
+                        console.log(ele.querySelector(".replaced"));
+                        if(ele.textContent.trim() != '' && ele.textContent.trim() != null && ele.querySelector(".replaced").length == 0) ){
                                 var agentNameSpan = document.createElement('span');
                                 agentNameSpan.className = "replaced";
                                 ele.appendChild(agentNameSpan);
