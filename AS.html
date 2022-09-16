@@ -606,6 +606,10 @@
                 let fname = agentName.split("_")[0];
                 let msgsName = document.querySelectorAll(".nameAndTimeContent > .agentName");
                 let element = document.querySelector(".eventMessage > .uiOutputRichText");
+                let chatStartEle = document.querySelector(".chatSessionStartTime > #chatWindowCurrentDesc");
+                if(chatStartEle){
+                    chatStartEle.textContent = 'Chat Started';
+                }
                 console.log({msgsName});
                 if (msgsName.length > 0 && element == null && agentType != 'agent') {
                    
