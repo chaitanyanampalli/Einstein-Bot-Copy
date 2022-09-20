@@ -624,7 +624,7 @@
                 let agentName = event.detail.data.data.agentName;
                 let agentType = event.detail.data.data.agentType;
                 let fname = agentName.split("_")[0];
-		let msgsName =  document.querySelectorAll(".chatMessage");
+		/*let msgsName =  document.querySelectorAll(".chatMessage");
 		msgsName.forEach(liElement => {
 		    console.log(liElement);
 		    let e = liElement.querySelector('.eventMessage > .uiOutputRichText');
@@ -641,7 +641,7 @@
 		    } else {
 			return false;
 		    }
-		});
+		});*/
                 /*let msgsName = document.querySelectorAll(".nameAndTimeContent > .agentName");
                 let element = document.querySelector(".eventMessage > .uiOutputRichText");
                 let chatStartEle = document.querySelector(".chatSessionStartTime > #chatWindowCurrentDesc");
@@ -667,6 +667,7 @@
                 let agentName = event.detail.data.data.agentName;
                 let agentType = event.detail.data.data.agentType;
                 let fname = agentName.split("_")[0];
+		    console.log(fname);
                 let content = `Chat started with ${fname}`;
                 let msgNames = document.querySelectorAll(".nameAndTimeContent > .agentName");
                 let element = document.querySelector(".eventMessage > .uiOutputRichText");
@@ -674,7 +675,24 @@
                 if (element) {
                     element.textContent = content;
                 }
-               
+                let msgsName =  document.querySelectorAll(".chatMessage");
+		msgsName.forEach(liElement => {
+		    console.log(liElement);
+		    let e = liElement.querySelector('.eventMessage > .uiOutputRichText');
+		    console.log(e);
+		    if(!e){
+			let msg = liElement.querySelector(".nameAndTimeContent > .agentName");
+			console.log(msg);
+			if(msg){
+			    if(msg.textContent.trim() != '' && msg.textContent.trim() != null){
+				msg.textContent = fname;
+				console.log(msg.innerText);
+			    }
+			}
+		    } else {
+			return false;
+		    }
+		});
                 /*if (msgNames.length > 0 && element == null && agentType != 'agent') {
                     let lastMsg = msgNames[msgNames.length - 1];
                     if (lastMsg.textContent.trim() != '' && lastMsg.textContent.trim() != null) {
