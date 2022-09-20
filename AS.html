@@ -624,7 +624,24 @@
                 let agentName = event.detail.data.data.agentName;
                 let agentType = event.detail.data.data.agentType;
                 let fname = agentName.split("_")[0];
-                let msgsName = document.querySelectorAll(".nameAndTimeContent > .agentName");
+		    
+		let ele = msgsName.forEach(liElement => {
+		    let e = liElement.querySelector('.eventMessage > .uiOutputRichText');
+		    console.log(e);
+		    if(!e){
+			let msg = liElement.querySelector(".nameAndTimeContent > .agentName");
+			console.log(msg);
+			if(msg){
+			    if(msg.textContent.trim() != '' && msg.textContent.trim() != null){
+				msg.textContent = fname;
+				console.log(msg.innerText);
+			    }
+			}
+		    } else {
+			return false;
+		    }
+		});
+                /*let msgsName = document.querySelectorAll(".nameAndTimeContent > .agentName");
                 let element = document.querySelector(".eventMessage > .uiOutputRichText");
                 let chatStartEle = document.querySelector(".chatSessionStartTime > #chatWindowCurrentDesc");
                 if(chatStartEle){
@@ -642,7 +659,7 @@
                                 console.log(ele.innerText);
                         }
                     });
-                }
+                }*/
             });
             
             document.addEventListener("redirectFromLWC", function (event) {
