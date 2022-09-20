@@ -635,25 +635,7 @@
                     }
                 },400);
             });
-            document.addEventListener("redirectFromLWC", function (event) {
-                let agentName = event.detail.data.data.agentName;
-                let agentType = event.detail.data.data.agentType;
-                let fname = agentName.split("_")[0];
-                let content = `Chat started with ${fname}`;
-                let msgNames = document.querySelectorAll(".nameAndTimeContent > .agentName");
-                let element = document.querySelector(".eventMessage > .uiOutputRichText");
-
-                if (element) {
-                    element.textContent = content;
-                }
-                /*if (msgNames.length > 0 && element == null && agentType != 'agent') {
-                    let lastMsg = msgNames[msgNames.length - 1];
-                    if (lastMsg.textContent.trim() != '' && lastMsg.textContent.trim() != null) {
-                        lastMsg.textContent = fname;
-                    }
-                }*/
-                
-            });
+            
             function addListeners(meetUrl,toggleWindow){
                 let smeet = document.getElementById('screenmeet');
                 console.log("add lisner call");
