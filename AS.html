@@ -626,6 +626,7 @@
                 let fname = agentName.split("_")[0];
 		let msgsName =  document.querySelectorAll(".chatMessage");
 		msgsName.forEach(liElement => {
+		    console.log(liElement);
 		    let e = liElement.querySelector('.eventMessage > .uiOutputRichText');
 		    console.log(e);
 		    if(!e){
