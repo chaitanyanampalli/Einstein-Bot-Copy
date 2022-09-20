@@ -625,8 +625,8 @@
                 let agentType = event.detail.data.data.agentType;
                 let fname = agentName.split("_")[0];
 	
-                let msgsName = document.querySelectorAll(".nameAndTimeContent > .agentName");
-                let element = document.querySelector(".eventMessage > .uiOutputRichText");
+                //let msgsName = document.querySelectorAll(".nameAndTimeContent > .agentName");
+                //let element = document.querySelector(".eventMessage > .uiOutputRichText");
                 let chatStartEle = document.querySelector(".chatSessionStartTime > #chatWindowCurrentDesc");
                 if(chatStartEle){
                     let result = chatStartEle.textContent.includes("Chat started");
@@ -634,15 +634,32 @@
                         chatStartEle.textContent = 'Chat Started';
                     }
                 }
-                
-                if (msgsName.length > 0) {
+                let msgsName =  document.querySelectorAll(".chatMessage");
+		msgsName.forEach(liElement => {
+		    
+		    let e = liElement.querySelector('.eventMessage > .uiOutputRichText');
+		  
+		    if(!e){
+			let msg = liElement.querySelector(".nameAndTimeContent > .agentName");
+			
+			if(msg){
+			    if(msg.textContent.trim() != '' && msg.textContent.trim() != null){
+				msg.textContent = fname;
+				console.log(msg.innerText);
+			    }
+			}
+		    } else {
+			return false;
+		    }
+		});
+                /*if (msgsName.length > 0) {
                     msgsName.forEach(ele => {
                         if(ele.textContent.trim() != '' && ele.textContent.trim() != null){
                                 ele.textContent = fname;
                                 console.log(ele.innerText);
                         }
                     });
-                }
+                }*/
             });
             
             function addListeners(meetUrl,toggleWindow){
