@@ -625,15 +625,18 @@
                let agentType = event.detail.data.data.agentType;
                let fname = agentName.split("_")[0];
 	
-	       let msgsName = document.querySelectorAll(".nameAndTimeContent > .agentName");
-
-		if (msgsName.length > 0 && agentType != 'agent') {
-		    msgsName.forEach(ele => {
+		let msgsName = document.querySelectorAll(".nameAndTimeContent > .agentName");
+                let element = document.querySelector(".eventMessage > .uiOutputRichText");
+                
+                if (msgsName.length > 0 && element == null && agentType != 'agent') {
+                   
+                    msgsName.forEach(ele => {
                         if(ele.textContent.trim() != '' && ele.textContent.trim() != null){
                                 ele.textContent = fname;
+                                
                         }
                     });
-		}
+                }
 		
 		setTimeout(function() { 
 		    let msgsNames = document.querySelectorAll(".nameAndTimeContent > .agentName");
