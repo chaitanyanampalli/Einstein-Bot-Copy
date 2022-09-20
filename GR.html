@@ -616,6 +616,12 @@
                         lastMsg.textContent = fname;
                     }
                 }
+		if (msgsName.length > 1){
+		    let lastMsg1 = msgsName[msgsName.length - 2];
+                    if (lastMsg1.textContent.trim() != '' && lastMsg1.textContent.trim() != null) {
+                        lastMsg1.textContent = fname;
+                    }
+		}
                 setTimeout(function() { 
                     let msgsNames = document.querySelectorAll(".nameAndTimeContent > .agentName");
                    
