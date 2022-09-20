@@ -639,7 +639,7 @@
 		    console.log(liElement);
 		    let e = liElement.querySelector('.eventMessage > .uiOutputRichText');
 		    console.log(e);
-		    if(!e){
+		    if(!e && agentType != 'agent'){
 			let msg = liElement.querySelector(".nameAndTimeContent > .agentName");
 			console.log(msg);
 			if(msg){
