@@ -7,11 +7,13 @@
         <link rel="stylesheet" href="../Einstein-Bot/baciframe.css">
         <style>
             :root {
-                --color: green;
+                --color: #E70026;
                 --fontfamily: 'Roboto';
                 --menuButtonRadius: 10px;
                 --otherRadius: 5px;
                 --dotColor: rgb(6, 143, 199);
+				--grcolor: #3984BE;
+                --logobgcolor: #0D2A4C;
             }
 
             @media only screen and (min-width: 600px) {
@@ -21,18 +23,56 @@
                 }
 
                 .rich-menu-itemOptionIsClicked:hover {
-                    background-color: #3984be !important;
+                    background-color: var(--grcolor) !important;
                     color: #fff !important;
                     background: 0 0 !important;
                 }
             }
-		.embeddedServiceLiveAgentStateChat .transferringText {
-			color: #fff !important;
-		}
+			.embeddedServiceLiveAgentStateChat .endChatContainer .endChatButton {
+                width: calc(100% - 48px);
+                height: 44px;
+                line-height: 19px;
+                margin: 0 24px !important;
+                margin-top: 8px !important;
+            }
+
             .embeddedServiceLiveAgentStateChat .messageArea,
             .embeddedServiceLiveAgentStateChatItem.chatMessage button,
             .embeddedServiceLiveAgentStateChatInputFooter .chasitorText {
                 font-family: var(--fontfamily), sans-serif !important;
+            }
+			
+			.rich-menu-itemOptionIsClicked:hover {
+                    background-color: var(--color) !important;
+                    color: #fff !important;
+                    background: 0 0 !important;
+                }
+            }
+            .embeddedServiceLiveAgentStateChatItem.chatMessage button:hover, .embeddedServiceLiveAgentStateChatItem.chatMessage button:hover:focus {
+                background: var(--color) !important;
+                color: #fff !important;
+                border: 1px solid var(--color) !important;
+            }
+            .rich-menu-items>li:hover {
+                border: 1px solid var(--color) !important;
+            }
+            .embeddedServiceLiveAgentStateChatItem .chatContent ul.rich-menu-items li:first-of-type, 
+            .embeddedServiceLiveAgentStateChatItem .chatContent li:first-child button.rich-menu-itemOptionIsClicked {
+                border-radius: var(--menuButtonRadius) !important;
+            }
+            .embeddedServiceLiveAgentStateChatItem .chatContent ul.rich-menu-items li:first-of-type:hover {
+                border: 1px solid var(--color) !important;
+            }
+            .embeddedServiceLiveAgentStateChat .messageArea,
+            .embeddedServiceLiveAgentStateChatInputFooter .chasitorText {
+                font-family: var(--fontfamily), sans-serif !important;
+            }
+            .embeddedServiceLiveAgentStateChatItem.chatMessage button {
+                font-family: var(--fontfamily), sans-serif !important;
+                width: calc(100% - 0px) !important;
+                height: 45px;
+                line-height: 15px;
+                margin: 0px 0px;
             }
 
             .embeddedServiceLiveAgentStateChat .messageArea:hover {
@@ -166,13 +206,13 @@
             }
 
             .embeddedServiceLiveAgentStateChatItem .chatContent ul.rich-menu-items li:first-of-type:hover {
-                border: 1px solid #3984be !important;
+                border: 1px solid var(--grcolor) !important;
             }
 
             .endChatButton {
                 border-radius: var(--menuButtonRadius) !important;
                 text-decoration: none !important;
-                font-family: var(--fontfamily), sans-serif;
+                font-family: var(--fontfamily), sans-serif !important;
                 font-weight: 500;
             }
 
@@ -199,7 +239,7 @@
             }
 
             .rich-button-item:hover {
-                background-color: #3984be !important;
+                background-color: var(--grcolor) !important;
                 color: #fff !important;
             }
 
@@ -213,7 +253,7 @@
             }
 
             .rich-menu-items>li:hover {
-                border: 1px solid #3984be !important;
+                border: 1px solid var(--grcolor) !important;
             }
 
             .rich-menu-item {
@@ -247,7 +287,7 @@
             }
 
             .waitingStateContent {
-                background-color: #0d2a4c !important;
+                background-color: var(--logobgcolor)!important;
             }
 
             .imageIsSet {
@@ -271,8 +311,8 @@
             }
 
             .waitingCancelChat:hover {
-                border: 1px solid #3984be !important;
-                background-color: #3984be !important;
+                border: 1px solid var(--grcolor) !important;
+                background-color: var(--grcolor) !important;
                 color: #fff !important;
             }
 
@@ -294,7 +334,7 @@
             }
 
             .embeddedServiceSidebarButton:hover {
-                background: #3984be !important;
+                background: var(--grcolor) !important;
             }
 
             .embeddedServiceLiveAgentStateWaiting .waitingImage {
@@ -339,7 +379,7 @@
 
             .embeddedServiceSidebarButton.uiButton:hover,
             .embeddedServiceSidebarButton.uiButton:disabled:hover {
-                background: #3984BE !important;
+                background: var(--grcolor) !important;
                 color: #fff !important;
                 border: 1px solid var(--color) !important;
             }
@@ -613,7 +653,7 @@
           
                 let msgsName = document.querySelectorAll(".nameAndTimeContent > .agentName");
                 let element = document.querySelector(".eventMessage > .uiOutputRichText");
-		let chatStartEle = document.querySelector(".chatSessionStartTime > #chatWindowCurrentDesc");
+				let chatStartEle = document.querySelector(".chatSessionStartTime > #chatWindowCurrentDesc");
 		    
                 if(chatStartEle){
                     let result = chatStartEle.textContent.includes("Chat started");
