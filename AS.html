@@ -382,12 +382,26 @@
                 left: 0;
                 pointer-events: none;
             }
+	    /*@media only screen and (max-width: 365px) {
+		position: fixed;
+		z-index: 10000;
+		max-height: 365px;
+		max-width: 365px;
+		background: #0F2B4C;
+		top: 0;
+		left: 0;
+		overflow: scroll;
+		display: none;
+	    }*/
 	    .screen-meet-div{
 		position: fixed;
 		z-index: 10000;
-		height: 300px;
-		width: 300px;
+		max-height: 365px;
+		max-width: 365px;
 		background: #0F2B4C;
+		overflow: scroll;
+		top: 0;
+		left: 0;
 		display: none;
 	    }
         </style>
