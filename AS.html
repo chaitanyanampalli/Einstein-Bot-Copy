@@ -102,11 +102,17 @@
                 background-color: var(--color) !important;
             }
 
-            .minimizedContainer[c-customMinimized_customMinimized] {
+            /*.minimizedContainer[c-customMinimized_customMinimized] {
                 background-color: var(--color) !important;
                 border: 1px var(--color);
-            }
-
+            }*/
+		
+	    .minimizedContainer[c-customMinimized_customMinimized] {
+		    background: url(https://do5nkkzntcenb.cloudfront.net/Salesforce/GroheUS/ChatBubbleIcon-GroheUS.svg) no-repeat  scroll 0 0 transparent;
+	    }
+	    .minimizedContainer[c-customMinimized_customMinimized].messageContent {
+		    display: none;
+	    }
             .embeddedServiceSidebar.modalContainer {
                 font-family: var(--fontfamily), sans-serif !important;
             }
