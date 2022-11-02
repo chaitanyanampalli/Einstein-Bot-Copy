@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AS DetectLnk ContactUs EN-Full</title>
+
+    </head>
+<body onload="init()">
+<div id='container'>
+</div>
+<script type='text/javascript' src="https://full-lixilamerica.cs192.force.com/lightning/lightning.out.js"></script>
+<script>
+function init(){
+    $Lightning.use("c:Contact_Us_Embedded_Flow_App",    // name of the Lightning app
+        function() {                  // Callback once framework and app loaded
+            $Lightning.createComponent(
+                "c:Contact_Us_Embedded_Screenflow_Comp", // top-level component of your app
+                {DE_MetadataInput:"AS_DetectLnk_ContactUs_EN"},                  // attributes to set on the component when created
+                "container",   // the DOM location to insert the component
+                function(cmp) { // callback when component is created and active on the page
+                }
+            );
+        },
+        'https://full-lixilamerica.cs192.force.com/'  // Experience Cloud site endpoint
+    );
+    }
+</script>
+
+
+    </body>
+  </html>
