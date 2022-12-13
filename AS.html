@@ -463,9 +463,7 @@
         <script type='text/javascript'>
             var initESW = function (gslbBaseURL) {
 
-		embedded_svc.addEventHandler("onChatReconnectSuccessful", function(data) {
-		    console.log("onChatReconnectSuccessful event was fired.  liveAgentSessionKey was " + data.liveAgentSessionKey);
-		});
+		
                 embedded_svc.settings.enabledFeatures = ['LiveAgent'];
                 embedded_svc.settings.entryFeature = 'LiveAgent';
                 embedded_svc.settings.displayHelpButton = true;
@@ -491,6 +489,9 @@
                         isOfflineSupportEnabled: false
                     }
                 );
+	    	embedded_svc.addEventHandler("onChatReconnectSuccessful", function(data) {
+		    console.log("onChatReconnectSuccessful event was fired.  liveAgentSessionKey was " + data.liveAgentSessionKey);
+		});
                 embedded_svc.addEventHandler("afterMinimize", function() {
                   var sidebar = document.querySelector('.embeddedServiceSidebarMinimizedDefaultUI');
                   var height = sidebar.clientHeight;
