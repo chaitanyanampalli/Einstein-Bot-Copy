@@ -489,9 +489,9 @@
                         isOfflineSupportEnabled: false
                     }
                 );
-	    	embedded_svc.addEventHandler("onChatReconnectSuccessful", function(data) {
-		    console.log("onChatReconnectSuccessful event was fired.  liveAgentSessionKey was " + data.liveAgentSessionKey);
-		});
+	    	//embedded_svc.addEventHandler("onChatReconnectSuccessful", function() {
+		  //  console.log("onChatReconnectSuccessful event was fired.  liveAgentSessionKey was ");
+		//});
                 embedded_svc.addEventHandler("afterMinimize", function() {
                   var sidebar = document.querySelector('.embeddedServiceSidebarMinimizedDefaultUI');
                   var height = sidebar.clientHeight;
