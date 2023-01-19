@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+        <title>Chatbot Full AS</title>
+        <link rel="stylesheet" href="../Einstein-Bot/baciframe.css">
+    </head>
+    <!-- jquery cdn for cobrowse -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <body>
+        <!-- script for the Einstein chatbot -->
+        <script type='text/javascript'>
+            var initESW = function (gslbBaseURL) {
+
+		
+                embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+                embedded_svc.settings.entryFeature = 'LiveAgent';
+                embedded_svc.settings.displayHelpButton = true;
+                embedded_svc.settings.language = "";
+
+                embedded_svc.settings.waitingStateBackgroundImgURL =
+                    "https://americanstandard.box.com/shared/static/nb8hvf8hzdx6oiby8a0h26iy2uxmcehh.png";
+                embedded_svc.settings.defaultMinimizedText =
+                    "Chat & Co-Browse with an Expert";
+
+                embedded_svc.init(
+                    'https://lwta--qa.my.salesforce.com',
+		    'https://qa-lixilamerica.cs250.force.com/LWTACustomerService',
+                    gslbBaseURL,
+                    '00DDQ0000008aL2',
+                    'Bot_Chatbots_Group',
+                    {
+                        baseLiveAgentContentURL: 'https://c.la1-c1cs-ia7.salesforceliveagent.com/content',
+                        deploymentId: '5723l000000CmZ3',
+                        buttonId: '5733l000000LG27',
+                        baseLiveAgentURL: 'https://d.la1-c1cs-ia7.salesforceliveagent.com/chat',
+                        eswLiveAgentDevName: 'Bot_Chatbots_Group',
+                        isOfflineSupportEnabled: false
+                    }
+                );
+	    	embedded_svc.addEventHandler("onChatReconnectSuccessful", function() {
+		    console.log("onChatReconnectSuccessful event was fired.  liveAgentSessionKey was ");
+		});
+                embedded_svc.addEventHandler("afterMinimize", function() {
+                  var sidebar = document.querySelector('.embeddedServiceSidebarMinimizedDefaultUI');
+                  var height = sidebar.clientHeight;
+                  var width = sidebar.clientWidth;
+                  window.parent.postMessage({
+                    frameHeight: height,
+                    frameWidth: width
+                   }, '*');
+                });
+
+                embedded_svc.addEventHandler("afterMaximize", function() {
+                  var container = document.querySelector('.dockableContainer');
+                  var height = container.clientHeight;
+                  var width = container.clientWidth;
+                  window.parent.postMessage({
+                    frameHeight: embedded_svc.settings.widgetHeight,
+                    frameWidth: embedded_svc.settings.widgetWidth
+                  }, '*');
+                });
+
+                embedded_svc.addEventHandler("afterDestroy", function() {
+                  var height = document.querySelector('.helpButton').clientHeight;
+                  var width = document.querySelector('.helpButton').clientWidth;
+                  window.parent.postMessage({
+                    frameHeight: height,
+                    frameWidth: width
+                  }, '*');
+                });
+            };
+
+            if (!window.embedded_svc) {
+                var s = document.createElement('script');
+                s.setAttribute('src', 'https://lwta--qa.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+                s.onload = function () {
+                    initESW(null);
+                };
+                document.body.appendChild(s);
+            } else {
+                initESW('https://service.force.com');
+            }
+        </script>
+    </body>
+</html>
