@@ -479,8 +479,10 @@
         <script type='text/javascript'>
 	    $(document).on('click', '.letsChatbutton', function () {
 		    if($(".sidebarMinimized").length > 0 ){
+			console.log('IF123');
 			$(".sidebarMinimized").trigger('click');
 		    } else {
+		    	console.log('ELSE1234');
 		    	$(".helpButtonEnabled").trigger('click');;
 		    }
 	    });
