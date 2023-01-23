@@ -480,6 +480,7 @@
 	    $(document).on('click', '.letsChatbutton', function () {
 		    if($(".sidebarMinimized").length > 0 ){
 			console.log('IF123');
+			$('.messageContent[c-customMinimized_customMinimized]').trigger('click');
 			$(".sidebarMinimized").trigger('click');
 		    } else {
 		    	console.log('ELSE1234');
