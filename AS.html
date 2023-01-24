@@ -478,14 +478,13 @@
         <!-- script for the Einstein chatbot -->
         <script type='text/javascript'>
 	    $(document).on('click', '.letsChatbutton', function () {
-		    if($(".sidebarMinimized").length > 0 ){
-			console.log('IF123');
-			$('.messageContent[c-customMinimized_customMinimized]').trigger('click');
-			$(".sidebarMinimized").trigger('click');
-		    } else {
-		    	console.log('ELSE1234');
-		    	$(".helpButtonEnabled").trigger('click');;
-		    }
+		if($(".sidebarMinimized").length > 0 ){
+		    console.log('minimized');
+	            $('.minimizedText').trigger('click');
+		} else {
+		    console.log('firsttime');
+		    $(".helpButtonEnabled").trigger('click');;
+		}
 	    });
             var initESW = function (gslbBaseURL) {
 
