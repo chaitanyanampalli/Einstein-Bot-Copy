@@ -9,7 +9,7 @@ jsforce.browser.init({
   redirectUri: 'https://bhumigothi.github.io/Einstein-Bot/FileExtract.html'
 });
 jsforce.browser.on('connect', function(conn) {
-  conn.query('SELECT Id, Name FROM Account Limit 2', function(err, res) {
+  conn.query("SELECT ContentDocumentId, LinkedEntityId,ContentDocument.FileExtension, ContentDocument.FileType, ContentDocument.LatestPublishedVersion.VersionData  FROM ContentDocumentLink where LinkedEntityId in ( SELECT Id FROM account where name like '%b2b%')", function(err, res) {
     if (err) { return console.error(err); }
     console.log(res);
   });
