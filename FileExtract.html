@@ -4,8 +4,8 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/jsforce/1.9.1/jsforce.min.js"></script>
   <script>
 jsforce.browser.init({
-  clientId: '6Cel800D7d0000077mM78887d0000004qVogyHaGRxw4KEbsysNZJWtMDBFu8wK1ZbTog268FVXcOl3TgVXaylfRHalobDeNGcIxwBTLaHN',
-  redirectUri: 'https://test.salesforce.com/services/oauth2/success'
+  clientId: '6Cel800D5j000007cb7n8885j0000005Apmzx9IRHDhOiv9cg9lWfIKi6ncGS2jpRTaNhFdUavUAVefyDc4R8vSFkpDK37uH00Gknkl4PYD',
+  redirectUri: 'https://login.salesforce.com/services/oauth2/success'
 });
 jsforce.browser.on('connect', function(conn) {
   conn.query('SELECT Id, Name FROM Account Limit 2', function(err, res) {
