@@ -12,9 +12,9 @@ jsforce.browser.on('connect', function(conn) {
   conn.query("SELECT ContentDocumentId, LinkedEntityId,ContentDocument.FileExtension,ContentDocument.Title, ContentDocument.FileType, ContentDocument.LatestPublishedVersion.VersionData  FROM ContentDocumentLink where LinkedEntityId in ( SELECT Id FROM account where name like '%b2b%')", function(err, res) {
     if (err) { return console.error(err); }
     console.log(res);
-    console.log(res[0]);
-    console.log(res[0].ContentDocument.LatestPublishedVersion.VersionData);
-    console.log(res[0].ContentDocument.Title);
+    console.log(res.records[0]);
+    console.log(res.records[0].ContentDocument.LatestPublishedVersion.VersionData);
+    console.log(res.records[0].ContentDocument.Title);
     var file = new File([res[0].ContentDocument.LatestPublishedVersion.VersionData], res[0].ContentDocument.Title, {type: res[0].ContentDocument.FileType, lastModified: Date.now()});
     console.log(file);
   });
