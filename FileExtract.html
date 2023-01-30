@@ -22,7 +22,7 @@ jsforce.browser.on('connect', function(conn) {
     a.style = "display: none";
     url = window.URL.createObjectURL(file);
         a.href = url;
-        a.download = fileName;
+        a.download = res.records[0].ContentDocument.Title;
         a.click();
         window.URL.revokeObjectURL(url);
   });
