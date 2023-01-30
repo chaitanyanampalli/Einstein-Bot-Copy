@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jsforce/1.9.1/jsforce.min.js"></script>
+  <script>
+jsforce.browser.init({
+  clientId: '6Cel800D7d0000077mM78887d0000004qVogyHaGRxw4KEbsysNZJWtMDBFu8wK1ZbTog268FVXcOl3TgVXaylfRHalobDeNGcIxwBTLaHN',
+  redirectUri: 'https://test.salesforce.com/services/oauth2/success'
+});
+jsforce.browser.on('connect', function(conn) {
+  conn.query('SELECT Id, Name FROM Account Limit 2', function(err, res) {
+    if (err) { return console.error(err); }
+    console.log(res);
+  });
+});
+  </script>
+</head>
+<body>
+  <button onclick="javascript:jsforce.browser.login();">Login</button>
+</body>
+</html>
