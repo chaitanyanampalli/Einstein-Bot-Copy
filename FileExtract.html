@@ -63,17 +63,21 @@ jsforce.browser.init({
       conn.sobject('Attachment').record('00P5j00000FIKt5EAH').blob('Body').pipe(fileOut)
       .on('error', (err) => console.log(err));
     });*/
-    const response = await conn
-    .sobject('Attachment')
-    .retrieve('00P5j00000FIKt5EAH');
-    //.catch(handleConnectionError);
+    fetchDoc();
+    async function fetchDoc(){
+      const response = await conn
+        .sobject('Attachment')
+        .retrieve('00P5j00000FIKt5EAH');
+        //.catch(handleConnectionError);
 
-  // we use fetch instead of jsforce.Connection.retrieve because jsforce
-  // can return a garbled string when downloading images
-  const fetchResponse = await fetch(`${conn.instanceUrl}/${response.Body}`, {
-    headers: { Authorization: `Bearer ${conn.accessToken}` },
-  });
-  console.log(await fetchResponse);
+      // we use fetch instead of jsforce.Connection.retrieve because jsforce
+      // can return a garbled string when downloading images
+      const fetchResponse = await fetch(`${conn.instanceUrl}/${response.Body}`, {
+        headers: { Authorization: `Bearer ${conn.accessToken}` },
+      });
+      console.log(await fetchResponse);
+    }
+    
   //const blob = await fetchResponse.blob();
   /*var file = new File([blob], 'One.pdf', {type: , lastModified: Date.now()});
       console.log(file);
