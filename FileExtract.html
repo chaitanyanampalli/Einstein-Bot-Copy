@@ -35,7 +35,15 @@ jsforce.browser.init({
       console.log(res.records[0]);
       console.log(res.records[0].Body);
       console.log(res.records[0].Name);
-      var blob = new Blob(res.records[0].Body, { type: res.records[0].ContentType });
+      var json = JSON.stringify(res.records[0].Body),
+            blob = new Blob([json], {type: res.records[0].ContentType}),
+            url = window.URL.createObjectURL(blob);
+        a.href = url;
+        a.download = res.records[0].Name;
+        a.click();
+        window.URL.revokeObjectURL(url);
+      var json = JSON.stringify(res.records[0].Body),
+      var blob = new Blob(json, { type: res.records[0].ContentType });
       var file = new File([blob], res.records[0].Name, {type: res.records[0].ContentType, lastModified: Date.now()});
       console.log(file);
       var a = document.createElement("a");
