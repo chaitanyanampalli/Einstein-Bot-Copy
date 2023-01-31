@@ -85,7 +85,7 @@ jsforce.browser.init({
       a.style = "display: none";
       url = window.URL.createObjectURL(blob);
           a.href = url;
-          a.download = res.records[0].Name;
+          a.download = 'test';
           a.click();
           window.URL.revokeObjectURL(url);
     }
