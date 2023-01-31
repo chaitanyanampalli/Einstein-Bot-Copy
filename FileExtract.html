@@ -35,7 +35,7 @@ jsforce.browser.init({
       console.log(res.records[0]);
       console.log(res.records[0].Body);
       console.log(res.records[0].Name);
-      var blob = new Blob(res.records[0].Body, { type: contentType });
+      var blob = new Blob(res.records[0].Body, { type: res.records[0].ContentType });
       var file = new File([blob], res.records[0].Name, {type: res.records[0].ContentType, lastModified: Date.now()});
       console.log(file);
       var a = document.createElement("a");
