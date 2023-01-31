@@ -3,92 +3,41 @@
 <head>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jsforce/1.9.1/jsforce.min.js"></script>
   <script>
-jsforce.browser.init({
-  loginUrl: 'https://login.salesforce.com',
-  clientId: '3MVG9pRzvMkjMb6kBymhP55a2BB7TMIMw3St73GYnnGWpIdYp7Z7_ay21rUJXnu2.hEyb0IKOgaEnQ4dNQW8k',
-  redirectUri: 'https://bhumigothi.github.io/Einstein-Bot/FileExtract.html'
-});
-/*jsforce.browser.on('connect', function(conn) {
-  conn.query("SELECT ContentDocumentId, LinkedEntityId,ContentDocument.FileExtension,ContentDocument.Title, ContentDocument.FileType, ContentDocument.LatestPublishedVersion.VersionData  FROM ContentDocumentLink where LinkedEntityId in ( SELECT Id FROM account where name like '%b2b%')", function(err, res) {
-    if (err) { return console.error(err); }
-    console.log(res);
-    console.log(res.records[0]);
-    console.log(res.records[0].ContentDocument.LatestPublishedVersion.VersionData);
-    console.log(res.records[0].ContentDocument.Title);
-    var file = new File([res.records[0].ContentDocument.LatestPublishedVersion.VersionData], res.records[0].ContentDocument.Title, {type: res.records[0].ContentDocument.FileType, lastModified: Date.now()});
-    console.log(file);
-    var a = document.createElement("a");
-    document.body.appendChild(a);
-    a.style = "display: none";
-    url = window.URL.createObjectURL(file);
-        a.href = url;
-        a.download = res.records[0].ContentDocument.Title;
-        a.click();
-        window.URL.revokeObjectURL(url);
-  });
-});
-    
-  jsforce.browser.on('connect', function(conn) {
-    conn.query("SELECT id, name, body, ContentType from Attachment where parentId IN ( SELECT Id FROM account where name like '%b2b%')", function(err, res) {
-      if (err) { return console.error(err); }
-      console.log(res);
-      console.log(res.records[0]);
-      console.log(res.records[0].Body);
-      console.log(res.records[0].Name);
-      var a1 = document.createElement("a");
-      document.body.appendChild(a1);
-      a1.style = "display: none";
-      var json1 = JSON.stringify(res.records[0].Body),
-            blob1 = new Blob([json1], {type: res.records[0].ContentType}),
-            url1 = window.URL.createObjectURL(blob1);
-        a1.href = url;
-        a1.download = res.records[0].Name;
-        a1.click();
-        window.URL.revokeObjectURL(url1);
-      var json = JSON.stringify(res.records[0].Body);
-      var blob = new Blob(json, { type: res.records[0].ContentType });
-      var file = new File([blob], res.records[0].Name, {type: res.records[0].ContentType, lastModified: Date.now()});
-      console.log(file);
-      var a = document.createElement("a");
-      document.body.appendChild(a);
-      a.style = "display: none";
-      url = window.URL.createObjectURL(file);
-          a.href = url;
-          a.download = res.records[0].Name;
-          a.click();
-          window.URL.revokeObjectURL(url);
+    jsforce.browser.init({
+      loginUrl: 'https://login.salesforce.com',
+      clientId: '3MVG9pRzvMkjMb6kBymhP55a2BB7TMIMw3St73GYnnGWpIdYp7Z7_ay21rUJXnu2.hEyb0IKOgaEnQ4dNQW8k',
+      redirectUri: 'https://bhumigothi.github.io/Einstein-Bot/FileExtract.html'
     });
-  });
-    jsforce.browser.on('connect', function(conn) {
-      conn.sobject('Attachment').record('00P5j00000FIKt5EAH').blob('Body').pipe(fileOut)
-      .on('error', (err) => console.log(err));
-    });*/
      jsforce.browser.on('connect', function(conn) {
         fetchDoc(conn);
      });
     async function fetchDoc(conn){
-      const response = await conn
-        .sobject('Attachment')
-        .retrieve('00P5j00000FIKt5EAH');
-        //.catch(handleConnectionError);
+      conn.query("SELECT Id, Name, Body, ContentType from Attachment where ParentId IN( SELECT Id FROM account where name like '%b2b%')", function(err, res) {
+        if (err) { return console.error(err); }
+          res.records.forEach(record => {
+          const response = await conn
+          .sobject('Attachment')
+          .retrieve(record.Id);
+          //.catch(handleConnectionError);
 
-      // we use fetch instead of jsforce.Connection.retrieve because jsforce
-      // can return a garbled string when downloading images
-      const fetchResponse = await fetch(`${conn.instanceUrl}/${response.Body}`, {
-        headers: { Authorization: `Bearer ${conn.accessToken}` },
-      });
-      
-      const blob = await fetchResponse.blob();
-      
-      var a = document.createElement("a");
-      document.body.appendChild(a);
-      a.style = "display: none";
-      url = window.URL.createObjectURL(blob);
-          a.href = url;
-          a.download = 'test';
-          a.click();
-          window.URL.revokeObjectURL(url);
-    }
+        // we use fetch instead of jsforce.Connection.retrieve because jsforce
+        // can return a garbled string when downloading images
+        const fetchResponse = await fetch(`${conn.instanceUrl}/${response.Body}`, {
+          headers: { Authorization: `Bearer ${conn.accessToken}` },
+        });
+
+        const blob = await fetchResponse.blob();
+
+        var a = document.createElement("a");
+        document.body.appendChild(a);
+        a.style = "display: none";
+        url = window.URL.createObjectURL(blob);
+            a.href = url;
+            a.download = record.Name + _ + record.ParentId;
+            a.click();
+            window.URL.revokeObjectURL(url);
+    });
+  }
   </script>
 </head>
 <body>
