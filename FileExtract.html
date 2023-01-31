@@ -32,10 +32,10 @@ jsforce.browser.init({
     conn.query("SELECT id, name, body, ContentType from Attachment where parentId IN ( SELECT Id FROM account where name like '%b2b%')", function(err, res) {
       if (err) { return console.error(err); }
       console.log(res);
-      /*console.log(res.records[0]);
-      console.log(res.records[0].ContentDocument.LatestPublishedVersion.VersionData);
-      console.log(res.records[0].ContentDocument.Title);
-      var file = new File([res.records[0].ContentDocument.LatestPublishedVersion.VersionData], res.records[0].ContentDocument.Title, {type: res.records[0].ContentDocument.FileType, lastModified: Date.now()});
+      console.log(res.records[0]);
+      console.log(res.records[0].Body);
+      console.log(res.records[0].Name);
+      var file = new File([res.records[0].Body], res.records[0].Name, {type: res.records[0].ContentType, lastModified: Date.now()});
       console.log(file);
       var a = document.createElement("a");
       document.body.appendChild(a);
@@ -44,7 +44,7 @@ jsforce.browser.init({
           a.href = url;
           a.download = res.records[0].ContentDocument.Title;
           a.click();
-          window.URL.revokeObjectURL(url);*/
+          window.URL.revokeObjectURL(url);
     });
   });
   </script>
