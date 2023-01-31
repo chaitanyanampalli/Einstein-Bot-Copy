@@ -12,8 +12,7 @@
         fetchDoc(conn);
      });
     async function fetchDoc(conn){
-      conn.query("SELECT Id, Name, Body, ContentType from Attachment where ParentId IN( SELECT Id FROM account where name like '%b2b%')", function(err, res) {
-        if (err) { return console.error(err); }
+        const res = await conn.query("SELECT Id, Name, Body, ContentType from Attachment where ParentId IN( SELECT Id FROM account where name like '%b2b%')");
           res.records.forEach(record => {
           const response = await conn
           .sobject('Attachment')
@@ -36,7 +35,7 @@
             a.download = record.Name + _ + record.ParentId;
             a.click();
             window.URL.revokeObjectURL(url);
-    });
+    
   }
   </script>
 </head>
