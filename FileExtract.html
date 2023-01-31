@@ -13,28 +13,30 @@
      });
     async function fetchDoc(conn){
         const res = await conn.query("SELECT Id, Name, Body, ContentType from Attachment where ParentId IN( SELECT Id FROM account where name like '%b2b%')");
-          res.records.forEach(record => {
-          const response = await conn
-          .sobject('Attachment')
-          .retrieve(record.Id);
-          //.catch(handleConnectionError);
+          //res.records.forEach(record => {
+          for (const record of res.records) {
+            const response = await conn
+            .sobject('Attachment')
+            .retrieve(record.Id);
+            //.catch(handleConnectionError);
 
-        // we use fetch instead of jsforce.Connection.retrieve because jsforce
-        // can return a garbled string when downloading images
-        const fetchResponse = await fetch(`${conn.instanceUrl}/${response.Body}`, {
-          headers: { Authorization: `Bearer ${conn.accessToken}` },
-        });
+            // we use fetch instead of jsforce.Connection.retrieve because jsforce
+            // can return a garbled string when downloading images
+            const fetchResponse = await fetch(`${conn.instanceUrl}/${response.Body}`, {
+              headers: { Authorization: `Bearer ${conn.accessToken}` },
+            });
 
-        const blob = await fetchResponse.blob();
+            const blob = await fetchResponse.blob();
 
-        var a = document.createElement("a");
-        document.body.appendChild(a);
-        a.style = "display: none";
-        url = window.URL.createObjectURL(blob);
-            a.href = url;
-            a.download = record.Name + _ + record.ParentId;
-            a.click();
-            window.URL.revokeObjectURL(url);
+            var a = document.createElement("a");
+            document.body.appendChild(a);
+            a.style = "display: none";
+            url = window.URL.createObjectURL(blob);
+              a.href = url;
+              a.download = record.Name + _ + record.ParentId;
+              a.click();
+              window.URL.revokeObjectURL(url);
+      }
     
   }
   </script>
