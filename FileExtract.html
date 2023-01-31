@@ -78,12 +78,12 @@ jsforce.browser.init({
         headers: { Authorization: `Bearer ${conn.accessToken}` },
       });
       
-      const blob = await fetchResponse.blob();
-      
+      const fileRes = await fetchResponse;
+      console.log(fileRes);
       var a = document.createElement("a");
       document.body.appendChild(a);
       a.style = "display: none";
-      url = window.URL.createObjectURL(blob);
+      url = window.URL.createObjectURL(fileRes.blob());
           a.href = url;
           a.download = 'test';
           a.click();
