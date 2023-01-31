@@ -8,7 +8,7 @@ jsforce.browser.init({
   clientId: '3MVG9pRzvMkjMb6kBymhP55a2BB7TMIMw3St73GYnnGWpIdYp7Z7_ay21rUJXnu2.hEyb0IKOgaEnQ4dNQW8k',
   redirectUri: 'https://bhumigothi.github.io/Einstein-Bot/FileExtract.html'
 });
-jsforce.browser.on('connect', function(conn) {
+/*jsforce.browser.on('connect', function(conn) {
   conn.query("SELECT ContentDocumentId, LinkedEntityId,ContentDocument.FileExtension,ContentDocument.Title, ContentDocument.FileType, ContentDocument.LatestPublishedVersion.VersionData  FROM ContentDocumentLink where LinkedEntityId in ( SELECT Id FROM account where name like '%b2b%')", function(err, res) {
     if (err) { return console.error(err); }
     console.log(res);
@@ -26,7 +26,27 @@ jsforce.browser.on('connect', function(conn) {
         a.click();
         window.URL.revokeObjectURL(url);
   });
-});
+});*/
+    
+  jsforce.browser.on('connect', function(conn) {
+    conn.query("SELECT id, name, body, ContentType from Attachment parentId IN ( SELECT Id FROM account where name like '%b2b%')", function(err, res) {
+      if (err) { return console.error(err); }
+      console.log(res);
+      /*console.log(res.records[0]);
+      console.log(res.records[0].ContentDocument.LatestPublishedVersion.VersionData);
+      console.log(res.records[0].ContentDocument.Title);
+      var file = new File([res.records[0].ContentDocument.LatestPublishedVersion.VersionData], res.records[0].ContentDocument.Title, {type: res.records[0].ContentDocument.FileType, lastModified: Date.now()});
+      console.log(file);
+      var a = document.createElement("a");
+      document.body.appendChild(a);
+      a.style = "display: none";
+      url = window.URL.createObjectURL(file);
+          a.href = url;
+          a.download = res.records[0].ContentDocument.Title;
+          a.click();
+          window.URL.revokeObjectURL(url);
+    });*/
+  });
   </script>
 </head>
 <body>
