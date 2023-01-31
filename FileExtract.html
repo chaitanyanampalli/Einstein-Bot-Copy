@@ -63,8 +63,10 @@ jsforce.browser.init({
       conn.sobject('Attachment').record('00P5j00000FIKt5EAH').blob('Body').pipe(fileOut)
       .on('error', (err) => console.log(err));
     });*/
-    fetchDoc();
-    async function fetchDoc(){
+     jsforce.browser.on('connect', function(conn) {
+        fetchDoc(conn);
+     }
+    async function fetchDoc(conn){
       const response = await conn
         .sobject('Attachment')
         .retrieve('00P5j00000FIKt5EAH');
