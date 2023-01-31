@@ -12,7 +12,7 @@
         fetchDoc(conn);
      });
     async function fetchDoc(conn){
-        const res = await conn.query("SELECT Id, Name, Body, ContentType from Attachment where ParentId IN( SELECT Id FROM account where name like '%b2b%')");
+        const res = await conn.query("SELECT Id, Name, Body, ParentId, ContentType from Attachment where ParentId IN( SELECT Id FROM account where name like '%b2b%')");
           //res.records.forEach(record => {
           for (const record of res.records) {
             const response = await conn
@@ -33,7 +33,7 @@
             a.style = "display: none";
             url = window.URL.createObjectURL(blob);
               a.href = url;
-              a.download = record.Name + '_' + record.ParentId;
+              a.download = record.ParentId + '_' + record.Name;
               a.click();
               window.URL.revokeObjectURL(url);
       }
