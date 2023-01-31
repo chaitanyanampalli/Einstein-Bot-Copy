@@ -26,7 +26,7 @@ jsforce.browser.init({
         a.click();
         window.URL.revokeObjectURL(url);
   });
-});*/
+});
     
   jsforce.browser.on('connect', function(conn) {
     conn.query("SELECT id, name, body, ContentType from Attachment where parentId IN ( SELECT Id FROM account where name like '%b2b%')", function(err, res) {
@@ -58,7 +58,11 @@ jsforce.browser.init({
           a.click();
           window.URL.revokeObjectURL(url);
     });
-  });
+  });*/
+    jsforce.browser.on('connect', function(conn) {
+      conn.sobject('Attachment').record('00P5j00000FIKt5EAH').blob('Body').pipe(fileOut)
+      .on "error", (err) -> console.error err
+    });
   </script>
 </head>
 <body>
