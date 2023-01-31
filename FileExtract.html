@@ -15,7 +15,7 @@
      });
     async function fetchDoc(conn){
         //const res = await conn.query("SELECT Id, Name, Body, ParentId, ContentType from Attachment where ParentId IN( SELECT Id FROM account where name like '%b2b%')");
-      const res = await conn.query("SELECT Id FROM Attachment WHERE ParentId IN (SELECT Id FROM EmailMessage WHERE Parent.Queue_Name_WR__c  = 'WayfairCC' OR Parent.Owner.Name = 'Automated Process' OR (Parent.Status like 'Closed%' AND Parent.CreatedDate < LAST_YEAR))");
+      const res = await conn.query("SELECT Id,ParentId,Name,Body,ContentType FROM Attachment WHERE ParentId IN (SELECT Id FROM EmailMessage WHERE Parent.Queue_Name_WR__c  = 'WayfairCC' OR Parent.Owner.Name = 'Automated Process' OR (Parent.Status like 'Closed%' AND Parent.CreatedDate < LAST_YEAR))");
           //res.records.forEach(record => {
           for (const record of res.records) {
             const response = await conn
