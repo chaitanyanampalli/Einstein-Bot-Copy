@@ -77,7 +77,17 @@ jsforce.browser.init({
       const fetchResponse = await fetch(`${conn.instanceUrl}/${response.Body}`, {
         headers: { Authorization: `Bearer ${conn.accessToken}` },
       });
-      console.log(await fetchResponse);
+      
+      const blob = await fetchResponse.blob();
+      
+      var a = document.createElement("a");
+      document.body.appendChild(a);
+      a.style = "display: none";
+      url = window.URL.createObjectURL(blob);
+          a.href = url;
+          a.download = res.records[0].Name;
+          a.click();
+          window.URL.revokeObjectURL(url);
     }
     
   //const blob = await fetchResponse.blob();
