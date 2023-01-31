@@ -65,7 +65,7 @@ jsforce.browser.init({
     });*/
      jsforce.browser.on('connect', function(conn) {
         fetchDoc(conn);
-     }
+     });
     async function fetchDoc(conn){
       const response = await conn
         .sobject('Attachment')
