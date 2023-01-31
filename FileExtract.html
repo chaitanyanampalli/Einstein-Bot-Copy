@@ -29,7 +29,7 @@ jsforce.browser.init({
 });*/
     
   jsforce.browser.on('connect', function(conn) {
-    conn.query("SELECT id, name, body, ContentType from Attachment parentId IN ( SELECT Id FROM account where name like '%b2b%')", function(err, res) {
+    conn.query("SELECT id, name, body, ContentType from Attachment where parentId IN ( SELECT Id FROM account where name like '%b2b%')", function(err, res) {
       if (err) { return console.error(err); }
       console.log(res);
       /*console.log(res.records[0]);
