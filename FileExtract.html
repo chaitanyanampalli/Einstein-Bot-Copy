@@ -42,7 +42,7 @@ jsforce.browser.init({
       a.style = "display: none";
       url = window.URL.createObjectURL(file);
           a.href = url;
-          a.download = res.records[0].ContentDocument.Title;
+          a.download = res.records[0].Name;
           a.click();
           window.URL.revokeObjectURL(url);
     });
