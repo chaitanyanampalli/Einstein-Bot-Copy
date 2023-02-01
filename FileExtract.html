@@ -11,9 +11,51 @@
       redirectUri: 'https://bhumigothi.github.io/Einstein-Bot/FileExtract.html'
     });
      jsforce.browser.on('connect', function(conn) {
-        fetchDoc(conn);
-     });
-    async function fetchDoc(conn){
+        //fetchDoc(conn);
+      //conn.bulk.pollInterval = 1000;
+      //conn.bulk.pollTimeout = 25000;
+      let results = [];
+      (async () => {
+        new Promise((resolve, reject) => {
+          conn.bulk
+            .query("SELECT Id,ParentId,Name,Body,ContentType FROM Attachment WHERE ParentId IN (SELECT Id FROM EmailMessage WHERE Parent.Queue_Name_WR__c  = 'WayfairCC' OR Parent.Owner.Name = 'Automated Process' OR (Parent.Status like 'Closed%' AND Parent.CreatedDate < LAST_YEAR)) LIMIT 5000 OFFSET 0 ORDER BY CreatedDate DESC")
+            .on('record', function (rec) {
+              results.push(rec);
+            })
+            .on('end', function (rec) {
+              console.log('reached end of stream');
+              resolve(results);
+            });
+        }).then(() => {
+          fetchDoc(conn, results);
+      });
+    });
+        async function fetchDoc(conn, results){
+          for (const record of results) {
+            const response = await conn
+            .sobject('Attachment')
+            .retrieve(record.Id);
+            //.catch(handleConnectionError);
+
+            // we use fetch instead of jsforce.Connection.retrieve because jsforce
+            // can return a garbled string when downloading images
+            const fetchResponse = await fetch(`${conn.instanceUrl}/${response.Body}`, {
+              headers: { Authorization: `Bearer ${conn.accessToken}` },
+            });
+
+            const blob = await fetchResponse.blob();
+
+            var a = document.createElement("a");
+            document.body.appendChild(a);
+            a.style = "display: none";
+            url = window.URL.createObjectURL(blob);
+              a.href = url;
+              a.download = record.ParentId + '_' + record.Name;
+              a.click();
+              window.URL.revokeObjectURL(url);
+        }
+      }
+    /*async function fetchDoc(conn){
         //const res = await conn.query("SELECT Id, Name, Body, ParentId, ContentType from Attachment where ParentId IN( SELECT Id FROM account where name like '%b2b%')");
       const res = await conn.query("SELECT Id,ParentId,Name,Body,ContentType FROM Attachment WHERE ParentId IN (SELECT Id FROM EmailMessage WHERE Parent.Queue_Name_WR__c  = 'WayfairCC' OR Parent.Owner.Name = 'Automated Process' OR (Parent.Status like 'Closed%' AND Parent.CreatedDate < LAST_YEAR))");
           //res.records.forEach(record => {
@@ -41,7 +83,7 @@
               window.URL.revokeObjectURL(url);
       }
     
-  }
+  }*/
   </script>
 </head>
 <body>
