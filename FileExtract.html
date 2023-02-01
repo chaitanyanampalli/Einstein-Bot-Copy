@@ -38,6 +38,7 @@
             .retrieve(record.Id);
             //.catch(handleConnectionError);
 
+            
             // we use fetch instead of jsforce.Connection.retrieve because jsforce
             // can return a garbled string when downloading images
             const fetchResponse = await fetch(`${conn.instanceUrl}/${response.Body}`, {
