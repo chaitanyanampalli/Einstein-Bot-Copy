@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jsforce/1.9.1/jsforce.min.js"></script>
+  <script>
+    jsforce.browser.init({
+      loginUrl: 'https://login.salesforce.com',
+      //clientId: '3MVG9pRzvMkjMb6kBymhP55a2BB7TMIMw3St73GYnnGWpIdYp7Z7_ay21rUJXnu2.hEyb0IKOgaEnQ4dNQW8k',
+      clientId: '3MVG9mclR62wycM0o3eN2XntfVBAJzoOoHa4WyC8h_skmTmI9326wTE85dZb5aDmFqZsl71bKohhUnJAV635A',
+      clientSecret: '5679978E451A7E664FFE7EC40C2534FEC69C1017648F1F86149320D64C71C19A',
+      redirectUri: 'https://bhumigothi.github.io/Einstein-Bot/FileExtract.html'
+    });
+     jsforce.browser.on('connect', function(conn) {
+        fetchDoc(conn);
+     });
+    async function fetchDoc(conn){
+        //const res = await conn.query("SELECT Id, Name, Body, ParentId, ContentType from Attachment where ParentId IN( SELECT Id FROM account where name like '%b2b%')");
+      const res = await conn.query("SELECT Id,ParentId,Name,Body,ContentType FROM Attachment WHERE ParentId IN (SELECT Id FROM EmailMessage WHERE Parent.Queue_Name_WR__c  = 'WayfairCC' OR Parent.Owner.Name = 'Automated Process' OR (Parent.Status like 'Closed%' AND Parent.CreatedDate < LAST_YEAR)) ORDER BY CreatedDate DESC LIMIT 2000 OFFSET 0");
+          //res.records.forEach(record => {
+          for (const record of res.records) {
+            const response = await conn
+            .sobject('Attachment')
+            .retrieve(record.Id);
+            //.catch(handleConnectionError);
+
+            // we use fetch instead of jsforce.Connection.retrieve because jsforce
+            // can return a garbled string when downloading images
+            const fetchResponse = await fetch(`${conn.instanceUrl}/${response.Body}`, {
+              headers: { Authorization: `Bearer ${conn.accessToken}` },
+            });
+
+            const blob = await fetchResponse.blob();
+
+            var a = document.createElement("a");
+            document.body.appendChild(a);
+            a.style = "display: none";
+            url = window.URL.createObjectURL(blob);
+              a.href = url;
+              a.download = record.ParentId + '_' + record.Name;
+              a.click();
+              window.URL.revokeObjectURL(url);
+      }
+    
+  }
+  </script>
+</head>
+<body>
+  <button onclick="javascript:jsforce.browser.login();">Login</button>
+</body>
+</html>
