@@ -18,7 +18,7 @@
       (async () => {
         new Promise((resolve, reject) => {
           conn.bulk
-            .query("SELECT Id,ParentId,Name,Body,ContentType FROM Attachment WHERE ParentId IN (SELECT Id FROM EmailMessage WHERE Parent.Queue_Name_WR__c  = 'WayfairCC' OR Parent.Owner.Name = 'Automated Process' OR (Parent.Status like 'Closed%' AND Parent.CreatedDate < LAST_YEAR)) LIMIT 20 OFFSET 0 ORDER BY CreatedDate DESC")
+            .query("SELECT Id,ParentId,Name,Body,ContentType FROM Attachment WHERE ParentId IN (SELECT Id FROM EmailMessage WHERE Parent.Queue_Name_WR__c  = 'WayfairCC' OR Parent.Owner.Name = 'Automated Process' OR (Parent.Status like 'Closed%' AND Parent.CreatedDate < LAST_YEAR)) ORDER BY CreatedDate DESC LIMIT 20 OFFSET 0")
             .on('record', function (rec) {
               results.push(rec);
             })
