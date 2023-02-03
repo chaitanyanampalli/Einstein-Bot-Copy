@@ -113,7 +113,7 @@
             }*/
 		
 	    /*.minimizedContainer[c-customMinimized_customMinimized] {*/
-	    .helpButton.uiButton.helpButtonEnabled, .sidebarHeader.minimizedContainer {
+	    ..embeddedServiceHelpButton .helpButton .uiButton, .sidebarHeader.minimizedContainer {
 		    background: url(https://avatars.collectcdn.com/5ef09962678c257270efe20f-5ef09962678c257270efe210.png) no-repeat scroll 0 0 transparent !important;
 		    border: 0 !important;
 		    /* height: 1px !important; */
@@ -374,11 +374,11 @@
                 background-color: var(--dotColor) !important;
             }
 
-            .embeddedServiceHelpButton .helpButton .uiButton {
+            /*.embeddedServiceHelpButton .helpButton .uiButton {
                 background: var(--color) !important;
                 font-size: 0.875rem !important;
                 font-family: var(--fontfamily), sans-serif !important;
-            }
+            }*/
 
             .embeddedServiceHelpButton .uiButton {
                 max-width: 23em !important;
@@ -397,13 +397,16 @@
                 color: #fff !important;
                 border: 1px solid var(--color) !important;
             }
-           .embeddedServiceHelpButton .helpButton .uiButton {
+	    .embeddedServiceHelpButton .helpButton .uiButton .message {
+		    display:none;
+	    }
+           /*.embeddedServiceHelpButton .helpButton .uiButton {
               background-color: #005290;
               font-family: "Arial", sans-serif;
             }
             .embeddedServiceHelpButton .helpButton .uiButton:focus {
               outline: 1px solid #005290;
-            }
+            }*/
     </style>
   </head>
   <body>
