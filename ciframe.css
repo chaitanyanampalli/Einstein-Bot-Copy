@@ -1,0 +1,174 @@
+/* Modal Content */
+
+.cmodal.iframe-modal {
+    z-index: 10000;
+    width: auto !important;
+    padding: 40px 0 !important;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 0 !important;
+}
+.cmodal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    display: none;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+}
+.cmodal.fade {
+    opacity: 0;
+    -webkit-transition: opacity .15s linear;
+    -o-transition: opacity .15s linear;
+    transition: opacity .15s linear;
+}
+.cmodal.iframe-modal .cmodal-dialog {
+    z-index: 10000;
+    width: 940px;
+    margin: 30px auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin-top: 0;
+    padding-top: 30px;
+}
+.cmodal.fade .cmodal-dialog {
+    -webkit-transition: -webkit-transform .3s ease-out;
+    -o-transition: -o-transform .3s ease-out;
+    transition: transform .3s ease-out;
+    -webkit-transform: translate(0,-25%);
+    -ms-transform: translate(0,-25%);
+    -o-transform: translate(0,-25%);
+    transform: translate(0,-25%);
+}
+
+.cmodal-dialog {
+    position: relative;
+    width: auto;
+    margin: 10px;
+}
+
+.cmodal.iframe-modal .cmodal-dialog .cmodal-content {
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+}
+.cmodal-content {
+    position: relative;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #999;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 6px;
+    outline: 0;
+    -webkit-box-shadow: 0 3px 9px rgb(0 0 0 / 50%);
+    box-shadow: 0 3px 9px rgb(0 0 0 / 50%);
+}
+.cmodal.iframe-modal .cmodal-dialog .cmodal-content .close {
+    width: 35px;
+    height: 35px;
+    opacity: 1;
+    position: absolute;
+    z-index: 20;
+    right: 0;
+    top: -35px;
+}
+button.close {
+    -webkit-appearance: none;
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+}
+.close {
+    float: right;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .2;
+}
+
+.cmodal.iframe-modal .cmodal-dialog .cmodal-content .close::before, .cmodal.iframe-modal .cmodal-dialog .cmodal-content .close::after {
+    content: "";
+    width: 2px;
+    height: 19px;
+    background: #fff;
+    position: absolute;
+    transform: rotate(45deg);
+    left: 16px;
+    top: 4px;
+    transition: all .3s;
+}
+.cmodal.iframe-modal .cmodal-dialog .cmodal-content .close::after {
+    transform: rotate(-45deg);
+}
+.cmodal.iframe-modal .cmodal-dialog .cmodal-content .iframe-modal-body.c-iframe {
+    padding: 0;
+}
+.cmodal.iframe-modal .cmodal-dialog .cmodal-content .iframe-modal-body {
+    padding: 15px;
+    width: 100%;
+}
+.modal-body.c-iframe {
+    position: relative;
+    padding: 15px;
+}
+.cmodal.iframe-modal .cmodal-dialog .cmodal-content .iframe-modal-body.c-iframe iframe {
+    height: 525px;
+    max-height: 95vh;
+	width: 100%;
+}
+.cmodal iframe {
+    border-width: 0px !important;
+}
+.cmodal.iframe-modal .cmodal-dialog .cmodal-content .iframe-modal-body.c-iframe iframe {
+    height: 60vh !important;
+}
+.cmodal.iframe-modal .cmodal-dialog .cmodal-content .iframe-modal-body.c-iframe iframe {
+    width: 100%;
+    height: 78vh;
+}
+.fade.in {
+    opacity: 1;
+}
+.cmodal.in .cmodal-dialog {
+    -webkit-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    -o-transform: translate(0,0);
+    transform: translate(0,0);
+}
+.cmodal.iframe-modal .cmodal-dialog {
+    width: 100%;
+    max-width: 1070px;
+}
+@media screen and (min-width: 1200px) and (max-width: 1300px){
+    .cmodal.iframe-modal .cmodal-dialog .cmodal-content .iframe-modal-body.c-iframe iframe {
+        height: 557px !important;
+    }
+}
+@media screen and (max-width: 992px){
+    .cmodal.iframe-modal {
+        max-width: 79%;
+        margin: 0 auto !important;
+    }
+    .cmodal.cmodal-dialog {
+        max-width: 100%;
+    }
+}
+@media (min-width: 768px){
+    .cmodal-dialog {
+        width: 600px;
+        margin: 30px auto;
+    }
+    .cmodal-content {
+        -webkit-box-shadow: 0 5px 15px rgb(0 0 0 / 50%);
+        box-shadow: 0 5px 15px rgb(0 0 0 / 50%);
+    }
+}
