@@ -129,7 +129,9 @@
 		    background-color: transparent !important;
 		    box-shadow: 0 0 20px 0 rgb(0 0 0 / 15%) !important;
 	    }
-	   
+	   .embeddedServiceHelpButton .embeddedServiceIcon::before{
+		   content: "" !important;
+	    }
 	    /*.messageContent[c-customMinimized_customMinimized], */
 	    .messageContent {
 		    display: none !important;
@@ -410,6 +412,22 @@
     </style>
   </head>
   <body>
+	  <div class="cmodal fade iframe-modal" id="c-iframe-modal" role="dialog" aria-hidden="true"
+            style="display: none;">
+            <div class="cmodal-dialog">
+                <!-- Modal content-->
+                <div class="cmodal-content">
+                    <button id="closeModal" type="button" class="close" data-bs-dismiss="cmodal"
+                        data-backdrop=""></button>
+                    <div class="modal-body iframe-modal-body c-iframe">
+                        <iframe id="ciframe" src="https://getoncrm.com/contact-us/" sandbox="allow-scripts allow-same-origin"
+                            data-gtm-yt-inspected-12594653_15="true" data-gtm-yt-inspected-23="true"></iframe>
+                    </div>
+                </div>
+                <!-- Modal content-->
+            </div>
+        </div>
+	  
       <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
       <script type='text/javascript'>
         var initESW = function(gslbBaseURL) {
@@ -462,6 +480,26 @@
         } else {
           initESW('https://service.force.com');
         }
+	document.addEventListener("openCDialog", function (event) {
+		//let curl = event.detail.data;
+		let iframeEle = document.getElementById("ciframe");
+		//iframeEle.setAttribute("src", curl);
+		//if(curl != '' && curl != null){
+			let modal = document.getElementById("c-iframe-modal");
+			if (!modal.classList.contains('in')) {
+			modal.style.display = "block";
+			modal.classList.remove('out');
+			modal.classList.add('in');
+			}
+			var btnClose = document.getElementById("closeModal");
+			btnClose.onclick = function() {
+			modal.style.display = "none";
+			modal.classList.remove('in');
+			modal.classList.add('out');
+			}
+		//}
+	});      
       </script>
+	  
   </body>
 </html>
