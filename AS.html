@@ -539,14 +539,6 @@
                     frameWidth: embedded_svc.settings.widgetWidth
                   }, '*');
                 });
-		$(document).ready(function () {
-		    console.log('document is ready. I can sleep now');
-			let e = document.querySelector(".messageArea.smoothScroll");
-		    console.log(e);
-		    if (e) {
-			e.scrollTop = e.scrollHeight;
-		    }
-		});
                 embedded_svc.addEventHandler("afterDestroy", function() {
                   var height = document.querySelector('.helpButton').clientHeight;
                   var width = document.querySelector('.helpButton').clientWidth;
@@ -667,11 +659,13 @@
                         r.style.setProperty('--otherRadius', '16px');
                     }
                 }
-		var objDiv = document.querySelector(".messageArea.smoothScroll");
-		console.log(objDiv);
-		if(objDiv){
-			objDiv.scrollTop = objDiv.scrollHeight;
-		}
+		setTimeout(function() { 
+			var objDiv = document.querySelector(".messageArea.smoothScroll");
+			console.log(objDiv);
+			if(objDiv){
+				objDiv.scrollTop = objDiv.scrollHeight;
+			}
+		},1000);
             });
 
             document.addEventListener("openBACDialog", function (event) {
