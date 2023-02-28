@@ -540,7 +540,7 @@
                   }, '*');
                 });
 		$(document).ready(function () {
-		   console.log('document is ready. I can sleep now');
+		    console.log('document is ready. I can sleep now');
 			let e = document.querySelector(".messageArea.smoothScroll");
 		    console.log(e);
 		    if (e) {
@@ -668,6 +668,7 @@
                     }
                 }
 		var objDiv = document.querySelector(".messageArea.smoothScroll");
+		console.log(objDiv);
 		if(objDiv){
 			objDiv.scrollTop = objDiv.scrollHeight;
 		}
@@ -699,7 +700,7 @@
                	let agentName = event.detail.data.data.agentName;
                	let agentType = event.detail.data.data.agentType;
                	let fname = agentName.split("_")[0];
-	
+		console.log('agentName');
 		let msgsName = document.querySelectorAll(".nameAndTimeContent > .agentName");
                 let element = document.querySelector(".eventMessage > .uiOutputRichText");
 		    
