@@ -539,9 +539,9 @@
                     frameWidth: embedded_svc.settings.widgetWidth
                   }, '*');
                 });
-		embedded_svc.addEventHandler("onChatReconnectSuccessful", function(data) {
-		    console.log("onChatEstablished event was fired.  liveAgentSessionKey was " + data.liveAgentSessionKey);
-		    let e = document.querySelector(".messageArea.smoothScroll");
+		document.addEventListener('DOMContentLoaded', function() {
+		   console.log('document is ready. I can sleep now');
+			let e = document.querySelector(".messageArea.smoothScroll");
 		    console.log(e);
 		    if (e) {
 			e.scrollTop = e.scrollHeight;
