@@ -539,7 +539,7 @@
                     frameWidth: embedded_svc.settings.widgetWidth
                   }, '*');
                 });
-		embedded_svc.addEventHandler("onChatEstablished", function(data) {
+		embedded_svc.addEventHandler("onChatReconnectSuccessful", function(data) {
 		    console.log("onChatEstablished event was fired.  liveAgentSessionKey was " + data.liveAgentSessionKey);
 		    let e = document.querySelector(".messageArea.smoothScroll");
 		    console.log(e);
