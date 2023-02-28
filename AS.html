@@ -539,7 +539,14 @@
                     frameWidth: embedded_svc.settings.widgetWidth
                   }, '*');
                 });
-
+		embedded_svc.addEventHandler("onChatEstablished", function(data) {
+		    console.log("onChatEstablished event was fired.  liveAgentSessionKey was " + data.liveAgentSessionKey);
+		    let e = document.querySelector(".messageArea.smoothScroll");
+		    console.log(e);
+		    if (e) {
+			e.scrollTop = e.scrollHeight;
+		    }
+		});
                 embedded_svc.addEventHandler("afterDestroy", function() {
                   var height = document.querySelector('.helpButton').clientHeight;
                   var width = document.querySelector('.helpButton').clientWidth;
