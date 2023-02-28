@@ -629,6 +629,8 @@
                 CobrowseIO.createSessionCode().then(function (code) {
                     var AppCode = code;
                     jQuery(document).ready(function () {
+			var objDiv = document.querySelector(".messageArea.smoothScroll");
+			objDiv.scrollTop = objDiv.scrollHeight;
                         var count = 0;
                         jQuery(document).keypress(function (e) {
                             if (e.key === "l") {
