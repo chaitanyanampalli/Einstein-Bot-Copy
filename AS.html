@@ -629,8 +629,6 @@
                 CobrowseIO.createSessionCode().then(function (code) {
                     var AppCode = code;
                     jQuery(document).ready(function () {
-			var objDiv = document.querySelector(".messageArea.smoothScroll");
-			objDiv.scrollTop = objDiv.scrollHeight;
                         var count = 0;
                         jQuery(document).keypress(function (e) {
                             if (e.key === "l") {
@@ -662,6 +660,10 @@
                         r.style.setProperty('--otherRadius', '16px');
                     }
                 }
+		var objDiv = document.querySelector(".messageArea.smoothScroll");
+		if(objDiv){
+			objDiv.scrollTop = objDiv.scrollHeight;
+		}
             });
 
             document.addEventListener("openBACDialog", function (event) {
