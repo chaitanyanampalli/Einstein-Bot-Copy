@@ -470,20 +470,20 @@
                     "Chat & Co-Browse with an Expert";
 
                 embedded_svc.init(
-                    'https://lwta--full.my.salesforce.com',
-                    'https://full-lixilamerica.cs192.force.com/LWTACustomerService',
-                    gslbBaseURL,
-                    '00D7d0000077mM7',
-                    'Bot_Chatbots_Group',
-                    {
-                        baseLiveAgentContentURL: 'https://c.la3-c1cs-ia5.salesforceliveagent.com/content',
-                        deploymentId: '5723l000000CmZ3',
-                        buttonId: '5733l000000CnFp',
-                        baseLiveAgentURL: 'https://d.la3-c1cs-ia5.salesforceliveagent.com/chat',
-                        eswLiveAgentDevName: 'Bot_Chatbots_Group',
-                        isOfflineSupportEnabled: false
-                    }
-                );
+			'https://lwta--pm.my.salesforce.com',
+			'https://pm-lixilamerica.cs223.force.com/LWTACustomerService',
+			gslbBaseURL,
+			'00D8K0000000Syy',
+			'Bot_Chatbots_Group',
+			{
+				baseLiveAgentContentURL: 'https://c.la4-c1cs-ia5.salesforceliveagent.com/content',
+				deploymentId: '5723l000000CmZ3',
+				buttonId: '5733l000000CnFp',
+				baseLiveAgentURL: 'https://d.la4-c1cs-ia5.salesforceliveagent.com/chat',
+				eswLiveAgentDevName: 'Bot_Chatbots_Group',
+				isOfflineSupportEnabled: false
+			}
+		);
                 embedded_svc.addEventHandler("afterMinimize", function() {
                   var sidebar = document.querySelector('.embeddedServiceSidebarMinimizedDefaultUI');
                   var height = sidebar.clientHeight;
